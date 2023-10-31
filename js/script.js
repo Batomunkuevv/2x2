@@ -142,7 +142,7 @@ const initTitleSlider = () => {
     const titleSliderSwiper = new Swiper(titleSlider, options)
     const firstText = titleSlider.querySelector('.swiper-slide-active .hero__title-slider-text');
 
-    setTimeout(() => setCurrentWidth(firstText), 50);
+    setTimeout(() => setCurrentWidth(firstText), 200);
 
     titleSliderSwiper.on('slideChange', () => {
         const nextSlideText = titleSlider.querySelector('.swiper-slide-next .hero__title-slider-text');
