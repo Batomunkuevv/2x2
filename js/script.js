@@ -163,7 +163,6 @@ const initTitleSlider = () => {
 
 window.addEventListener("DOMContentLoaded", (e) => {
     initLozad();
-    initSmoothScroll();
     initHeader();
     initWhatElseSlider();
     initReviewsSlider();
