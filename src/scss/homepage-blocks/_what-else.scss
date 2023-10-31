@@ -1,0 +1,42 @@
+.what-else {
+    margin-bottom: 190px;
+
+    &__body {
+        padding: 53px 95px 49px 70px;
+        border-radius: 56px;
+        background: #e2e7ea;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 48px;
+        min-height: 432px;
+    }
+
+    &__title {
+        font-size: 56px;
+        line-height: 103.5%;
+    }
+
+    &__slider {
+        padding-top: 2px;
+        margin: 0;
+        max-width: 470px;
+
+        &__slider-wrapper {
+        }
+    }
+
+    &__slide {
+        &-title {
+            margin-bottom: 28px;
+            font-size: 32px;
+            line-height: 118.75%;
+        }
+
+        &-text {
+            font-size: 20px;
+            line-height: 140%;
+            text-transform: none;
+        }
+    }
+}

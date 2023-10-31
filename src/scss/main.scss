@@ -15,6 +15,12 @@
 
 @import "components/site-header";
 @import "components/site-footer";
+@import "components/menu";
+@import "components/footer-menu";
+@import "components/burger";
+@import "components/btn";
+@import "components/case";
+@import "components/review";
 
 //*</Components>=================================================================================================
 
@@ -24,6 +30,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: clip;
 }
 
 .container {
@@ -54,5 +61,13 @@
 
 //TODO<Blocks>=================================================================================================
 
+@import "homepage-blocks/hero";
+@import "homepage-blocks/about-us";
+@import "homepage-blocks/free-strategy";
+@import "homepage-blocks/cases";
+@import "homepage-blocks/what-we-do";
+@import "homepage-blocks/what-else";
+@import "homepage-blocks/reviews";
+@import "homepage-blocks/how-we-works";
 
 //TODO</Blocks>=================================================================================================

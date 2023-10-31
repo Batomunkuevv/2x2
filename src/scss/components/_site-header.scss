@@ -1,0 +1,37 @@
+.site-header {
+    padding-top: 16px;
+    margin: 32px 0 48px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #f2f2f2;
+    transition: all 0.3s ease-in-out 0s;
+
+    &.is-scrolling {
+        box-shadow: 0 24px 48px #191d321a;
+    }
+
+    &.is-scrolling-down{
+        transform: translate(0, -100%);
+    }
+
+    &__body {
+        padding-bottom: 18px;
+        border-bottom: 1px solid $colorMain;
+        display: flex;
+        align-items: center;
+        gap: 56px;
+    }
+
+    &__logo {
+        margin-right: auto;
+    }
+
+    &__menu {
+    }
+
+    &__btn.btn {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

@@ -1,0 +1,62 @@
+.what-we-do {
+    margin-bottom: 216px;
+
+    &__title {
+        margin-bottom: 88px;
+    }
+
+    &__list {
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+
+        &:not(:last-child) {
+            padding-bottom: 32px;
+            margin-bottom: 35.6px;
+            border-bottom: 1px solid $colorMain;
+        }
+
+        &-link {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+            
+            &:hover{
+                & .what-we-do__item-link-text{
+                    transform: scale(1.035) translate(8px, 0);
+                }
+
+                & .what-we-do__item-link-icon{
+                    opacity: 1;
+                }
+            }
+            
+            &-text {
+                color: $colorMain;
+                font-size: 56px;
+                line-height: 103.5%;
+                transition: all 0.3s ease-in-out 0s;
+            }
+
+            &-icon {
+                margin-top: 4px;
+                display: flex;
+                align-items: center;
+                flex: none;
+                transition: all 0.3s ease-in-out 0s;
+                opacity: 0;
+            }
+        }
+
+        &-description {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 120%;
+            width: 376px;
+        }
+    }
+}

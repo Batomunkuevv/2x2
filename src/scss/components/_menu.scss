@@ -1,0 +1,40 @@
+.menu {
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 56px;
+    }
+
+    &__item {
+        &.is-active {
+            & .menu__link {
+                font-weight: 600;
+            }
+        }
+    }
+
+    &__link {
+        display: block;
+        color: $colorMain;
+        position: relative;
+        font-size: 18px;
+        font-weight: 500;
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: $colorMain;
+            transition: all 0.3s ease-in-out 0s;
+        }
+    }
+}

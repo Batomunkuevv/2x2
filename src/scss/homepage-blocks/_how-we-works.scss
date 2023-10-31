@@ -1,0 +1,37 @@
+.how-we-works {
+    margin-bottom: 160px;
+
+    &__body {
+        padding: 197px 192px 192px;
+        position: relative;
+        color: #fff;
+        border-radius: 56px;
+    }
+
+    &__content {
+        margin: 0 auto;
+        max-width: 667px;
+    }
+
+    &__title {
+        margin-left: 12px;
+        margin-bottom: 33px;
+        font-size: 100px;
+        line-height: 100%;
+    }
+    
+    &__description {
+        margin-left: 12px;
+        max-width: 522px;
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 111.111%;
+    }
+
+    &__video {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-radius: 56px;
+    }
+}

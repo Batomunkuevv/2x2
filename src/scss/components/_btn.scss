@@ -1,0 +1,21 @@
+.btn {
+    padding: 8px 16px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    background: $colorMain;
+    border-radius: 100px;
+    width: fit-content;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 116.6%;
+    transition: all 0.3s ease-in-out 0s;
+
+    &:hover{
+        background: #fff;
+        color: $colorMain;
+        border-color: $colorMain;
+    }
+}

@@ -1,0 +1,19 @@
+.free-strategy {
+    margin-bottom: 185px;
+
+    &__body {
+        margin-right: 33px;
+        margin-left: auto;
+        max-width: 805px;
+    }
+
+    &__title {
+        margin-bottom: 52px;
+    }
+
+    &__btn {
+        padding: 16px 40px 20px;
+        font-size: 32px;
+        line-height: 118.75%
+    }
+}

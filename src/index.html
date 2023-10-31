@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include('html/components/_head.html', { 'title': 'Name site'})
+@@include('html/base/_head.html', { 'title': 'Name site'})
 
 <body>
     <div class="wrapper">
-        @@include('html/components/_header.html',{})
+        @@include('html/base/_header.html',{})
         <main class="site-page">
+            @@include('html/homepage-blocks/_hero.html',{})
+            @@include('html/homepage-blocks/_about-us.html',{})
+            @@include('html/homepage-blocks/_free-strategy.html',{})
+            @@include('html/homepage-blocks/_cases.html',{})
+            @@include('html/homepage-blocks/_what-we-do.html',{})
+            @@include('html/homepage-blocks/_what-else.html',{})
+            @@include('html/homepage-blocks/_reviews.html',{})
+            @@include('html/homepage-blocks/_how-we-works.html',{})
         </main>
-        @@include('html/components/_footer.html',{})
+        @@include('html/base/_footer.html',{})
     </div>
-    <!-- <script defer src="https://api-maps.yandex.ru/2.1/?apikey=b658fbcb-d920-4069-8b3d-c898776778a0&lang=ru_RU"></script> -->
-    <!-- <script defer src="js/lozad.min.js"></script> -->
-    <!-- <script defer src="js/swiper-bundle.min.js"></script> -->
-    <script defer src="js/app.js"></script>
+    <script defer src="js/lozad.min.js"></script>
+    <script defer src="js/swiper-bundle.min.js"></script>
+    <script defer src="js/script.js"></script>
 </body>
 
 </html>

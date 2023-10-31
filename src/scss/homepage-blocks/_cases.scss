@@ -1,0 +1,12 @@
+.cases {
+    margin-bottom: 174px;
+
+    &__list {
+    }
+
+    &__item {
+        &:not(:last-child){
+            margin-bottom: 100px;
+        }
+    }
+}

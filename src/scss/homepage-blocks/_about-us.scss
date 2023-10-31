@@ -1,0 +1,142 @@
+.about-us {
+    margin-bottom: 120px;
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 74px;
+    }
+
+    &__team {
+        position: relative;
+        align-self: start;
+
+        &-list {
+            margin-bottom: 30px;
+        }
+
+        &-member {
+            display: flex;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+
+            &:not(:first-child) {
+                margin-top: -22px;
+            }
+
+            & img {
+                border-radius: 50%;
+                width: 100%;
+                height: 100%;
+            }
+
+            &--more {
+                padding-left: 26px;
+                padding-right: 15px;
+                background: rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(5px);
+                font-size: 40px;
+                line-height: 110%;
+            }
+        }
+
+        &-caption {
+            position: absolute;
+            top: calc(100% + 78px);
+            left: 50%;
+            transform: translate(-53%, 0) rotate(-90deg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            &-arrow {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: none;
+            }
+
+            &-text {
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    &__body {
+        margin-right: -44px;
+
+        &-wrapper {
+            padding-right: 77px;
+            display: grid;
+            grid-template-columns: 1fr 240px;
+            gap: 24px;
+        }
+    }
+
+    &__video {
+        border-radius: 56px;
+        width: 100%;
+        height: 200px;
+    }
+
+    &__content {
+        margin-top: 51px;
+    }
+
+    &__title {
+        margin-bottom: 16px;
+        font-size: 56px;
+        line-height: 103.5%;
+    }
+
+    &__description {
+        max-width: 683px;
+        color: #9ea5a9;
+        font-size: 32px;
+        line-height: 125%;
+    }
+
+    &__cta {
+        padding: 26px 20px 21px 24px;
+        margin-top: -159px;
+        background: url("../images/homepage-blocks/about-us/cta-bg.svg") center/cover no-repeat;
+        backdrop-filter: blur(5px);
+        border-radius: 36px;
+
+        @media (max-width: 1200px) {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, #fff 97.14%);
+        }
+
+        &-logo {
+            margin-left: 9px;
+            margin-right: 64px;
+            margin-bottom: 31px;
+            width: 35px;
+        }
+
+        &-number {
+            margin-left: 9px;
+            margin-bottom: 31px;
+            font-size: 100px;
+            line-height: 100%;
+        }
+
+        &-description {
+            margin-left: 9px;
+            margin-bottom: 49px;
+            max-width: 153px;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 120%;
+        }
+
+        &-btn {
+            width: 100%;
+            font-size: 20px;
+            line-height: 120%;
+        }
+    }
+}
