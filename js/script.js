@@ -45,6 +45,31 @@ const initHeader = () => {
     }
 }
 
+const initBurgerMenu = () => {
+    const menu = document.querySelector(".site-header__panel");
+    const burger = document.querySelector(".burger");
+
+    if (!menu || !burger) return;
+
+    const menuOverlay = document.querySelector(".site-header__panel-overlay");
+    const menuClose = document.querySelector(".site-header__panel-close");
+
+    if (menuClose) menuClose.addEventListener("click", handleMenuCloseClick);
+    if (menuOverlay) menuOverlay.addEventListener("click", handleMenuCloseClick);
+
+    burger.addEventListener("click", handleBurgerClick);
+
+    function handleMenuCloseClick() {
+        menu.classList.remove("is-open");
+        document.body.classList.remove("lock");
+    }
+
+    function handleBurgerClick() {
+        menu.classList.add("is-open");
+        document.body.classList.add("lock");
+    }
+};
+
 const initWhatElseSlider = () => {
     const whatElseSlider = document.querySelector('.what-else__slider');
 
@@ -90,7 +115,7 @@ const initReviewsSlider = () => {
         },
         fadeEffect: {
             crossFade: true
-        }
+        },
     }
 
     const reviewsSliderSwiper = new Swiper(reviewsSlider, options);
@@ -104,13 +129,18 @@ const initRunningLine = () => {
     const options = {
         slidesPerView: 'auto',
         centeredSlides: true,
-        spaceBetween: 20,
+        spaceBetween: 16,
         loop: true,
         speed: 4000,
         simulateTouch: false,
         allowTouchMove: false,
         autoplay: {
             delay: 0,
+        },
+        breakpoints: {
+            768: {
+                spaceBetween: 20
+            }
         }
     }
 
@@ -145,11 +175,15 @@ const initTitleSlider = () => {
     setTimeout(() => setCurrentWidth(firstText), 200);
 
     titleSliderSwiper.on('slideChange', () => {
+        if (window.matchMedia('(max-width: 992px)').matches) return;
+
         const nextSlideText = titleSlider.querySelector('.swiper-slide-next .hero__title-slider-text');
         setCurrentWidth(nextSlideText);
     })
 
     function setCurrentWidth(activeText) {
+        if (window.matchMedia('(max-width: 992px)').matches) return;
+
         const activeTextWidth = activeText.getBoundingClientRect().width;
         let activeWidth = Math.round(activeTextWidth / BASE_WIDTH * 100);
 
@@ -164,6 +198,7 @@ const initTitleSlider = () => {
 window.addEventListener("DOMContentLoaded", (e) => {
     initLozad();
     initHeader();
+    initBurgerMenu();
     initWhatElseSlider();
     initReviewsSlider();
     initRunningLine();

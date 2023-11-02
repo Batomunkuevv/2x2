@@ -17,22 +17,36 @@
             <a href="#" class="site-header__logo">
                 <img src="images/logo.svg" alt="2x2 Logo" title="2x2 Logo" />
             </a>
-            <nav class="site-header__menu menu">
-                <ul class="menu__list">
-                    <li class="menu__item">
-                        <a href="#" class="menu__link">услуги</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="#" class="menu__link">агентство</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="#" class="menu__link">карьера</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="#" class="menu__link">блог</a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="site-header__panel">
+                <nav class="site-header__menu menu">
+                    <div class="site-header__panel-overlay"></div>
+                    <button type="button" class="site-header__panel-close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path
+                                d="M0.730974 2.6025L19.3976 21.2692C19.6316 21.5265 19.959 21.6668 20.3333 21.6668C21.0585 21.6668 21.6666 21.0586 21.6666 20.3335C21.6666 19.9592 21.5263 19.6317 21.269 19.3978L2.60232 0.731155C2.3684 0.473846 2.04092 0.333496 1.66665 0.333496C0.9415 0.333496 0.333313 0.941683 0.333313 1.66683C0.333313 2.0411 0.473664 2.36858 0.730974 2.6025ZM19.3976 0.731155L0.730974 19.3978C0.473664 19.6317 0.333313 19.9592 0.333313 20.3335C0.333313 21.0586 0.9415 21.6668 1.66665 21.6668C2.04092 21.6668 2.3684 21.5265 2.60232 21.2692L21.269 2.6025C21.5263 2.36858 21.6666 2.0411 21.6666 1.66683C21.6666 0.941683 21.0585 0.333496 20.3333 0.333496C19.959 0.333496 19.6316 0.473846 19.3976 0.731155Z"
+                                fill="currentColor"
+                            ></path>
+                        </svg>
+                    </button>
+                    <div class="site-header__panel-logo">
+                        <img data-lozad src="images/placeholder.png" data-src="images/logo.svg" alt="2x2 Logo" title="2x2 Logo" />
+                    </div>
+                    <ul class="menu__list">
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">услуги</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">агентство</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">карьера</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">блог</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             <a href="#" class="site-header__btn btn">Связаться</a>
             <button type="button" class="burger">
                 <span class="burger__line"></span>
@@ -117,6 +131,9 @@
                     <li class="about-us__team-member">
                         <img data-lozad src="images/placeholder.png" data-src="images/homepage-blocks/about-us//maxim.jpg" alt="Maxim" title="Maxim" />
                     </li>
+                    <li class="about-us__team-member">
+                        <img data-lozad src="images/placeholder.png" data-src="images/homepage-blocks/about-us//maxim.jpg" alt="Maxim" title="Maxim" />
+                    </li>
                     <li class="about-us__team-member about-us__team-member--more">10+</li>
                 </ul>
                 <div class="about-us__team-caption">
@@ -130,19 +147,20 @@
                 <video data-lozad class="about-us__video" autoplay loop muted>
                     <source data-src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4;" />
                 </video>
-                <div class="about-us__body-wrapper">
-                    <div class="about-us__content">
-                        <h2 class="about-us__title">мы – агентство перфоманс маркетинга</h2>
-                        <p class="about-us__description">делаем маркетинг понятным, прозрачным, окупаемым и эффективным</p>
+                <div class="about-us__content">
+                    <h2 class="about-us__title">мы – агентство перфоманс маркетинга</h2>
+                    <p class="about-us__description">делаем маркетинг понятным, прозрачным,окупаемым и эффективным</p>
+                </div>
+                <div class="about-us__cta">
+                    <div class="about-us__cta-logo">
+                        <img data-lozad src="images/placeholder.png" data-src="images/homepage-blocks/about-us/logo.svg" alt="2x2 Logo" title="2x2 Logo" />
                     </div>
-                    <div class="about-us__cta">
-                        <div class="about-us__cta-logo">
-                            <img data-lozad src="images/placeholder.png" data-src="images/homepage-blocks/about-us/logo.svg" alt="2x2 Logo" title="2x2 Logo" />
-                        </div>
-                        <div class="about-us__cta-number">30+</div>
-                        <p class="about-us__cta-description">постоянных клиентов<br> на полной маркетинговой поддержке</p>
-                        <a href="#" class="about-us__cta-btn btn">обсудить проект</a>
-                    </div>
+                    <div class="about-us__cta-number">30+</div>
+                    <p class="about-us__cta-description">
+                        постоянных клиентов<br />
+                        на полной маркетинговой поддержке
+                    </p>
+                    <a href="#" class="about-us__cta-btn btn">обсудить проект</a>
                 </div>
             </div>
         </div>
@@ -152,7 +170,7 @@
             <section class="free-strategy">
     <div class="container">
         <div class="free-strategy__body">
-            <h2 class="free-strategy__title">сделаем бесплатную мини-стратегию</h2>
+            <h2 class="free-strategy__title">сделаем бесплатную<br> мини-стратегию</h2>
             <a href="#" class="free-strategy__btn btn">отлично! беру</a>
         </div>
     </div>
@@ -294,10 +312,9 @@
                             сервис
                         </h3>
                         <div class="what-else__slide-text">
-                            <p>Чаще всего клиенты хвалят нас именно за это. Мы не только хорошо выполняем свою работу, но и привносим экспертизу и стараемся улучшить все смежные с нами процессы.</p>
                             <p>
-                                А еще мы эмпатичные, постоянно запрашиваем обратную связь и делаем все, чтобы работать<br />
-                                с нами было максимально комфортно.
+                                Хорошо выполняем свою работу, привносим экспертизу и стараемся улучшить все смежные процессы. А еще мы эмпатичные, постоянно запрашиваем обратную связь и делаем все,
+                                чтобы работать с нами было максимально комфортно.
                             </p>
                         </div>
                     </div>
@@ -351,10 +368,16 @@
             <div class="reviews__slider-swiper swiper-wrapper">
                 <div class="reviews__slider-slide swiper-slide">
                     <div class="review">
-                        <blockquote class="review__quote">« глубокая экспертиза<br> и владение передовыми методами »</blockquote>
+                        <blockquote class="review__quote">
+                            « глубокая экспертиза<br />
+                            и владение передовыми методами »
+                        </blockquote>
                         <div class="review__author">
                             <div class="review__author-image has-not-image"></div>
-                            <div class="review__author-name">Артем Федин, ко-фаундер<br> и CEO genio.ac о ссылочном продвижении сайта</div>
+                            <div class="review__author-name">
+                                Артем Федин, ко-фаундер<br />
+                                и CEO genio.ac о ссылочном продвижении сайта
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -363,7 +386,10 @@
                         <blockquote class="review__quote">« получили х2 органического трафика за 4 месяца »</blockquote>
                         <div class="review__author">
                             <div class="review__author-image has-not-image"></div>
-                            <div class="review__author-name">Влад Авласенко, кто-то в Lawav<br> о seo-оптимизации (?)</div>
+                            <div class="review__author-name">
+                                Влад Авласенко, кто-то в Lawav<br />
+                                о seo-оптимизации (?)
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -377,11 +403,13 @@
                     </div>
                 </div>
             </div>
-            <div class="reviews__slider-arrow is-prev">
-                <img data-lozad src="images/placeholder.png" data-src="images/icons/arrow-long.svg" alt="Arrow" title="Arrow" />
-            </div>
-            <div class="reviews__slider-arrow is-next">
-                <img data-lozad src="images/placeholder.png" data-src="images/icons/arrow-long.svg" alt="Arrow" title="Arrow" />
+            <div class="reviews__slider-arrows">
+                <div class="reviews__slider-arrow is-prev">
+                    <img data-lozad src="images/placeholder.png" data-src="images/icons/arrow-long.svg" alt="Arrow" title="Arrow" />
+                </div>
+                <div class="reviews__slider-arrow is-next">
+                    <img data-lozad src="images/placeholder.png" data-src="images/icons/arrow-long.svg" alt="Arrow" title="Arrow" />
+                </div>
             </div>
         </div>
         <div class="reviews__bottom">
