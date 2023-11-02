@@ -61,12 +61,12 @@ const initBurgerMenu = () => {
 
     function handleMenuCloseClick() {
         menu.classList.remove("is-open");
-        document.body.classList.remove("lock");
+        document.body.classList.remove("is-lock");
     }
 
     function handleBurgerClick() {
         menu.classList.add("is-open");
-        document.body.classList.add("lock");
+        document.body.classList.add("is-lock");
     }
 };
 
