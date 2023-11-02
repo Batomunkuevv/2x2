@@ -824,6 +824,7 @@ a:not([class]):hover {
   display: inline-block;
   white-space: nowrap;
   padding: 4px 39px 14px;
+  font-display: unset;
 }
 
 .hero__running-line-wrapper {
@@ -2149,6 +2150,7 @@ a:not([class]):hover {
   }
 
   .hero__title-slider-text {
+    max-width: 99%;
     font-weight: 500;
     padding: 0;
     border-radius: 0;
