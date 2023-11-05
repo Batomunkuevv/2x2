@@ -287,6 +287,8 @@ const initStoryes = () => {
     })
 
     function setCurrentProgress(storyVideo, duration, story) {
+        if (!duration) duration = storyVideo.duration;
+
         const currentTime = storyVideo.currentTime;
         const percentage = currentTime / duration * 100 + '%';
 
@@ -305,7 +307,7 @@ const initAlreadyUseBtn = () => {
 
     alreadyUseTabs.forEach(tab => {
         const tabValue = tab.dataset.use;
-        
+
         tab.addEventListener('click', () => {
             removeActiveClassesForOther(alreadyUseTabs, 'is-active');
             tab.classList.add('is-active');
