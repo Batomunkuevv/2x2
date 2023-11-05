@@ -4,17 +4,26 @@
         border-radius: 56px;
         position: relative;
         overflow: hidden;
-        min-height: 601px;
         color: #fff;
+        aspect-ratio: 1200/601;
 
-        &:hover{
-            & .case__image{
+        @media (max-width: 992px) {
+            border-radius: 32px;
+        }
+
+        @media (max-width: 576px) {
+            border-radius: 16px;
+            aspect-ratio: unset;
+        }
+
+        &:hover {
+            & .case__image {
                 transform: scale(1.15);
             }
         }
 
-        &.is-reverse{
-            & .case__body{
+        &.is-reverse {
+            & .case__body {
                 margin-left: auto;
             }
         }
@@ -28,6 +37,21 @@
         border-radius: 56px;
         background: linear-gradient(105deg, rgba(0, 0, 0, 0.4) 0.48%, rgba(0, 0, 0, 0) 100%);
         backdrop-filter: blur(10px);
+
+        @media (max-width: 992px) {
+            padding: 32px 24px;
+            border-radius: 32px;
+        }
+
+        @media (max-width: 576px) {
+            padding: 24px 16px; 
+            width: 80%;
+            border-radius: 16px;
+        }
+
+        @media(max-width: 400px){
+            width: 90%;
+        }
     }
 
     &__type {
@@ -35,19 +59,53 @@
         font-size: 20px;
         font-weight: 500;
         line-height: 120%;
+
+        @media(max-width: 992px){
+            font-size: 16px;
+        }
     }
 
     &__title {
-        margin-top: 32px;
+        margin-top: 64px;
         margin-bottom: 32px;
         font-size: 56px;
         line-height: 103.5%;
+
+        @media (max-width: 1200px) {
+            font-size: 40px;
+        }
+
+        @media (max-width: 992px) {
+            margin-bottom: 16px;
+            font-size: 32px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 24px;
+        }
+
+        & br{
+            display: inline;
+        }
     }
 
     &__description {
         opacity: 0.7;
         font-size: 36px;
         line-height: 111.111%;
+
+        @media (max-width: 1200px) {
+            max-width: 400px;
+            font-size: 24px;
+        }
+
+        @media (max-width: 992px) {
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
     }
 
     &__image {
@@ -56,10 +114,18 @@
         z-index: -1;
         transition: all 0.5s ease-in-out 0s;
 
-        & img{
+        & img {
             width: 100%;
             height: 100%;
             border-radius: 56px;
+
+            @media (max-width: 992px) {
+                border-radius: 32px;
+            }
+
+            @media (max-width: 576px) {
+                border-radius: 16px;
+            }
         }
     }
 }

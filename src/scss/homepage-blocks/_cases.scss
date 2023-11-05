@@ -1,12 +1,22 @@
 .cases {
-    margin-bottom: 174px;
+    @media (min-width: 1200px) {
+        margin-bottom: 174px;
+    }
 
     &__list {
     }
 
     &__item {
-        &:not(:last-child){
+        &:not(:last-child) {
             margin-bottom: 100px;
+
+            @media (max-width: 1200px) {
+                margin-bottom: 48px;
+            }
+
+            @media (max-width: 992px) {
+                margin-bottom: 24px;
+            }
         }
     }
 }

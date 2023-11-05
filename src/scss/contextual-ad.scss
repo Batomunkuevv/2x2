@@ -1,0 +1,72 @@
+@use "sass:math";
+
+//*<Base>=======================================================================================================
+
+@import "base/fonts.scss";
+@import "base/function";
+@import "base/animation";
+@import "base/variables";
+@import "base/nullstyle";
+@import "base/common";
+
+//*</Base>=====================================================================================================
+
+//*<Components>================================================================================================
+
+@import "components/site-header";
+@import "components/site-footer";
+@import "components/menu";
+@import "components/footer-menu";
+@import "components/burger";
+@import "components/btn";
+@import "components/story";
+
+//*</Components>=================================================================================================
+
+//*<Main grid>==================================================================================================
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+}
+
+.container {
+    max-width: $maxWidthContainer;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    @media (max-width: 1200px) {
+        max-width: 960px;
+    }
+    @media (max-width: 992px) {
+        max-width: 720px;
+    }
+    @media (max-width: 768px) {
+        max-width: 540px;
+    }
+    @media (max-width: 576px) {
+        max-width: none;
+    }
+}
+
+.site-page {
+    flex: 1 1 auto;
+}
+
+//*</Main grid>=================================================================================================
+
+//TODO<Blocks>=================================================================================================
+
+@import "blocks/service-hero";
+@import "context-ad-blocks/niches";
+@import "context-ad-blocks/forecast";
+@import "context-ad-blocks/steps";
+@import "blocks/why-we";
+@import "context-ad-blocks/already-use";
+@import "context-ad-blocks/process-of-work";
+@import "context-ad-blocks/interedted-links";
+@import "blocks/faqs";
+
+//TODO</Blocks>=================================================================================================

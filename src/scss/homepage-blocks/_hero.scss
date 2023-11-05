@@ -1,14 +1,49 @@
 .hero {
-    margin-top: 50px;
-    margin-bottom: 221px;
+    margin-top: 94px;
+
+    @media (min-width: 1200px) {
+        margin-bottom: 221px;
+    }
+
+    @media (max-width: 1200px) {
+        margin-top: 96px;
+    }
+
+    @media (max-width: 992px) {
+        margin-top: 64px;
+    }
 
     &__title {
         margin-bottom: 62px;
         font-size: 100px;
         line-height: 100%;
 
+        @media (max-width: 1200px) {
+            font-size: 72px;
+        }
+
+        @media (max-width: 992px) {
+            font-size: 56px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 40px;
+        }
+
+        @media(max-width: 576px){
+            font-size: 48px;
+        }
+
         &-text {
             padding-left: 45px;
+
+            @media (max-width: 992px) {
+                padding-left: 24px;
+            }
+
+            @media(max-width: 576px){
+                padding: 0;
+            }
         }
 
         &-slider {
@@ -16,6 +51,10 @@
             display: block;
             white-space: nowrap;
             position: relative;
+
+            @media(max-width: 576px){
+                margin: 0;
+            }
 
             &::before {
                 content: "";
@@ -27,6 +66,10 @@
                 border-radius: 100px;
                 border: 1px solid $colorMain;
                 transition: all 0.5s ease-in-out 0s;
+
+                @media (max-width: 992px) {
+                    display: none;
+                }
             }
 
             &-wrapper {
@@ -39,6 +82,28 @@
                 display: inline-block;
                 white-space: nowrap;
                 padding: 4px 39px 14px;
+                font-display: unset;
+
+                @media (max-width: 992px) {
+                    padding: 4px 24px 12px;
+                    white-space: normal;
+                    border-radius: 100px;
+                    border: 1px solid $colorMain;
+                    transition: all 0.5s ease-in-out 0s;
+                }
+
+                @media(max-width: 768px){
+                    padding-left: 16px;
+                    padding-right: 16px;
+                }
+
+                @media(max-width: 576px){
+                    max-width: 99%;
+                    font-weight: 500;
+                    padding: 0;
+                    border-radius: 0;
+                    border: unset;
+                }
             }
         }
     }
@@ -64,5 +129,20 @@
         border-radius: 100px;
         background: #e2e7ea;
         white-space: nowrap;
+
+        @media (max-width: 1200px) {
+            padding-left: 24px;
+            padding-right: 24px;
+            font-size: 32px;
+        }
+
+        @media (max-width: 992px) {
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            padding: 12px 24px;
+            font-size: 16px;
+        }
     }
 }

@@ -1,31 +1,88 @@
 .how-we-works {
-    margin-bottom: 160px;
+    @media (min-width: 1200px) {
+        margin-bottom: 160px;
+    }
 
     &__body {
-        padding: 197px 192px 192px;
+        display: flex;
+        align-items: center;
         position: relative;
-        color: #fff;
         border-radius: 56px;
+
+        @media (max-width: 992px) {
+            border-radius: 32px;
+        }
+
+        @media (max-width: 576px) {
+            border-radius: 16px;
+        }
+
+        @media (max-width: 400px) {
+            display: block;
+            border-radius: 0;
+        }
+
+        @media (min-width: 400px) {
+            aspect-ratio: 1200/600;
+            padding: 32px;
+            color: #fff;
+        }
     }
 
     &__content {
         margin: 0 auto;
         max-width: 667px;
+
+        @media (max-width: 992px) {
+            max-width: 347px;
+        }
+
+        @media (max-width: 768px) {
+            max-width: 287px;
+        }
+
+        @media (max-width: 400px) {
+            max-width: unset;
+        }
     }
 
     &__title {
-        margin-left: 12px;
         margin-bottom: 33px;
-        font-size: 100px;
-        line-height: 100%;
+
+        @media (min-width: 1200px) {
+            margin-left: 12px;
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: 16px;
+        }
     }
-    
+
     &__description {
-        margin-left: 12px;
         max-width: 522px;
         font-size: 36px;
         font-weight: 500;
         line-height: 111.111%;
+
+        @media (min-width: 1200px) {
+            margin-left: 12px;
+        }
+
+        @media (max-width: 1200px) {
+            font-size: 32px;
+        }
+
+        @media (max-width: 992px) {
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+
+        @media (max-width: 400px) {
+            margin-bottom: 32px;
+        }
     }
 
     &__video {
@@ -33,5 +90,17 @@
         inset: 0;
         z-index: -1;
         border-radius: 56px;
+
+        @media (max-width: 992px) {
+            border-radius: 32px;
+        }
+
+        @media (max-width: 576px) {
+            border-radius: 16px;
+        }
+
+        @media (max-width: 400px) {
+            position: static;
+        }
     }
 }

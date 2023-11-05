@@ -1,0 +1,60 @@
+.why-we {
+    @media (min-width: 1200px) {
+        margin-bottom: 163px;
+    }
+
+    &__body {
+        @media (min-width: 1200px) {
+            max-width: 938px;
+            margin-left: auto;
+        }
+    }
+
+    &__title {
+        @media (min-width: 1200px) {
+            margin-bottom: 45px;
+        }
+    }
+
+    &__text {
+        margin-bottom: 76px;
+        font-size: 32px;
+        line-height: 118.75%;
+
+        & p {
+            & + p {
+                margin-top: 39px;
+            }
+        }
+    }
+
+    &__services {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 101px;
+        row-gap: 48px;
+    }
+
+    &__service {
+        &-title {
+            margin-bottom: 12px;
+            font-size: 56px;
+            font-weight: 500;
+            line-height: 103.571%;
+        }
+
+        &-description {
+            padding-bottom: 21px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid $colorMain;
+            font-size: 32px;
+            line-height: 118.75%;
+        }
+
+        &-price {
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 120%
+        }
+    }
+}

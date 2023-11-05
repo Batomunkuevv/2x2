@@ -1,0 +1,56 @@
+.service-hero {
+    margin-top: 68px;
+
+    @media (min-width: 1200px) {
+        margin-bottom: 117px;
+    }
+
+    &__body {
+        display: flex;
+        align-items: start;
+        gap: 132px;
+    }
+
+    &__left {
+        width: 640px;
+    }
+
+    &__title {
+        margin-bottom: 47px;
+    }
+
+    &__video {
+    }
+
+    &__content {
+        padding-top: 113px;
+        max-width: 469px;
+
+        & p {
+            @media (min-width: 1200px) {
+                font-size: 32px;
+                line-height: 118.75%;
+            }
+        }
+    }
+
+    &__subtitle {
+        margin-bottom: 44px;
+        font-size: 56px;
+        line-height: 103.571%;
+    }
+
+    &__btn {
+        padding: 16px 40px 20px;
+        margin-top: 40px;
+
+        @media(min-width: 768px){
+            font-size: 24px;
+        }
+
+        @media (min-width: 1200px) {
+            font-size: 36px;
+            line-height: 111.111%;
+        }
+    }
+}

@@ -1,0 +1,79 @@
+.already-use {
+    text-align: center;
+
+    @media (min-width: 1200px) {
+        margin-bottom: 217px;
+    }
+
+    &__title {
+        margin-bottom: 75px;
+    }
+
+    &__btns {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 56px;
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        width: fit-content;
+    }
+
+    &__tab {
+        padding: 16px 40px 20px;
+        margin: 0 auto;
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 118.75%;
+
+        &.is-active {
+            pointer-events: none;
+        }
+
+        &:not(.is-active) {
+            background: transparent;
+            border-color: #fff;
+            color: #fff;
+
+            &:hover {
+                background: #fff;
+                color: $colorMain;
+            }
+        }
+    }
+
+    &__text {
+        margin-bottom: 74px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 782px;
+        color: var(--White, #fff);
+        font-size: 32px;
+        line-height: 118.75%;
+    }
+
+    &__btn {
+        padding: 16px 40px 20px;
+        margin: 0 auto;
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 118.75%;
+        width: 100%;
+        max-width: 528px;
+
+        &.is-active {
+            pointer-events: none;
+        }
+
+        &:not(.is-active) {
+            background: transparent;
+            border-color: #fff;
+            color: #fff;
+
+            &:hover {
+                background: #fff;
+                color: $colorMain;
+            }
+        }
+    }
+}

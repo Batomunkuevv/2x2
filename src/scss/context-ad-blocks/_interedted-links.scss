@@ -1,0 +1,49 @@
+.interested-links {
+    @media(min-width: 1200px){
+        margin-bottom: 163px;
+    }
+
+    &__body {
+        padding: 84px 114px;
+        border-radius: 56px;
+        background: #e2e7ea;
+    }
+
+    &__video {
+        margin-top: -184px;
+        margin-bottom: 53px;
+        aspect-ratio: 967/197;
+        border-radius: 56px;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 80px;
+        row-gap: 64px;
+
+        @media(min-width: 1200px){
+            max-width: 928px;
+            margin: 0 auto;
+        }
+    }
+
+    &__item {
+    }
+
+    &__link {
+        color: $colorMain;
+        display: block;
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 118.75%;
+        text-transform: none;
+        border-bottom: 1px solid $colorMain;
+
+        &:hover{
+            border-color: transparent;
+        }
+    }
+}

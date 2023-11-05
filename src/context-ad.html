@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/base/heads/_head-contextual-ad.html', { 'title': 'Name site'})
+
+<body>
+    <div class="wrapper">
+        @@include('html/base/_header.html',{})
+        <main class="site-page">
+            @@include('html/context-ad-blocks/_hero.html',{})
+            @@include('html/context-ad-blocks/_niches.html',{})
+            @@include('html/context-ad-blocks/_forecast.html',{})
+            @@include('html/context-ad-blocks/_steps.html',{})
+            @@include('html/blocks/_why-we.html',{})
+            @@include('html/context-ad-blocks/_already-use.html',{})
+            @@include('html/context-ad-blocks/_process-of-work.html',{})
+            @@include('html/context-ad-blocks/_interested-links.html',{})
+            @@include('html/context-ad-blocks/_faqs.html',{})
+        </main>
+        @@include('html/base/_footer.html',{})
+    </div>
+    <script defer src="js/lozad.min.js"></script>
+    <script defer src="js/swiper-bundle.min.js"></script>
+    <script defer src="js/script.js"></script>
+</body>
+
+</html>

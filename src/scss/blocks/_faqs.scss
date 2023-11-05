@@ -1,0 +1,106 @@
+.faqs {
+    @media (min-width: 1200px) {
+        margin-bottom: 156px;
+    }
+
+    &__title {
+        margin-bottom: 100px;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 64px;
+        }
+
+        @media (max-width: 992px) {
+            margin-bottom: 48px;
+        }
+    }
+
+    &__list {
+    }
+
+    &__item {
+        &:not(:last-child) {
+            padding-bottom: 28px;
+            margin-bottom: 36px;
+            border-bottom: 1px solid $colorMain;
+
+            @media(max-width: 1200px){
+                padding-bottom: 32px;
+                margin-bottom: 32px;
+            }
+        }
+
+        &-btn {
+            cursor: pointer;
+            display: flex;
+            align-items: start;
+            gap: 20px;
+
+            @media(max-width: 992px){
+                justify-content: space-between;
+                gap: 16px;
+            }
+
+            &.is-active {
+                & .faqs__item-btn-arrow svg {
+                    transform: rotate(-180deg);
+                }
+            }
+
+            &-text {
+                max-width: 1001px;
+                font-size: 32px;
+                line-height: 118.75%;
+                text-transform: none;
+
+                @media (max-width: 1200px) {
+                    margin-top: 6px;
+                    font-size: 24px;
+                }
+
+                @media(max-width: 768px){
+                    font-size: 20px;
+                }
+            }
+
+            &-arrow {
+                margin-top: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: none;
+
+                @media (max-width: 992px) {
+                    width: 32px;
+                }
+
+                & svg {
+                    transition: all 0.3s ease-in-out 0s;
+                }
+            }
+        }
+
+        &-body {
+            height: 0;
+            will-change: height;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out 0s;
+        }
+
+        &-content {
+            margin-top: 24px;
+            max-width: 1000px;
+            font-size: 20px;
+            line-height: 130%;
+            text-transform: none;
+
+            @media (min-width: 1200px) {
+                margin-bottom: 8px;
+            }
+
+            @media (max-width: 1200px) {
+                font-size: 16px;
+            }
+        }
+    }
+}

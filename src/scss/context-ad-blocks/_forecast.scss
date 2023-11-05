@@ -1,0 +1,41 @@
+.forecast {
+    @media(min-width: 1200px){
+        margin-top: 127px;
+        margin-bottom: 151px;
+    }
+
+    &__body {
+        max-width: 1000px;
+        margin-left: auto;
+
+        @media (min-width: 1366px) {
+            margin-right: -25px;
+        }
+    }
+
+    &__title {
+        @media (min-width: 1200px) {
+            margin-bottom: 32px;
+        }
+    }
+
+    &__text {
+        margin-bottom: 66px;
+        font-size: 32px;
+        line-height: 118.75%;
+    }
+
+    &__video {
+        border-radius: 56px;
+        aspect-ratio: 767/200;
+        max-width: 767px;
+
+        @media (max-width: 992px) {
+            border-radius: 32px;
+        }
+
+        @media (max-width: 576px) {
+            border-radius: 16px;
+        }
+    }
+}

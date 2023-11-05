@@ -1,19 +1,50 @@
 .free-strategy {
-    margin-bottom: 185px;
+    @media (min-width: 1200px) {
+        margin-bottom: 185px;
+    }
 
     &__body {
-        margin-right: 33px;
-        margin-left: auto;
         max-width: 805px;
+
+        @media (min-width: 1200px) {
+            margin-right: 33px;
+            margin-left: auto;
+        }
     }
 
     &__title {
         margin-bottom: 52px;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 992px) {
+            margin-bottom: 32px;
+        }
+
+        @media(max-width: 768px){
+            margin-bottom: 24px;
+        }
+
+        & br {
+            display: inline;
+        }
     }
 
     &__btn {
-        padding: 16px 40px 20px;
-        font-size: 32px;
-        line-height: 118.75%
+        @media (min-width: 768px) {
+            padding: 16px 40px 20px;
+            font-size: 24px;
+        }
+
+        @media (min-width: 992px) {
+            font-size: 32px;
+            line-height: 118.75%;
+        }
+
+        @media(max-width: 576px){
+            width: 100%;
+        }
     }
 }

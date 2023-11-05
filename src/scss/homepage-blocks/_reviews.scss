@@ -1,8 +1,22 @@
 .reviews {
-    margin-bottom: 178px;
+    @media (min-width: 1200px) {
+        margin-bottom: 178px;
+    }
 
     &__slider {
         margin-bottom: 75px;
+
+        @media (max-width: 992px) {
+            margin-bottom: 64px;
+        }
+
+        @media (max-width: 576px) {
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 400px) {
+            margin-bottom: 40px;
+        }
 
         &-swiper {
         }
@@ -16,8 +30,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            bottom: 73px;
+            bottom: 16%;
             cursor: pointer;
+
+            @media (max-width: 768px) {
+                width: 48px;
+            }
+
+            @media (max-width: 576px) {
+                width: 32px;
+            }
+
+            @media (max-width: 1200px) {
+                position: static;
+            }
 
             &.is-prev {
                 transform: rotate(180deg);
@@ -28,6 +54,29 @@
                 right: 0;
             }
         }
+
+        &-arrows {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+
+            @media (max-width: 1200px) {
+                margin-top: 40px;
+            }
+
+            @media (max-width: 768px) {
+                gap: 32px;
+            }
+
+            @media (max-width: 576px) {
+                margin-top: 32px;
+            }
+
+            @media(max-width: 400px){
+                margin-top: 24px;
+            }
+        }
     }
 
     &__bottom {
@@ -36,18 +85,42 @@
         justify-content: center;
         gap: 24px;
 
+        @media (max-width: 576px) {
+            flex-direction: column-reverse;
+            gap: 16px;
+        }
+
         &-text {
             max-width: 348px;
             font-size: 20px;
             font-weight: 600;
             line-height: 120%;
+
+            @media (max-width: 992px) {
+                max-width: 248px;
+                font-size: 16px;
+            }
+
+            @media (max-width: 576px) {
+                max-width: 300px;
+                text-align: center;
+            }
         }
     }
 
     &__btn {
-        padding: 10px 20px;
-        font-size: 20px;
         font-weight: 500;
         line-height: 120%;
+
+        @media (min-width: 768px) {
+            padding: 10px 20px;
+            font-size: 20px;
+        }
+
+        @media (max-width: 576px) {
+            width: 100%;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
     }
 }
