@@ -12,6 +12,19 @@ const initLozad = () => {
     })
 }
 
+const initFoldedElements = () => {
+    const foldedElements = document.querySelectorAll('[data-fold]');
+
+    if (!foldedElements) return;
+
+    foldedElements.forEach(element => {
+        const elementBtn = element.querySelector('[data-fold-btn]');
+        const elementContent = element.querySelector('[data-fold-content]');
+
+        heightToggleElement(elementBtn, elementContent)
+    })
+}
+
 const initHeader = () => {
     const header = document.querySelector('.site-header');
 
@@ -77,12 +90,11 @@ const initWhatElseSlider = () => {
 
     const options = {
         loop: true,
-        autoHeight: true,
         speed: 1000,
         simulateTouch: false,
         allowTouchMove: false,
         autoplay: {
-            delay: 3000
+            delay: 3000,
         },
         effect: 'fade',
         fadeEffect: {
@@ -106,8 +118,9 @@ const initReviewsSlider = () => {
         effect: 'fade',
         speed: 750,
         simulateTouch: false,
+        allowTouchMove: false,
         autoplay: {
-            delay: 3000
+            delay: 3000,
         },
         navigation: {
             prevEl: reviewsSliderPrev,
@@ -195,12 +208,173 @@ const initTitleSlider = () => {
     }
 }
 
+const initProcessSlider = () => {
+    const processSlider = document.querySelector('.process-of-work__slider');
+
+    if (!processSlider) return;
+
+    const options = {
+        loop: true,
+        spaceBetween: 24,
+        speed: 1000,
+        effect: 'fade',
+        simulateTouch: false,
+        allowTouchMove: false,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+        fadeEffect: {
+            crossFade: true
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        }
+    }
+
+    const processSliderSwiper = new Swiper(processSlider, options)
+}
+
+const initTabs = () => {
+    const tabsContainers = document.querySelectorAll('[data-tabs-container]');
+
+    if (!tabsContainers);
+
+    tabsContainers.forEach(tabsContainer => {
+        const tabsContainerBtns = tabsContainer.querySelectorAll('[data-tab]');
+        const tabsContainerTabcontents = tabsContainer.querySelectorAll('[data-tabcontent]');
+
+        tabsContainerBtns.forEach(tab => {
+            const tabValue = tab.dataset.tab;
+            const tabcontent = Array.from(tabsContainerTabcontents).find(item => item.dataset.tabcontent === tabValue);
+
+            tab.addEventListener('click', () => {
+                removeActiveClassesForOther(tabsContainerBtns, 'is-active');
+                removeActiveClassesForOther(tabsContainerTabcontents, 'is-active');
+
+                tab.classList.add('is-active');
+                tabcontent.classList.add('is-active');
+            });
+        })
+    })
+}
+
+const initStoryes = () => {
+    const storyes = document.querySelectorAll('.story');
+
+    if (!storyes) return;
+
+    storyes.forEach(story => {
+        let storyVideoDuration;
+        const storyVideo = story.querySelector('.story__video');
+
+        storyVideo.addEventListener('loadedmetadata', () => storyVideoDuration = storyVideo.duration);
+        storyVideo.addEventListener('timeupdate', () => setCurrentProgress(storyVideo, storyVideoDuration, story));
+        storyVideo.addEventListener('ended', () => story.classList.add('is-paused'));
+
+        story.addEventListener('click', () => {
+            const isPaused = storyVideo.paused;
+
+            if (isPaused) {
+                storyVideo.play();
+                story.classList.remove('is-paused');
+            } else {
+                storyVideo.pause();
+                story.classList.add('is-paused');
+            }
+        });
+    })
+
+    function setCurrentProgress(storyVideo, duration, story) {
+        const currentTime = storyVideo.currentTime;
+        const percentage = currentTime / duration * 100 + '%';
+
+        story.style.background = `conic-gradient(#D9D9D9 ${percentage}, transparent 0)`;
+    }
+}
+
+const initAlreadyUseBtn = () => {
+    const alreadyUseBtn = document.querySelector('.already-use__btn--no-tab');
+    const alreadyUseTabs = document.querySelectorAll('[data-use]');
+
+    if (!alreadyUseBtn || !alreadyUseTabs) return;
+
+    const yesText = alreadyUseBtn.dataset.yesText;
+    const noText = alreadyUseBtn.dataset.noText;
+
+    alreadyUseTabs.forEach(tab => {
+        const tabValue = tab.dataset.use;
+        
+        tab.addEventListener('click', () => {
+            removeActiveClassesForOther(alreadyUseTabs, 'is-active');
+            tab.classList.add('is-active');
+
+            if (tabValue === 'no') {
+                setCurrentText(noText)
+            } else {
+                setCurrentText(yesText);
+            }
+        })
+    })
+
+    function setCurrentText(text) {
+        alreadyUseBtn.style.maxWidth = 'fit-content';
+        alreadyUseBtn.textContent = text;
+        const newWidth = alreadyUseBtn.getBoundingClientRect().width;
+
+        alreadyUseBtn.style.maxWidth = `${newWidth}px`;
+    }
+}
+
+function removeActiveClassesForOther(array, activeClass) {
+    array.forEach(item => item.classList.remove(activeClass))
+}
+
+function heightToggleElement(toggler, blocks) {
+    toggler.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (blocks instanceof NodeList) {
+            blocks.forEach(function (block) {
+                addFunctionality(toggler, block);
+            });
+        } else {
+            addFunctionality(toggler, blocks);
+        }
+    });
+
+    function addFunctionality(toggler, block) {
+        if (block.style.height === "0px" || !block.style.height) {
+            block.style.height = `${block.scrollHeight}px`;
+            toggler.classList.add("is-active");
+            block.classList.add("is-expanded");
+        } else {
+            block.style.height = `${block.scrollHeight}px`;
+            window.getComputedStyle(block, null).getPropertyValue("height");
+            block.style.height = "0";
+            toggler.classList.remove("is-active");
+            block.classList.remove("is-expanded");
+        }
+
+        block.addEventListener("transitionend", () => {
+            if (block.style.height !== "0px") {
+                block.style.height = "auto";
+            }
+        });
+    }
+}
+
 window.addEventListener("DOMContentLoaded", (e) => {
     initLozad();
+    initTabs();
+    initFoldedElements();
     initHeader();
     initBurgerMenu();
     initWhatElseSlider();
     initReviewsSlider();
     initRunningLine();
     initTitleSlider();
+    initProcessSlider();
+    initStoryes();
+    initAlreadyUseBtn();
 });
