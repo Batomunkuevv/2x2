@@ -1409,6 +1409,10 @@ a:not([class]):hover {
     display: none;
   }
 
+  h1 {
+    font-size: 72px;
+  }
+
   h2 {
     font-size: 64px;
   }
@@ -1573,12 +1577,20 @@ a:not([class]):hover {
     --swiper-pagination-bullet-horizontal-gap: 8px;
   }
 
+  h1 {
+    font-size: 56px;
+  }
+
   h2 {
     font-size: 48px;
   }
 
   section {
     margin: 80px 0;
+  }
+
+  section.is-black {
+    padding: 64px 0;
   }
 
   .site-header {
@@ -1914,6 +1926,10 @@ a:not([class]):hover {
 }
 
 @media (max-width: 768px) {
+  h1 {
+    font-size: 48px;
+  }
+
   h2 {
     font-size: 40px;
   }
