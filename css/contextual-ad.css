@@ -922,7 +922,7 @@ a:not([class]):hover {
   border: 1px solid #000;
 }
 
-.steps__tab:not(.is-active):hover {
+.steps__tab:hover {
   background: #000;
   color: #fff;
 }
@@ -1991,6 +1991,7 @@ a:not([class]):hover {
   }
 
   .forecast__text {
+    margin-bottom: 32px;
     font-size: 16px;
   }
 
