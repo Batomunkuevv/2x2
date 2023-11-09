@@ -1,0 +1,57 @@
+.hero-blog {
+    margin-top: 72px;
+
+    @media (min-width: 1200px) {
+        margin-bottom: 182px;
+    }
+
+    &__body {
+    }
+
+    &__title {
+        margin-bottom: 0;
+    }
+
+    &__video {
+        margin-bottom: 38px;
+        grid-row: 1/4;
+        align-self: end;
+    }
+
+    &__content {
+        margin-top: -46px;
+        display: grid;
+        grid-template-columns: 256px 1fr;
+        column-gap: 138px;
+    }
+
+    &__subtitle {
+        margin-bottom: 32px;
+        font-size: 56px;
+        line-height: 114.286%;
+    }
+
+    &__text {
+        margin-bottom: 52px;
+        font-size: 32px;
+        line-height: 118.75%;
+
+        & p {
+            & + p {
+                margin-top: 38px;
+            }
+        }
+    }
+
+    &__btn {
+        @media (min-width: 992px) {
+            padding: 16px 40px 20px;
+            font-size: 24px;
+        }
+
+        @media (min-width: 1200px) {
+            font-size: 36px;
+            line-height: 111.111%;
+        }
+    }
+}

@@ -14,12 +14,26 @@
         display: flex;
         align-items: center;
         gap: 20px;
+
+        @media (max-width: 1200px) {
+            gap: 16px;
+        }
+
+        @media (max-width: 992px) {
+            margin-bottom: 32px;
+        }
     }
 
     &__tab {
-        padding: 16px 40px 20px;
-        font-size: 32px;
-        line-height: 118.74%;
+        @media (min-width: 992px) {
+            padding: 16px 40px 20px;
+            font-size: 24px;
+            line-height: 118.75%;
+        }
+
+        @media (min-width: 1200px) {
+            font-size: 32px;
+        }
 
         &.is-active {
             pointer-events: none;
@@ -29,11 +43,11 @@
             background: transparent;
             color: $colorMain;
             border: 1px solid $colorMain;
+        }
 
-            &:hover {
-                background: $colorMain;
-                color: #fff;
-            }
+        &:hover {
+            background: $colorMain;
+            color: #fff;
         }
     }
 
@@ -44,6 +58,23 @@
         display: flex;
         align-items: start;
         gap: 114px;
+
+        @media (max-width: 1200px) {
+            padding: 48px 32px;
+            gap: 64px;
+        }
+
+        @media (max-width: 992px) {
+            padding: 32px 24px;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 32px;
+            border-radius: 32px;
+        }
+
+        @media (max-width: 576px) {
+            border-radius: 16px;
+        }
 
         &:not(.is-active) {
             display: none;
@@ -57,12 +88,30 @@
                 max-width: 443px;
                 flex: none;
             }
+
+            @media (max-width: 1200px) {
+                width: 70%;
+                font-size: 32px;
+                line-height: 125%;
+            }
+
+            @media (max-width: 992px) {
+                width: 100%;
+            }
+
+            @media (max-width: 400px) {
+                font-size: 24px;
+            }
         }
 
         &-text {
             padding-top: 4px;
             font-size: 20px;
             line-height: 140%;
+
+            @media (max-width: 768px) {
+                font-size: 16px;
+            }
 
             & p {
                 & + p {

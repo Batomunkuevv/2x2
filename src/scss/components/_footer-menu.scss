@@ -1,4 +1,12 @@
 .footer-menu {
+    &--is-on-black {
+        & .footer-menu__link {
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+
     &__list {
         display: flex;
         align-items: center;
@@ -6,12 +14,12 @@
         row-gap: 21px;
         flex-wrap: wrap;
 
-        @media(max-width: 1200px){
+        @media (max-width: 1200px) {
             column-gap: 48px;
             justify-content: space-between;
         }
 
-        @media(max-width: 992px){
+        @media (max-width: 992px) {
             gap: 24px;
         }
     }
@@ -26,7 +34,7 @@
         line-height: 120%;
         text-transform: none;
 
-        @media(max-width: 768px){
+        @media (max-width: 768px) {
             font-size: 16px;
         }
 

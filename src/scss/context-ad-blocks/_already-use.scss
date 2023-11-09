@@ -6,10 +6,12 @@
     }
 
     &__title {
-        margin-bottom: 75px;
+        @media (min-width: 1200px) {
+            margin-bottom: 75px;
+        }
     }
 
-    &__btns {
+    &__tabs {
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 56px;
@@ -17,14 +19,25 @@
         align-items: center;
         gap: 26px;
         width: fit-content;
+
+        @media (max-width: 992px) {
+            margin-bottom: 32px;
+            gap: 16px;
+        }
     }
 
     &__tab {
-        padding: 16px 40px 20px;
         margin: 0 auto;
-        font-size: 32px;
-        font-weight: 500;
-        line-height: 118.75%;
+
+        @media (min-width: 992px) {
+            padding: 16px 40px 20px;
+            font-size: 24px;
+            line-height: 118.75%;
+        }
+
+        @media (min-width: 1200px) {
+            font-size: 32px;
+        }
 
         &.is-active {
             pointer-events: none;
@@ -34,11 +47,11 @@
             background: transparent;
             border-color: #fff;
             color: #fff;
+        }
 
-            &:hover {
-                background: #fff;
-                color: $colorMain;
-            }
+        &:hover {
+            background: #fff;
+            color: $colorMain;
         }
     }
 
@@ -50,30 +63,45 @@
         color: var(--White, #fff);
         font-size: 32px;
         line-height: 118.75%;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 64px;
+        }
+
+        @media (max-width: 992px) {
+            margin-bottom: 48px;
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
     }
 
     &__btn {
-        padding: 16px 40px 20px;
         margin: 0 auto;
-        font-size: 32px;
-        font-weight: 500;
-        line-height: 118.75%;
-        width: 100%;
-        max-width: 528px;
+        width: fit-content;
+        background: transparent;
+        border-color: #fff;
+        color: #fff;
 
-        &.is-active {
-            pointer-events: none;
+        @media (min-width: 992px) {
+            padding: 16px 40px 20px;
+            font-size: 24px;
+            line-height: 118.75%;
         }
 
-        &:not(.is-active) {
-            background: transparent;
-            border-color: #fff;
-            color: #fff;
+        @media (min-width: 1200px) {
+            font-size: 32px;
+        }
 
-            &:hover {
-                background: #fff;
-                color: $colorMain;
-            }
+        @media (max-width: 576px) {
+            width: 100%;
+        }
+
+        &:hover {
+            background: #fff;
+            color: $colorMain;
         }
     }
 }

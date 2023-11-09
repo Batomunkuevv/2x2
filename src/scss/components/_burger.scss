@@ -6,8 +6,14 @@
     justify-content: center;
     position: relative;
 
-    @media(min-width: 992px){
+    @media (min-width: 992px) {
         display: none;
+    }
+
+    &--is-white {
+        & .burger__line {
+            background: #fff;
+        }
     }
 
     &__line {
@@ -15,13 +21,13 @@
         width: 100%;
         height: 2px;
 
-        &:first-child{
+        &:first-child {
             position: absolute;
             top: 0;
             left: 0;
         }
 
-        &:last-child{
+        &:last-child {
             position: absolute;
             bottom: 0;
             right: 0;

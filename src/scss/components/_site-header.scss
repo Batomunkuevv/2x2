@@ -20,6 +20,14 @@
         transform: translate(0, -100%);
     }
 
+    &--is-black{
+        background: $colorMain;
+        
+        &.is-scrolling{
+            box-shadow: none;
+        }
+    }
+
     &__body {
         padding-bottom: 18px;
         border-bottom: 1px solid $colorMain;
@@ -29,6 +37,10 @@
 
         @media (max-width: 1200px) {
             gap: 24px;
+        }
+
+        &--is-on-black{
+            border-color: #fff;
         }
     }
 

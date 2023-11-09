@@ -1,5 +1,5 @@
 .forecast {
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         margin-top: 127px;
         margin-bottom: 151px;
     }
@@ -14,21 +14,32 @@
     }
 
     &__title {
-        @media (min-width: 1200px) {
-            margin-bottom: 32px;
-        }
+        margin-bottom: 32px;
     }
 
     &__text {
         margin-bottom: 66px;
         font-size: 32px;
         line-height: 118.75%;
+
+        @media (max-width: 992px) {
+            margin-bottom: 48px;
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
     }
 
     &__video {
         border-radius: 56px;
         aspect-ratio: 767/200;
-        max-width: 767px;
+
+        @media (min-width: 1200px) {
+            max-width: 767px;
+        }
 
         @media (max-width: 992px) {
             border-radius: 32px;

@@ -7,6 +7,10 @@
         margin-bottom: 127px;
     }
 
+    @media (max-width: 992px) {
+        padding: 64px 0;
+    }
+
     &__list {
         margin: 0 auto;
         max-width: 1087px;
@@ -16,6 +20,16 @@
         flex-wrap: wrap;
         gap: 36px;
         row-gap: 51px;
+
+        @media (max-width: 992px) {
+            gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 24px;
+        }
     }
 
     &__item {
@@ -25,15 +39,39 @@
         font-weight: 500;
         line-height: 111.111%;
 
+        @media (max-width: 1200px) {
+            font-size: 32px;
+        }
+
+        @media (max-width: 992px) {
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            padding-bottom: 24px;
+            border-bottom: 1px solid #9ea5a9;
+        }
+
         &-link {
             padding-right: 80px;
             color: #9ea5a9;
             position: relative;
 
+            @media (max-width: 1200px) {
+                padding-right: 64px;
+            }
+
+            @media (max-width: 768px) {
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
             &:hover {
                 color: $colorMain;
 
-                & .niches__item-link-caption{
+                & .niches__item-link-caption {
                     background: $colorMain;
                 }
             }
@@ -53,6 +91,15 @@
                 font-weight: 600;
                 line-height: toProcent(18, 21);
                 transition: all 0.3s ease-in-out 0s;
+
+                @media (max-width: 1200px) {
+                    padding: 8px 12px;
+                    font-size: 16px;
+                }
+
+                @media (max-width: 768px) {
+                    position: static;
+                }
             }
         }
     }

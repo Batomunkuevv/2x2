@@ -28,6 +28,8 @@ body {
     font-weight: 400;
     background: #f2f2f2;
     -webkit-font-smoothing: antialiased;
+    scrollbar-width: 4px;
+    scrollbar-color: $colorMain #fff;
 
     &::-webkit-scrollbar {
         width: 4px;
@@ -43,9 +45,6 @@ body {
         border-radius: 20px;
         border: 1px solid transparent;
     }
-
-    scrollbar-width: 4px;
-    scrollbar-color: $colorMain #fff;
 }
 
 body {
@@ -78,6 +77,18 @@ h4 {
 h1 {
     font-size: 100px;
     line-height: 100%;
+
+    @media (max-width: 1200px) {
+        font-size: 72px;
+    }
+
+    @media (max-width: 992px) {
+        font-size: 56px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 48px;
+    }
 }
 
 h2 {
@@ -114,10 +125,14 @@ section {
         margin: 80px 0;
     }
 
-    &.is-black{
+    &.is-black {
         padding: 90px 0;
         background: $colorMain;
         color: #fff;
+
+        @media (max-width: 992px) {
+            padding: 64px 0;
+        }
     }
 }
 

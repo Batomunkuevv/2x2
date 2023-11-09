@@ -1,6 +1,10 @@
 .service-hero {
     margin-top: 68px;
 
+    @media(max-width: 992px){
+        margin-top: 64px;
+    }
+
     @media (min-width: 1200px) {
         margin-bottom: 117px;
     }
@@ -9,22 +13,49 @@
         display: flex;
         align-items: start;
         gap: 132px;
+
+        @media (max-width: 1200px) {
+            gap: 64px;
+            justify-content: space-between;
+        }
+
+        @media(max-width: 768px){
+            flex-direction: column;
+            gap: 32px;
+        }
     }
 
     &__left {
-        width: 640px;
+        @media (min-width: 1200px) {
+            width: 640px;
+        }
     }
 
     &__title {
         margin-bottom: 47px;
+
+        @media(max-width: 768px){
+            margin-bottom: 32px;
+        }
     }
 
     &__video {
+        @media(max-width: 768px){
+            margin: 0 auto;
+        }
     }
 
     &__content {
         padding-top: 113px;
         max-width: 469px;
+
+        @media(max-width: 992px){
+            padding-top: 80px;
+        }
+
+        @media(max-width: 768px){
+            padding: 0;
+        }
 
         & p {
             @media (min-width: 1200px) {
@@ -38,19 +69,45 @@
         margin-bottom: 44px;
         font-size: 56px;
         line-height: 103.571%;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 32px;
+            font-size: 48px;
+        }
+
+        @media (max-width: 992px) {
+            font-size: 32px;
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        & br {
+            display: inline;
+
+            @media(max-width: 768px){
+                display: none;
+            }
+        }
     }
 
     &__btn {
-        padding: 16px 40px 20px;
         margin-top: 40px;
 
-        @media(min-width: 768px){
+        @media (min-width: 992px) {
+            padding: 16px 40px 20px;
             font-size: 24px;
         }
 
         @media (min-width: 1200px) {
             font-size: 36px;
             line-height: 111.111%;
+        }
+
+        @media(max-width: 576px){
+            width: 100%;
         }
     }
 }

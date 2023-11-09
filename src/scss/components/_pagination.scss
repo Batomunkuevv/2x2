@@ -1,0 +1,31 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    &__item {
+    }
+
+    &__link {
+        color: #fff;
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 111.111%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.current {
+            text-decoration: underline;
+            pointer-events: none;
+        }
+
+        &.next {
+            margin-left: 24px;
+        }
+
+        &.prev {
+            margin-right: 24px;
+        }
+    }
+}

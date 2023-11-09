@@ -268,9 +268,10 @@ const initStoryes = () => {
     storyes.forEach(story => {
         let storyVideoDuration;
         const storyVideo = story.querySelector('.story__video');
+        const isWhite = story.classList.contains('story--is-white');
 
         storyVideo.addEventListener('loadedmetadata', () => storyVideoDuration = storyVideo.duration);
-        storyVideo.addEventListener('timeupdate', () => setCurrentProgress(storyVideo, storyVideoDuration, story));
+        storyVideo.addEventListener('timeupdate', () => setCurrentProgress(storyVideo, storyVideoDuration, story, isWhite));
         storyVideo.addEventListener('ended', () => story.classList.add('is-paused'));
 
         story.addEventListener('click', () => {
@@ -286,11 +287,14 @@ const initStoryes = () => {
         });
     })
 
-    function setCurrentProgress(storyVideo, duration, story) {
+    function setCurrentProgress(storyVideo, duration, story, isWhite = false) {
+        if (!duration) duration = storyVideo.duration;
+        
+        const color = isWhite ? '#fff' : '#D9D9D9';
         const currentTime = storyVideo.currentTime;
         const percentage = currentTime / duration * 100 + '%';
 
-        story.style.background = `conic-gradient(#D9D9D9 ${percentage}, transparent 0)`;
+        story.style.background = `conic-gradient(${color} ${percentage}, transparent 0)`;
     }
 }
 
@@ -305,26 +309,19 @@ const initAlreadyUseBtn = () => {
 
     alreadyUseTabs.forEach(tab => {
         const tabValue = tab.dataset.use;
-        
+
         tab.addEventListener('click', () => {
             removeActiveClassesForOther(alreadyUseTabs, 'is-active');
             tab.classList.add('is-active');
 
             if (tabValue === 'no') {
-                setCurrentText(noText)
+                alreadyUseBtn.textContent = noText;
             } else {
-                setCurrentText(yesText);
+                alreadyUseBtn.textContent = yesText;
             }
         })
     })
 
-    function setCurrentText(text) {
-        alreadyUseBtn.style.maxWidth = 'fit-content';
-        alreadyUseBtn.textContent = text;
-        const newWidth = alreadyUseBtn.getBoundingClientRect().width;
-
-        alreadyUseBtn.style.maxWidth = `${newWidth}px`;
-    }
 }
 
 function removeActiveClassesForOther(array, activeClass) {

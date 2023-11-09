@@ -1,12 +1,42 @@
 .interested-links {
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         margin-bottom: 163px;
+    }
+
+    @media(max-width: 1200px){
+        padding-top: 82px;
+    }
+
+    @media(max-width: 992px){
+        padding-top: 66px;
+    }
+
+    @media(max-width: 768px){
+        padding-top: 46px;
+    }
+
+    @media(max-width: 576px){
+        padding-top: 37px;
     }
 
     &__body {
         padding: 84px 114px;
         border-radius: 56px;
         background: #e2e7ea;
+
+        @media (max-width: 1200px) {
+            padding: 32px 64px 48px;
+        }
+
+        @media (max-width: 992px) {
+            padding: 32px 24px;
+            border-radius: 32px;
+        }
+        
+        @media (max-width: 576px) {
+            padding: 32px 8px;
+            border-radius: 16px;
+        }
     }
 
     &__video {
@@ -14,6 +44,26 @@
         margin-bottom: 53px;
         aspect-ratio: 967/197;
         border-radius: 56px;
+
+        @media (max-width: 1200px) {
+            margin-top: -114px;
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 992px) {
+            margin-top: -97px;
+            margin-bottom: 32px;
+            border-radius: 32px;
+        }
+
+        @media(max-width: 768px){
+            margin-top: -78px;
+        }
+
+        @media (max-width: 576px) {
+            margin-top: -69px;
+            border-radius: 16px;
+        }
     }
 
     &__list {
@@ -24,9 +74,23 @@
         column-gap: 80px;
         row-gap: 64px;
 
-        @media(min-width: 1200px){
+        @media (min-width: 1200px) {
             max-width: 928px;
             margin: 0 auto;
+        }
+
+        @media (max-width: 1200px) {
+            column-gap: 48px;
+            row-gap: 24px;
+        }
+
+        @media (max-width: 992px) {
+            column-gap: 32px;
+        }
+
+        @media(max-width: 576px){
+            padding-left: 16px;
+            padding-right: 16px;
         }
     }
 
@@ -42,7 +106,15 @@
         text-transform: none;
         border-bottom: 1px solid $colorMain;
 
-        &:hover{
+        @media (max-width: 992px) {
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+
+        &:hover {
             border-color: transparent;
         }
     }
