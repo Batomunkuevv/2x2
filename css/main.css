@@ -321,6 +321,15 @@ a:not([class]):hover {
           transform: translate(0, -100%);
 }
 
+.site-header--is-black {
+  background: #000;
+}
+
+.site-header--is-black.is-scrolling {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .site-header__body {
   padding-bottom: 18px;
   border-bottom: 1px solid #000;
@@ -331,6 +340,10 @@ a:not([class]):hover {
       -ms-flex-align: center;
           align-items: center;
   gap: 56px;
+}
+
+.site-header__body--is-on-black {
+  border-color: #fff;
 }
 
 .site-header__logo {
@@ -393,11 +406,20 @@ a:not([class]):hover {
   padding-bottom: 102px;
 }
 
+.site-footer--is-on-black .site-footer__socials-link {
+  color: #fff;
+  border-color: #fff;
+}
+
 .site-footer__body {
   margin-top: 0;
   padding-bottom: 60px;
   margin-bottom: 48px;
   border-bottom: 1px solid #000;
+}
+
+.site-footer__body--is-on-black {
+  border-color: #fff;
 }
 
 .site-footer__top {
@@ -575,6 +597,10 @@ a:not([class]):hover {
   transition: all 0.3s ease-in-out 0s;
 }
 
+.footer-menu--is-on-black .footer-menu__link:hover {
+  color: #fff;
+}
+
 .footer-menu__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -615,6 +641,10 @@ a:not([class]):hover {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
+}
+
+.burger--is-white .burger__line {
+  background: #fff;
 }
 
 .burger__line {
@@ -1294,6 +1324,14 @@ a:not([class]):hover {
 
   .site-header__panel-overlay {
     display: none;
+  }
+
+  .menu--is-on-black .menu__link {
+    color: #fff;
+  }
+
+  .menu--is-on-black .menu__link::after {
+    background: #fff;
   }
 
   .burger {

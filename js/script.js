@@ -268,7 +268,7 @@ const initStoryes = () => {
     storyes.forEach(story => {
         let storyVideoDuration;
         const storyVideo = story.querySelector('.story__video');
-        const isWhite = story.classList.contains('is-white');
+        const isWhite = story.classList.contains('story--is-white');
 
         storyVideo.addEventListener('loadedmetadata', () => storyVideoDuration = storyVideo.duration);
         storyVideo.addEventListener('timeupdate', () => setCurrentProgress(storyVideo, storyVideoDuration, story, isWhite));
@@ -290,7 +290,7 @@ const initStoryes = () => {
     function setCurrentProgress(storyVideo, duration, story, isWhite = false) {
         if (!duration) duration = storyVideo.duration;
         
-        const color = isWhite ? '#D9D9D9' : '#D9D9D9';
+        const color = isWhite ? '#fff' : '#D9D9D9';
         const currentTime = storyVideo.currentTime;
         const percentage = currentTime / duration * 100 + '%';
 
