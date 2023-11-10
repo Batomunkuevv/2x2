@@ -1543,6 +1543,10 @@ a:not([class]):hover {
     max-width: 540px;
   }
 
+  .hero-blog {
+    margin-top: 64px;
+  }
+
   .hero-blog__title {
     margin-bottom: 40px;
   }

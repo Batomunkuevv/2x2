@@ -453,7 +453,7 @@ function initSmoothScroll() {
 
 window.addEventListener("DOMContentLoaded", (e) => {
     initLozad();
-    initSmoothScroll();
+    // initSmoothScroll();
     initTabs();
     initFoldedElements();
     initHeader();

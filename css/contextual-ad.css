@@ -1612,7 +1612,7 @@ a:not([class]):hover {
   }
 
   .process-of-work__slider-pagination.swiper-pagination {
-    margin-top: 32px;
+    margin-top: 40px;
     position: static;
     text-align: center;
   }
