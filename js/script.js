@@ -236,6 +236,34 @@ const initProcessSlider = () => {
     const processSliderSwiper = new Swiper(processSlider, options)
 }
 
+const initValuesSlider = () => {
+    const valuesSlider = document.querySelector('.our-values__slider');
+
+    if (!valuesSlider) return;
+
+    const options = {
+        loop: true,
+        spaceBetween: 24,
+        speed: 1000,
+        effect: 'fade',
+        simulateTouch: false,
+        allowTouchMove: false,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+        fadeEffect: {
+            crossFade: true
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        }
+    }
+
+    const valuesSliderSwiper = new Swiper(valuesSlider, options)
+}
+
 const initTabs = () => {
     const tabsContainers = document.querySelectorAll('[data-tabs-container]');
 
@@ -435,6 +463,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
     initRunningLine();
     initTitleSlider();
     initProcessSlider();
+    initValuesSlider();
     initStoryes();
     initAlreadyUseSwitch();
 });

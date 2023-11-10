@@ -314,6 +314,14 @@ a:not([class]):hover {
   overflow: hidden;
 }
 
+.swiper-pagination--is-white .swiper-pagination-bullet {
+  border-color: #fff;
+}
+
+.swiper-pagination--is-white .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #fff;
+}
+
 .swiper-pagination-bullet {
   border: 1px solid #000;
   background: none;
