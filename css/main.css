@@ -42,6 +42,34 @@
   }
 }
 
+@-webkit-keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 input[type=text]::-ms-clear {
   display: none;
   width: 0;
@@ -690,6 +718,8 @@ a:not([class]):hover {
   -webkit-transition: all 0.3s ease-in-out 0s;
   -o-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .btn:hover {
@@ -835,6 +865,10 @@ a:not([class]):hover {
 
 .wrapper {
   min-height: 100vh;
+  overflow: clip;
+}
+
+.wrapper__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -842,7 +876,6 @@ a:not([class]):hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow: clip;
 }
 
 .container {
@@ -1291,6 +1324,8 @@ a:not([class]):hover {
   inset: 0;
   z-index: -1;
   border-radius: 56px;
+  -o-object-position: 0 22%;
+     object-position: 0 22%;
 }
 
 @media (min-width: 400px) {

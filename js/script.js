@@ -289,7 +289,7 @@ const initStoryes = () => {
 
     function setCurrentProgress(storyVideo, duration, story, isWhite = false) {
         if (!duration) duration = storyVideo.duration;
-        
+
         const color = isWhite ? '#fff' : '#D9D9D9';
         const currentTime = storyVideo.currentTime;
         const percentage = currentTime / duration * 100 + '%';
@@ -298,29 +298,77 @@ const initStoryes = () => {
     }
 }
 
-const initAlreadyUseBtn = () => {
-    const alreadyUseBtn = document.querySelector('.already-use__btn--no-tab');
-    const alreadyUseTabs = document.querySelectorAll('[data-use]');
+const initAlreadyUseSwitch = () => {
+    const alreadyUseSection = document.querySelector('.already-use');
 
-    if (!alreadyUseBtn || !alreadyUseTabs) return;
+    if (!alreadyUseSection) return;
 
-    const yesText = alreadyUseBtn.dataset.yesText;
-    const noText = alreadyUseBtn.dataset.noText;
+    const alreadyUseBtn = alreadyUseSection.querySelector('.already-use__btn--no-tab');
+    const alreadyUseTabs = alreadyUseSection.querySelectorAll('[data-use]');
 
-    alreadyUseTabs.forEach(tab => {
-        const tabValue = tab.dataset.use;
+    if (alreadyUseBtn && alreadyUseTabs) setTimeout(initTabs, 300);
 
-        tab.addEventListener('click', () => {
-            removeActiveClassesForOther(alreadyUseTabs, 'is-active');
-            tab.classList.add('is-active');
+    function initTabs() {
+        const yesText = alreadyUseBtn.dataset.yesText;
+        const noText = alreadyUseBtn.dataset.noText;
+        const yesWidth = initWidth(yesText);
+        const noWidth = initWidth(noText);
 
-            if (tabValue === 'no') {
-                alreadyUseBtn.textContent = noText;
-            } else {
-                alreadyUseBtn.textContent = yesText;
-            }
+        alreadyUseTabs.forEach(tab => {
+            const tabValue = tab.dataset.use;
+            alreadyUseBtn.style.width = `${yesWidth}px`;
+
+            tab.addEventListener('click', () => {
+                removeActiveClassesForOther(alreadyUseTabs, 'is-active');
+                tab.classList.add('is-active');
+
+                if (tabValue === 'no') {
+                    setCurrentText(noText, noWidth);
+                    setLightClasses();
+                } else {
+                    setCurrentText(yesText, yesWidth);
+                    setDarkClasses();
+                }
+
+            })
         })
-    })
+
+        function setCurrentText(text, newWidth) {
+            alreadyUseBtn.style.width = `${newWidth}px`;
+            alreadyUseBtn.textContent = text;
+        }
+
+        function initWidth(text) {
+            let width;
+            let oldText = alreadyUseBtn.textContent;
+
+            alreadyUseBtn.textContent = text;
+            width = alreadyUseBtn.getBoundingClientRect().width;
+            alreadyUseBtn.textContent = oldText;
+
+            return width;
+        }
+
+        function setLightClasses() {
+            alreadyUseSection.classList.add('is-light');
+            alreadyUseBtn.classList.remove('btn--white');
+
+            alreadyUseTabs.forEach(tab => {
+                tab.classList.remove('btn--white');
+            })
+        }
+
+        function setDarkClasses() {
+            alreadyUseSection.classList.remove('is-light');
+            alreadyUseBtn.classList.add('btn--white');
+
+            alreadyUseTabs.forEach(tab => {
+                tab.classList.add('btn--white')
+            })
+        }
+    }
+
+
 
 }
 
@@ -361,8 +409,23 @@ function heightToggleElement(toggler, blocks) {
     }
 }
 
+function initSmoothScroll() {
+    if (!gsap) return;
+
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+    if (ScrollTrigger.isTouch !== 1) {
+        ScrollSmoother.create({
+            wrapper: '.wrapper',
+            content: '.wrapper__content',
+            smooth: 1.5
+        });
+    }
+}
+
 window.addEventListener("DOMContentLoaded", (e) => {
     initLozad();
+    initSmoothScroll();
     initTabs();
     initFoldedElements();
     initHeader();
@@ -373,5 +436,5 @@ window.addEventListener("DOMContentLoaded", (e) => {
     initTitleSlider();
     initProcessSlider();
     initStoryes();
-    initAlreadyUseBtn();
+    initAlreadyUseSwitch();
 });

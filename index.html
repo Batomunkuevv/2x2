@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+    <head>
     <meta charset="UTF-8">
     <title>Name site</title>
     <meta name="description" content="Site description">
@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="css/main.min.css">
 </head>
 
-<body>
-    <div class="wrapper">
-        <header class="site-header">
+    <body>
+        <div class="wrapper">
+            <div class="wrapper__content">
+                <header class="site-header">
     <div class="container">
         <div class="site-header__body">
             <a href="#" class="site-header__logo">
@@ -57,8 +58,8 @@
     </div>
 </header>
 
-        <main class="site-page">
-            <section class="hero">
+                <main class="site-page">
+                    <section class="hero">
     <div class="container">
         <h1 class="visually-hidden">2x2 Digital Agency</h1>
         <div class="hero__title">
@@ -116,8 +117,7 @@
         </div>
     </div>
 </section>
-
-            <section class="about-us">
+ <section class="about-us">
     <div class="container">
         <div class="about-us__wrapper">
             <div class="about-us__team">
@@ -166,8 +166,7 @@
         </div>
     </div>
 </section>
-
-            <section class="free-strategy">
+ <section class="free-strategy">
     <div class="container">
         <div class="free-strategy__body">
             <h2 class="free-strategy__title">сделаем бесплатную<br> мини-стратегию</h2>
@@ -176,7 +175,7 @@
     </div>
 </section>
 
-            <section class="cases">
+                    <section class="cases">
     <div class="container">
         <h2 class="visually-hidden">Наши кейсы</h2>
         <ul class="cases__list">
@@ -224,8 +223,7 @@
         </ul>
     </div>
 </section>
-
-            <section class="what-we-do">
+ <section class="what-we-do">
     <div class="container">
         <h2 class="what-we-do__title">
             что делаем
@@ -299,8 +297,7 @@
             </li>
         </ul>
     </div>
-</section>
-            <section class="what-else">
+</section> <section class="what-else">
     <div class="container">
         <div class="what-else__body">
             <h2 class="what-else__title">а что еще?</h2>
@@ -362,7 +359,7 @@
     </div>
 </section>
 
-            <section class="reviews">
+                    <section class="reviews">
     <div class="container">
         <div class="reviews__slider swiper">
             <div class="reviews__slider-swiper swiper-wrapper">
@@ -418,23 +415,22 @@
         </div>
     </div>
 </section>
-
-            <section class="how-we-works">
+ <section class="how-we-works">
     <div class="container">
         <div class="how-we-works__body">
             <div class="how-we-works__content">
                 <h2 class="how-we-works__title">как работаем</h2>
                 <p class="how-we-works__description">посмотрите короткое видео о наших ценностях и подходе</p>
             </div>
-            <video data-lozad class="how-we-works__video" autoplay muted loop playsinline>
-                <source data-src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4;" />
+            <video data-lozad class="how-we-works__video" data-poster="images/placeholder.png" autoplay muted loop playsinline>
+                <source data-src="./files/videos/01.mp4" type="video/mp4;" />
             </video>
         </div>
     </div>
 </section>
 
-        </main>
-        <footer class="site-footer">
+                </main>
+                <footer class="site-footer">
     <div class="container">
         <section class="site-footer__body">
             <div class="site-footer__top">
@@ -494,10 +490,13 @@
     </div>
 </footer>
 
-    </div>
-    <script defer src="js/lozad.min.js"></script>
-    <script defer src="js/swiper-bundle.min.js"></script>
-    <script defer src="js/script.js"></script>
-</body>
-
+            </div>
+        </div>
+        <script defer src="js/lozad.min.js"></script>
+        <script defer src="js/swiper-bundle.min.js"></script>
+        <script defer src="js/gsap.min.js"></script>
+        <script defer src="js/ScrollSmoother.min.js"></script>
+        <script defer src="js/ScrollTrigger.min.js"></script>
+        <script defer src="js/script.js"></script>
+    </body>
 </html>
