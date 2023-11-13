@@ -1,0 +1,79 @@
+.career-hero {
+    margin-top: 69px;
+    
+    @media (min-width: 1200px) {
+        margin-bottom: 124px;
+    }
+
+    @media(max-width: 1200px){
+        margin-top: 64px;
+    }
+
+    &__title {
+        margin-bottom: 92px;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 992px) {
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: 32px;
+        }
+    }
+
+    &__body {
+        @media (min-width: 1200px) {
+            max-width: 960px;
+            margin-left: auto;
+        }
+    }
+
+    &__text {
+        margin-left: auto;
+        margin-bottom: 72px;
+
+        @media(max-width: 1200px){
+            margin-bottom: 56px;
+        }
+
+        @media(max-width: 992px){
+            margin-bottom: 48px;
+        }
+
+        @media(max-width: 768px){
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            font-size: 24px;
+            line-height: 125%;
+        }
+
+        @media (min-width: 992px) {
+            font-size: 32px;
+        }
+
+        @media (min-width: 1200px) {
+            max-width: 952px;
+            font-size: 56px;
+            line-height: 114.286%;
+        }
+    }
+
+    &__video {
+        aspect-ratio: 960/352;
+        border-radius: 56px;
+
+        @media (max-width: 992px) {
+            border-radius: 32px;
+        }
+
+        @media (max-width: 576px) {
+            border-radius: 16px;
+        }
+    }
+}

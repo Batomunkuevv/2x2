@@ -205,6 +205,16 @@ a {
 
 // Swiper
 
+.swiper-pagination--is-white {
+    .swiper-pagination-bullet {
+        border-color: #fff;
+
+        &.swiper-pagination-bullet-active {
+            background: #fff;
+        }
+    }
+}
+
 .swiper-pagination-bullet {
     border: 1px solid $colorMain;
     background: none;

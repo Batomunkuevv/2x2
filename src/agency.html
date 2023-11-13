@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/base/heads/_head-agency.html', { 'title': 'Name site'})
+
+    <body data-smoother>
+        <div data-smoother-content class="wrapper">
+            <div class="wrapper__content">
+                @@include('html/base/headers/_header.html',{})
+                <main class="site-page">
+                    @@include('html/agency-blocks/_hero.html',{})
+                    @@include('html/agency-blocks/_points.html',{})
+                    @@include('html/agency-blocks/_team.html',{})
+                </main>
+                @@include('html/base/footers/_footer.html',{})
+            </div>
+        </div>
+        <script defer src="js/lozad.min.js"></script>
+        <script defer src="js/swiper-bundle.min.js"></script>
+        <script defer src="js/gsap.min.js"></script>
+        <script defer src="js/ScrollSmoother.min.js"></script>
+        <script defer src="js/ScrollTrigger.min.js"></script>
+        <script defer src="js/script.js"></script>
+    </body>
+</html>

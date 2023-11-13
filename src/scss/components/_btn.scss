@@ -12,6 +12,8 @@
     font-weight: 500;
     line-height: 116.6%;
     transition: all 0.3s ease-in-out 0s;
+    white-space: nowrap;
+    overflow: hidden;
 
     @media (max-width: 768px) {
         padding: 12px 20px;

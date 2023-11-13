@@ -1,0 +1,150 @@
+.vacancies {
+    @media (min-width: 1200px) {
+        margin-bottom: 187px;
+    }
+
+    &__header {
+        margin-bottom: 89px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 48px;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 64px;
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: 48px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 0;
+    }
+
+    &__btn {
+        @media (min-width: 992px) {
+            padding: 16px 40px 20px;
+            font-size: 24px;
+        }
+
+        @media (min-width: 1200px) {
+            font-size: 36px;
+            line-height: 111.111%;
+        }
+
+        &--desktop {
+            @media (max-width: 576px) {
+                display: none;
+            }
+        }
+
+        &--mobile {
+            margin-top: 40px;
+
+            @media (min-width: 576px) {
+                display: none;
+            }
+        }
+    }
+
+    &__list {
+    }
+
+    &__item {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 103px;
+
+        @media (max-width: 1200px) {
+            gap: 64px;
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+        }
+
+        &:not(:last-child) {
+            padding-bottom: 32px;
+            margin-bottom: 35px;
+            border-bottom: 1px solid $colorMain;
+
+            @media (max-width: 992px) {
+                margin-bottom: 24px;
+                padding-bottom: 24px;
+            }
+        }
+
+        &-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
+            font-size: 56px;
+            line-height: 103.5%;
+            color: $colorMain;
+
+            @media (min-width: 768px) {
+                width: 49.7%;
+            }
+
+            @media (max-width: 1200px) {
+                font-size: 40px;
+                line-height: 125%;
+            }
+
+            @media (max-width: 992px) {
+                font-size: 32px;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 24px;
+            }
+
+            &:hover {
+                & .vacancies__item-link-icon {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &-name {
+            }
+
+            &-icon {
+                width: 47px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: none;
+                transition: all 0.3s ease-in-out 0s;
+
+                @media (max-width: 992px) {
+                    width: 32px;
+                }
+
+                @media (min-width: 1200px) {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+        }
+
+        &-description {
+            font-weight: 500;
+
+            @media (min-width: 768px) {
+                width: 50.3%;
+            }
+
+            @media (min-width: 992px) {
+                font-size: 20px;
+                line-height: 120%;
+            }
+        }
+    }
+}

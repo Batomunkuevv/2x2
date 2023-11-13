@@ -1,9 +1,10 @@
 .menu {
     &--is-on-black {
         & .menu__link {
-            @media(min-width: 992px){color: #fff;
-            
-                &::after{
+            @media (min-width: 992px) {
+                color: #fff;
+
+                &::after {
                     background: #fff;
                 }
             }

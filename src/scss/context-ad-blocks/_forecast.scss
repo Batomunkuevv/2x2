@@ -36,6 +36,7 @@
     &__video {
         border-radius: 56px;
         aspect-ratio: 767/200;
+        object-position: 0 10%;
 
         @media (min-width: 1200px) {
             max-width: 767px;

@@ -1,0 +1,65 @@
+.points {
+    @media (min-width: 1200px) {
+        margin-bottom: 213px;
+    }
+
+    &__list {
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 48px;
+
+        @media(max-width: 992px){
+            gap: 32px;
+        }
+
+        @media(max-width: 768px){
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        &:not(:last-child) {
+            padding-bottom: 32px;
+            margin-bottom: 35px;
+            border-bottom: 1px solid $colorMain;
+
+            @media (max-width: 992px) {
+                margin-bottom: 24px;
+                padding-bottom: 24px;
+            }
+        }
+
+        &-title {
+            font-size: 56px;
+            line-height: 103.5%;
+
+            @media (max-width: 1200px) {
+                font-size: 40px;
+                line-height: 125%;
+            }
+
+            @media (max-width: 992px) {
+                font-size: 32px;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 24px;
+            }
+        }
+
+        &-description {
+            font-weight: 500;
+
+            @media(min-width: 1200px){
+                padding-left: 30px;
+            }
+
+            @media (min-width: 992px) {
+                font-size: 20px;
+                line-height: 120%;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/base/heads/_head-career.html', { 'title': 'Name site'})
+
+    <body data-smoother>
+        <div data-smoother-content class="wrapper">
+            <div class="wrapper__content">
+                @@include('html/base/headers/_header.html',{})
+                <main class="site-page">
+                    @@include('html/career-blocks/_career-hero.html',{})
+                    @@include('html/career-blocks/_our-values.html',{})
+                    @@include('html/career-blocks/_vacancies.html',{})
+                    @@include('html/career-blocks/_specialists.html',{})
+                </main>
+                @@include('html/base/footers/_footer.html',{})
+            </div>
+        </div>
+        <script defer src="js/lozad.min.js"></script>
+        <script defer src="js/swiper-bundle.min.js"></script>
+        <script defer src="js/gsap.min.js"></script>
+        <script defer src="js/ScrollSmoother.min.js"></script>
+        <script defer src="js/ScrollTrigger.min.js"></script>
+        <script defer src="js/script.js"></script>
+    </body>
+</html>

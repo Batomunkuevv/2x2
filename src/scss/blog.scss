@@ -29,10 +29,12 @@
 
 .wrapper {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     overflow: clip;
 
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
     &--is-black {
         background: $colorMain;
         color: #fff;

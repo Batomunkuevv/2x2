@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include('html/base/heads/_head-blog.html', { 'title': 'Name site'})
+    @@include('html/base/heads/_head-blog.html', { 'title': 'Name site'})
 
-<body>
-    <div class="wrapper wrapper--is-black">
-        @@include('html/base/headers/_header-black.html',{})
-        <main class="site-page">
-            @@include('html/blog/_hero-blog.html',{})
-            @@include('html/blog/_blog.html',{})
-        </main>
-        @@include('html/base/footers/_footer-black.html',{})
-    </div>
-    <script defer src="js/lozad.min.js"></script>
-    <script defer src="js/swiper-bundle.min.js"></script>
-    <script defer src="js/script.js"></script>
-</body>
-
+    <body data-smoother>
+        <div data-smoother-content class="wrapper wrapper--is-black">
+            <div class="wrapper__content">
+                @@include('html/base/headers/_header-black.html',{})
+                <main class="site-page">@@include('html/blog/_hero-blog.html',{}) @@include('html/blog/_blog.html',{})</main>
+                @@include('html/base/footers/_footer-black.html',{})
+            </div>
+        </div>
+        <script defer src="js/lozad.min.js"></script>
+        <script defer src="js/swiper-bundle.min.js"></script>
+        <script defer src="js/gsap.min.js"></script>
+        <script defer src="js/ScrollSmoother.min.js"></script>
+        <script defer src="js/ScrollTrigger.min.js"></script>
+        <script defer src="js/script.js"></script>
+    </body>
 </html>

@@ -28,9 +28,12 @@
 
 .wrapper {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     overflow: clip;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .container {
@@ -52,10 +55,9 @@
     }
 }
 
-.site-page{
+.site-page {
     flex: 1 1 auto;
 }
-
 
 //*</Main grid>=================================================================================================
 

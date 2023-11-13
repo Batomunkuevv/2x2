@@ -236,6 +236,93 @@ const initProcessSlider = () => {
     const processSliderSwiper = new Swiper(processSlider, options)
 }
 
+const initValuesSlider = () => {
+    const valuesSlider = document.querySelector('.our-values__slider');
+
+    if (!valuesSlider) return;
+
+    const options = {
+        loop: true,
+        spaceBetween: 24,
+        speed: 1000,
+        effect: 'fade',
+        simulateTouch: false,
+        allowTouchMove: false,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+        fadeEffect: {
+            crossFade: true
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        }
+    }
+
+    const valuesSliderSwiper = new Swiper(valuesSlider, options)
+}
+
+const initTeamSlider = () => {
+    const teamPortraitsSlider = document.querySelector('.team__portraits');
+    const teamDescriptionsSlider = document.querySelector('.team__description-slider');
+
+    if (!teamPortraitsSlider || !teamDescriptionsSlider) return;
+
+    const teamSlidersPrev = document.querySelector('.team__arrows .is-prev');
+    const teamSlidersNext = document.querySelector('.team__arrows .is-next');
+
+    const optionsDescription = {
+        loop: true,
+        speed: 1000,
+        centeredSlides: true,
+        simulateTouch: false,
+        allowTouchMove: false,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            prevEl: teamSlidersPrev,
+            nextEl: teamSlidersNext,
+        }
+    }
+
+    const optionsPortraits = {
+        loop: true,
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 36,
+        allowTouchMove: false,
+        simulateTouch: false,
+        speed: 1000,
+        grabCursor: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            prevEl: teamSlidersPrev,
+            nextEl: teamSlidersNext,
+        },
+        breakpoints: {
+            992: {
+                slidesPerView: 5,
+                spaceBetween: 68,
+            },
+        },
+    }
+
+    const teamPortraitsSliderSwiper = new Swiper(teamPortraitsSlider, optionsPortraits);
+    const teamDescriptionsSliderSwiper = new Swiper(teamDescriptionsSlider, optionsDescription);
+}
+
+
 const initTabs = () => {
     const tabsContainers = document.querySelectorAll('[data-tabs-container]');
 
@@ -289,7 +376,7 @@ const initStoryes = () => {
 
     function setCurrentProgress(storyVideo, duration, story, isWhite = false) {
         if (!duration) duration = storyVideo.duration;
-        
+
         const color = isWhite ? '#fff' : '#D9D9D9';
         const currentTime = storyVideo.currentTime;
         const percentage = currentTime / duration * 100 + '%';
@@ -298,29 +385,77 @@ const initStoryes = () => {
     }
 }
 
-const initAlreadyUseBtn = () => {
-    const alreadyUseBtn = document.querySelector('.already-use__btn--no-tab');
-    const alreadyUseTabs = document.querySelectorAll('[data-use]');
+const initAlreadyUseSwitch = () => {
+    const alreadyUseSection = document.querySelector('.already-use');
 
-    if (!alreadyUseBtn || !alreadyUseTabs) return;
+    if (!alreadyUseSection) return;
 
-    const yesText = alreadyUseBtn.dataset.yesText;
-    const noText = alreadyUseBtn.dataset.noText;
+    const alreadyUseBtn = alreadyUseSection.querySelector('.already-use__btn--no-tab');
+    const alreadyUseTabs = alreadyUseSection.querySelectorAll('[data-use]');
 
-    alreadyUseTabs.forEach(tab => {
-        const tabValue = tab.dataset.use;
+    if (alreadyUseBtn && alreadyUseTabs) setTimeout(initTabs, 300);
 
-        tab.addEventListener('click', () => {
-            removeActiveClassesForOther(alreadyUseTabs, 'is-active');
-            tab.classList.add('is-active');
+    function initTabs() {
+        const yesText = alreadyUseBtn.dataset.yesText;
+        const noText = alreadyUseBtn.dataset.noText;
+        const yesWidth = initWidth(yesText);
+        const noWidth = initWidth(noText);
 
-            if (tabValue === 'no') {
-                alreadyUseBtn.textContent = noText;
-            } else {
-                alreadyUseBtn.textContent = yesText;
-            }
+        alreadyUseTabs.forEach(tab => {
+            const tabValue = tab.dataset.use;
+            alreadyUseBtn.style.width = `${yesWidth}px`;
+
+            tab.addEventListener('click', () => {
+                removeActiveClassesForOther(alreadyUseTabs, 'is-active');
+                tab.classList.add('is-active');
+
+                if (tabValue === 'no') {
+                    setCurrentText(noText, noWidth);
+                    setLightClasses();
+                } else {
+                    setCurrentText(yesText, yesWidth);
+                    setDarkClasses();
+                }
+
+            })
         })
-    })
+
+        function setCurrentText(text, newWidth) {
+            alreadyUseBtn.style.width = `${newWidth}px`;
+            alreadyUseBtn.textContent = text;
+        }
+
+        function initWidth(text) {
+            let width;
+            let oldText = alreadyUseBtn.textContent;
+
+            alreadyUseBtn.textContent = text;
+            width = alreadyUseBtn.getBoundingClientRect().width;
+            alreadyUseBtn.textContent = oldText;
+
+            return width;
+        }
+
+        function setLightClasses() {
+            alreadyUseSection.classList.add('is-light');
+            alreadyUseBtn.classList.remove('btn--white');
+
+            alreadyUseTabs.forEach(tab => {
+                tab.classList.remove('btn--white');
+            })
+        }
+
+        function setDarkClasses() {
+            alreadyUseSection.classList.remove('is-light');
+            alreadyUseBtn.classList.add('btn--white');
+
+            alreadyUseTabs.forEach(tab => {
+                tab.classList.add('btn--white')
+            })
+        }
+    }
+
+
 
 }
 
@@ -361,8 +496,23 @@ function heightToggleElement(toggler, blocks) {
     }
 }
 
+function initSmoothScroll() {
+    if (!gsap) return;
+
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+    if (ScrollTrigger.isTouch !== 1) {
+        ScrollSmoother.create({
+            wrapper: '.wrapper',
+            content: '.wrapper__content',
+            smooth: 1.5
+        });
+    }
+}
+
 window.addEventListener("DOMContentLoaded", (e) => {
     initLozad();
+    // initSmoothScroll();
     initTabs();
     initFoldedElements();
     initHeader();
@@ -372,6 +522,8 @@ window.addEventListener("DOMContentLoaded", (e) => {
     initRunningLine();
     initTitleSlider();
     initProcessSlider();
+    initValuesSlider();
+    initTeamSlider();
     initStoryes();
-    initAlreadyUseBtn();
+    initAlreadyUseSwitch();
 });
