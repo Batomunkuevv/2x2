@@ -264,6 +264,65 @@ const initValuesSlider = () => {
     const valuesSliderSwiper = new Swiper(valuesSlider, options)
 }
 
+const initTeamSlider = () => {
+    const teamPortraitsSlider = document.querySelector('.team__portraits');
+    const teamDescriptionsSlider = document.querySelector('.team__description-slider');
+
+    if (!teamPortraitsSlider || !teamDescriptionsSlider) return;
+
+    const teamSlidersPrev = document.querySelector('.team__arrows .is-prev');
+    const teamSlidersNext = document.querySelector('.team__arrows .is-next');
+
+    const optionsDescription = {
+        loop: true,
+        speed: 1000,
+        centeredSlides: true,
+        simulateTouch: false,
+        allowTouchMove: false,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            prevEl: teamSlidersPrev,
+            nextEl: teamSlidersNext,
+        }
+    }
+
+    const optionsPortraits = {
+        loop: true,
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 36,
+        allowTouchMove: false,
+        simulateTouch: false,
+        speed: 1000,
+        grabCursor: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            prevEl: teamSlidersPrev,
+            nextEl: teamSlidersNext,
+        },
+        breakpoints: {
+            992: {
+                slidesPerView: 5,
+                spaceBetween: 68,
+            },
+        },
+    }
+
+    const teamPortraitsSliderSwiper = new Swiper(teamPortraitsSlider, optionsPortraits);
+    const teamDescriptionsSliderSwiper = new Swiper(teamDescriptionsSlider, optionsDescription);
+}
+
+
 const initTabs = () => {
     const tabsContainers = document.querySelectorAll('[data-tabs-container]');
 
@@ -464,6 +523,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
     initTitleSlider();
     initProcessSlider();
     initValuesSlider();
+    initTeamSlider();
     initStoryes();
     initAlreadyUseSwitch();
 });

@@ -775,6 +775,10 @@ a:not([class]):hover {
           flex: 1 1 auto;
 }
 
+.career-hero {
+  margin-top: 69px;
+}
+
 .career-hero__title {
   margin-bottom: 92px;
 }
@@ -1065,7 +1069,6 @@ a:not([class]):hover {
   }
 
   .career-hero {
-    margin-top: 69px;
     margin-bottom: 124px;
   }
 
@@ -1249,6 +1252,10 @@ a:not([class]):hover {
 
   .container {
     max-width: 960px;
+  }
+
+  .career-hero {
+    margin-top: 64px;
   }
 
   .career-hero__title {
@@ -1540,10 +1547,6 @@ a:not([class]):hover {
 
   .container {
     max-width: 540px;
-  }
-
-  .career-hero {
-    margin-top: 64px;
   }
 
   .career-hero__title {

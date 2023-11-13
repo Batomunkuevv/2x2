@@ -940,6 +940,10 @@ a:not([class]):hover {
           flex: 1 1 auto;
 }
 
+.hero-blog {
+  margin-top: 72px;
+}
+
 .hero-blog__title {
   margin-bottom: 0;
 }
@@ -1100,7 +1104,6 @@ a:not([class]):hover {
   }
 
   .hero-blog {
-    margin-top: 72px;
     margin-bottom: 182px;
   }
 
@@ -1214,6 +1217,10 @@ a:not([class]):hover {
 
   .container {
     max-width: 960px;
+  }
+
+  .hero-blog {
+    margin-top: 64px;
   }
 
   .hero-blog__video {
@@ -1541,10 +1548,6 @@ a:not([class]):hover {
 
   .container {
     max-width: 540px;
-  }
-
-  .hero-blog {
-    margin-top: 64px;
   }
 
   .hero-blog__title {
