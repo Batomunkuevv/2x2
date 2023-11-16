@@ -510,6 +510,74 @@ function initSmoothScroll() {
     }
 }
 
+const initPopups = () => {
+    const overlay = document.querySelector(".overlay");
+
+    if (!overlay) return;
+
+    initCloseModalsOnClickOverlay();
+
+    const popups = document.querySelectorAll("[data-popup]");
+    const popupBtns = document.querySelectorAll("[data-popup-btn]");
+
+    if (!popupBtns && !popups) return;
+
+    popupBtns.forEach((btn) => {
+        const popup = overlay.querySelector(`[data-popup=${btn.dataset.popupBtn}]`);
+
+        if (popup) {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openPopup(popup);
+            });
+        }
+    });
+
+    popups.forEach((popup) => {
+        const popupCloses = popup.querySelectorAll("[data-popup-close]");
+
+        if (popupCloses) {
+            popupCloses.forEach((close) => {
+                close.addEventListener("click", (e) => {
+                    closePopup(popup);
+                });
+            });
+        }
+    });
+
+    function openPopup(popup) {
+        overlay.classList.add("is-visible");
+        popup.classList.add("is-visible");
+        document.body.classList.add("is-lock");
+    }
+
+    function closePopup(popup) {
+        overlay.classList.remove("is-visible");
+        popup.classList.remove("is-visible");
+        document.body.classList.remove("is-lock");
+    }
+
+    function initCloseModalsOnClickOverlay() {
+        const overlayChilds = Array.from(overlay.querySelectorAll("*"));
+
+        overlay.addEventListener("click", (e) => {
+            const { target } = e;
+
+            if (!overlayChilds.includes(target)) {
+
+                if (popups) {
+                    popups.forEach((popup) => {
+                        closePopup(popup);
+                    });
+                }
+
+                document.body.classList.remove("is-lock");
+                overlay.classList.remove("is-visible");
+            }
+        });
+    }
+}
+
 window.addEventListener("DOMContentLoaded", (e) => {
     initLozad();
     // initSmoothScroll();
@@ -526,4 +594,5 @@ window.addEventListener("DOMContentLoaded", (e) => {
     initTeamSlider();
     initStoryes();
     initAlreadyUseSwitch();
+    initPopups();
 });
