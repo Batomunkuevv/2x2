@@ -20,6 +20,8 @@
 @import "components/burger";
 @import "components/btn";
 @import "components/story";
+@import "components/overlay";
+@import "components/input"; 
 
 //*</Components>=================================================================================================
 
@@ -73,3 +75,5 @@
 @import "blocks/faqs";
 
 //TODO</Blocks>=================================================================================================
+
+@import "popups/popup-cta";

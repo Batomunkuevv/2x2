@@ -37,4 +37,17 @@
             color: #fff;
         }
     }
+
+    &--border{
+        background: none;
+
+        &.btn--white{
+            color: #fff;
+
+            &:hover{
+                background: #fff;
+                color: $colorMain;
+            }
+        }
+    }
 }
