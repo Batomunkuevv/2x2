@@ -341,20 +341,21 @@ a:not([class]):hover {
   top: 0;
   z-index: 100;
   background: #f2f2f2;
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  -o-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
 }
 
 .site-header.is-scrolling {
+  margin-top: 0;
   -webkit-box-shadow: 0 24px 48px rgba(25, 29, 50, 0.1019607843);
           box-shadow: 0 24px 48px rgba(25, 29, 50, 0.1019607843);
 }
 
 .site-header.is-scrolling-down {
-  -webkit-transform: translate(0, -100%);
-      -ms-transform: translate(0, -100%);
-          transform: translate(0, -100%);
+  -webkit-transform: translate(0, calc(-100% - 32px));
+      -ms-transform: translate(0, calc(-100% - 32px));
+          transform: translate(0, calc(-100% - 32px));
 }
 
 .site-header--is-black {
@@ -1607,6 +1608,12 @@ a:not([class]):hover {
   .site-header {
     padding-top: 16px;
     margin-top: 0;
+  }
+
+  .site-header.is-scrolling-down {
+    -webkit-transform: translate(0, -100%);
+        -ms-transform: translate(0, -100%);
+            transform: translate(0, -100%);
   }
 
   .site-header__panel {

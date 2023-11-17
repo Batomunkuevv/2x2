@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+    <head>
     <meta charset="UTF-8">
     <title>Name site</title>
     <meta name="description" content="Site description">
@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="css/contextual-ad.min.css">
 </head>
 
-<body>
-    <div class="wrapper">
-        <div class="wrapper__content">
+    <body>
+        <div class="wrapper">
             <header class="site-header">
     <div class="container">
         <div class="site-header__body">
@@ -58,8 +57,9 @@
     </div>
 </header>
 
-        <main class="site-page">
-            <div class="service-hero">
+            <div class="wrapper__content">
+                <main class="site-page">
+                    <div class="service-hero">
     <div class="container">
         <div class="service-hero__body">
             <div class="service-hero__left">
@@ -104,8 +104,7 @@
         </div>
     </div>
 </div>
-
-            <section class="niches">
+ <section class="niches">
     <div class="container">
         <h2 class="visually-hidden">Наши ниши</h2>
         <ul class="niches__list">
@@ -127,8 +126,7 @@
         </ul>
     </div>
 </section>
-
-            <section class="forecast">
+ <section class="forecast">
     <div class="container">
         <div class="forecast__body">
             <h2 class="forecast__title">поможем построить прогноз на данных</h2>
@@ -142,7 +140,7 @@
     </div> 
 </section>
 
-            <section class="steps">
+                    <section class="steps">
     <div data-tabs-container class="container">
         <h2 class="steps__title">в два этапа</h2>
         <div class="steps__tabs">
@@ -170,8 +168,7 @@
         </div>
     </div>
 </section>
-
-            <section class="why-we">
+ <section class="why-we">
     <div class="container">
         <div class="why-we__body">
             <h2 class="why-we__title">почему мы</h2>
@@ -195,8 +192,7 @@
         </div>
     </div>
 </section>
-
-            <section class="already-use is-black">
+ <section class="already-use is-black">
     <div class="container">
         <h2 class="already-use__title">уже используете контекстную рекламу?</h2>
         <div class="already-use__tabs">
@@ -212,7 +208,7 @@
     </div>
 </section>
 
-            <section class="process-of-work">
+                    <section class="process-of-work">
     <div class="container">
         <div class="process-of-work__body">
             <h2 class="process-of-work__title">понятный процесс работы</h2>
@@ -248,8 +244,7 @@
         </div>
     </div>
 </section>
-
-            <section class="interested-links">
+ <section class="interested-links">
     <div class="container">
         <h2 class="visually-hidden">Полезные ссылки</h2>
         <div class="interested-links__body">
@@ -276,8 +271,7 @@
         </div>
     </div>
 </section>
-
-            <section class="faqs">
+ <section class="faqs">
     <div class="container">
         <h2 class="faqs__title">если остались<br>  вопросы</h2>
         <ul class="faqs__list">
@@ -376,8 +370,8 @@
         </ul>
     </div>
 </section>
-        </main>
-        <footer class="site-footer">
+                </main>
+                <footer class="site-footer">
     <div class="container">
         <section class="site-footer__body">
             <div class="site-footer__top">
@@ -436,50 +430,49 @@
         </div>
     </div>
 </footer>
-<div class="overlay">
-    <div data-popup="cta" class="popup popup-cta">
-        <button data-popup-close type="button" class="popup__close">
-            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
-                <path d="M41 1L1 41" stroke="currentColor" />
-                <path d="M41 41L1 0.999998" stroke="currentColor" />
-            </svg>
-        </button>
-        <div class="popup-cta__body">
-            <form action="#" class="popup-cta__form">
-                <div class="popup-cta__form-inputs">
-                    <input name="name" type="text" class="input popup-cta__form-input" placeholder="ваше имя" />
-                    <input name="company" type="text" class="input popup-cta__form-input" placeholder="компания" />
-                    <input name="social" type="text" class="input popup-cta__form-input" placeholder="телеграм, вацап или номер телефона" />
-                </div>
-                <button type="submit" class="popup-cta__form-btn btn">отправить</button>
-            </form>
-            <div class="popup-cta__body-right">
-                <div class="popup-cta__manager">
-                    <div class="popup-cta__manager-image">
-                        <img data-lozad src="images/placeholder.png" data-src="images/blocks/popup-cta/kate.jpg" alt="Катя Иванова" title="Катя Иванова" />
+
+            </div>
+            <div class="overlay">
+                <div data-popup="cta" class="popup popup-cta">
+                    <button data-popup-close type="button" class="popup__close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+                            <path d="M41 1L1 41" stroke="currentColor" />
+                            <path d="M41 41L1 0.999998" stroke="currentColor" />
+                        </svg>
+                    </button>
+                    <div class="popup-cta__body">
+                        <form action="#" class="popup-cta__form">
+                            <div class="popup-cta__form-inputs">
+                                <input name="name" type="text" class="input popup-cta__form-input" placeholder="ваше имя" />
+                                <input name="company" type="text" class="input popup-cta__form-input" placeholder="компания" />
+                                <input name="social" type="text" class="input popup-cta__form-input" placeholder="телеграм, вацап или номер телефона" />
+                            </div>
+                            <button type="submit" class="popup-cta__form-btn btn">отправить</button>
+                        </form>
+                        <div class="popup-cta__body-right">
+                            <div class="popup-cta__manager">
+                                <div class="popup-cta__manager-image">
+                                    <img data-lozad src="images/placeholder.png" data-src="images/blocks/popup-cta/kate.jpg" alt="Катя Иванова" title="Катя Иванова" />
+                                </div>
+                                <div class="popup-cta__manager-name">Катя Иванова</div>
+                                <p class="popup-cta__manager-description">ваш проектный менеджер, которая ответит на вопросы, поможет с подбором стратегии или аудитом на старте</p>
+                            </div>
+                            <a href="#" class="popup-cta__policy popup-cta__policy--desktop">политика обработки персональных данных</a>
+                        </div>
                     </div>
-                    <div class="popup-cta__manager-name">Катя Иванова</div>
-                    <p class="popup-cta__manager-description">ваш проектный менеджер, которая ответит на вопросы, поможет с подбором стратегии или аудитом на старте</p>
+                    <div class="popup-cta__bottom">
+                        <a href="#" class="popup-cta__btn btn btn--border btn--white">написать нам в телеграм</a>
+                        <a href="mailto:mail@2×2-agency.ru" class="popup-cta__email">mail@2×2-agency.ru</a>
+                        <a href="#" class="popup-cta__policy">политика обработки персональных данных</a>
+                    </div>
                 </div>
-                <a href="#" class="popup-cta__policy popup-cta__policy--desktop">политика обработки персональных данных</a>
             </div>
         </div>
-        <div class="popup-cta__bottom">
-            <a href="#" class="popup-cta__btn btn btn--border btn--white">написать нам в телеграм</a>
-            <a href="mailto:mail@2×2-agency.ru" class="popup-cta__email">mail@2×2-agency.ru</a>
-            <a href="#" class="popup-cta__policy">политика обработки персональных данных</a>
-        </div>
-    </div>
-</div>
-
-        </div>
-    </div>
-    <script defer src="js/lozad.min.js"></script>
-    <script defer src="js/swiper-bundle.min.js"></script>
-    <script defer src="js/gsap.min.js"></script>
-    <script defer src="js/ScrollSmoother.min.js"></script>
-    <script defer src="js/ScrollTrigger.min.js"></script>
-    <script defer src="js/script.js"></script>
-</body>
-
+        <script defer src="js/lozad.min.js"></script>
+        <script defer src="js/swiper-bundle.min.js"></script>
+        <script defer src="js/gsap.min.js"></script>
+        <script defer src="js/ScrollSmoother.min.js"></script>
+        <script defer src="js/ScrollTrigger.min.js"></script>
+        <script defer src="js/script.js"></script>
+    </body>
 </html>
