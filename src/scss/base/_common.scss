@@ -26,7 +26,6 @@ body {
     text-transform: lowercase;
     color: $colorFont;
     font-weight: 400;
-    background: #f2f2f2;
     -webkit-font-smoothing: antialiased;
     scrollbar-width: 4px;
     scrollbar-color: $colorMain #fff;
@@ -48,14 +47,26 @@ body {
 }
 
 body {
+    background: #f2f2f2;
+
     &.is-lock {
         overflow: hidden;
     }
-}
 
-::selection {
-    background: $colorMain;
-    color: #fff;
+    ::selection {
+        background: $colorMain;
+        color: #fff;
+    }
+
+    &.is-black {
+        background: $colorMain;
+        color: #fff;
+
+        ::selection {
+            background: #fff;
+            color: $colorMain;
+        }
+    }
 }
 
 * {

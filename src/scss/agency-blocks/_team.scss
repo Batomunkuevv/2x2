@@ -20,7 +20,7 @@
             margin-bottom: 40px;
         }
 
-        @media(max-width: 768px){
+        @media (max-width: 768px) {
             margin-bottom: 24px;
             max-width: 150px;
         }
@@ -28,7 +28,7 @@
         &-wrapper {
             align-items: center;
 
-            @media(min-width: 1200px){
+            @media (min-width: 1200px) {
                 height: 200px;
             }
         }
@@ -37,8 +37,8 @@
             height: unset !important;
             aspect-ratio: 1/1;
             transition: all 0.5s ease-in-out 0s;
-            
-            @media(min-width: 992px){
+
+            @media (min-width: 992px) {
                 filter: grayscale(1);
             }
 
@@ -63,9 +63,14 @@
             &.swiper-slide-active {
                 transition: all 0.5s ease-in-out 0s;
 
+                & .team__portrait {
+                    @media (min-width: 992px) {
+                        transform: scale(2);
+                    }
+                }
+
                 @media (min-width: 992px) {
                     filter: none;
-                    transform: scale(2);
                     margin-right: 118px !important;
                 }
             }
