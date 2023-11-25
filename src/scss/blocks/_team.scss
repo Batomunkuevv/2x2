@@ -1,6 +1,12 @@
-.specialists {
+.team {
     @media (min-width: 1200px) {
         margin-bottom: 180px;
+    }
+
+    &--on-agency {
+        @media (min-width: 1200px) {
+            margin-bottom: 152px;
+        }
     }
 
     &__list {
@@ -110,7 +116,7 @@
                 height: 100%;
                 border-radius: 32px;
 
-                @media(max-width: 576px){
+                @media (max-width: 576px) {
                     border-radius: 16px;
                 }
             }

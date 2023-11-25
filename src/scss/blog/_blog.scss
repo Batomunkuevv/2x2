@@ -56,6 +56,7 @@
         border-radius: 100px;
         flex-wrap: nowrap;
         transition: all 0.3s ease-in-out 0s;
+        text-transform: lowercase;
 
         @media (min-width: 1200px) {
             font-size: 18px;
@@ -72,29 +73,12 @@
         &.is-active {
             background: #fff;
             color: $colorMain;
+            pointer-events: none;
         }
 
         &:hover {
             background: #fff;
             color: $colorMain;
-        }
-    }
-
-    &__body {
-        &-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 64px;
-
-            @media (min-width: 1200px) {
-                padding-right: 8px;
-            }
-
-            @media (max-width: 576px) {
-                flex-direction: column-reverse;
-                gap: 40px;
-            }
         }
     }
 
@@ -132,18 +116,7 @@
         }
     }
 
-    &__btn {
-        @media (min-width: 992px) {
-            padding: 16px 40px 20px;
-            font-size: 24px;
-        }
-
-        @media (min-width: 1200px) {
-            font-size: 36px;
-            line-height: 111.111%;
-        }
-    }
-
     &__pagination {
+        justify-content: end;
     }
 }

@@ -1,5 +1,14 @@
 .footer-menu {
     &--is-on-black {
+        & .footer-menu__item {
+            &.is-active {
+                & .footer-menu__link {
+                    color: #fff;
+                    border-bottom: 1px solid #fff;
+                }
+            }
+        }
+
         & .footer-menu__link {
             &:hover {
                 color: #fff;
@@ -25,6 +34,14 @@
     }
 
     &__item {
+        &.is-active {
+            pointer-events: none;
+
+            & .footer-menu__link {
+                color: $colorMain;
+                border-bottom: 1px solid $colorMain;
+            }
+        }
     }
 
     &__link {

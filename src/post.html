@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
-    @@include('html/base/_head.html', { styles: [ 'css/agency.css', ] })
+    @@include('html/base/_head.html', { styles: [ 'css/post.css', ] })
 
     <body>
         <div class="wrapper">
             @@include('html/base/headers/_header.html',{})
             <div class="wrapper__content">
-                <main class="site-page">@@include('html/agency-blocks/_hero.html',{}) @@include('html/agency-blocks/_points.html',{}) @@include('html/agency-blocks/_team.html',{})</main>
+                <main class="site-page">@@include('html/post/_post.html',{})</main>
                 @@include('html/base/footers/_footer.html',{})
             </div>
             @@include('html/base/_overlay.html',{})

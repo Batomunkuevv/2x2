@@ -19,4 +19,14 @@
     @media (max-width: 768px) {
         font-size: 16px;
     }
+
+    &::-webkit-input-placeholder {
+        opacity: 1;
+        color: $colorMain;
+    }
+    
+    &::-moz-placeholder {
+        color: $colorMain;
+        opacity: 1;
+    }
 }

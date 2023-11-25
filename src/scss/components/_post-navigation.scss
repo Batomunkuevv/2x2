@@ -1,0 +1,67 @@
+.post-navigation {
+    padding: 32px;
+    background: $colorMain;
+    border-radius: 12px;
+    color: #fff;
+    transition: all 0.3s linear 0s;
+
+    @media (max-width: 1200px) {
+        padding: 24px;
+    }
+
+    @media (min-width: 1200px) {
+        position: sticky;
+        top: 24px;
+    }
+
+    &__title {
+        text-transform: none;
+    }
+
+    &__list {
+    }
+
+    &__item {
+    }
+
+    &__link {
+        display: block;
+        padding: 0 0 0 25px;
+        line-height: 140%;
+        color: #868b88;
+        transition: all 0.5s ease 0s;
+        position: relative;
+        text-transform: none;
+
+        @media (max-width: 1200px) {
+            color: #fff;
+        }
+
+        @media (max-width: 400px) {
+            font-size: 14px;
+        }
+
+        &:hover {
+            color: #fff;
+
+            &::before {
+                background: #fff;
+            }
+        }
+
+        &::before {
+            transition: all 0.5s ease 0s;
+            content: "";
+            position: absolute;
+            background: #868b88;
+            width: 16px;
+            height: 1px;
+            top: 12px;
+            left: 0;
+
+            @media (max-width: 1200px) {
+                background: #fff;
+            }
+        }
+    }
+}

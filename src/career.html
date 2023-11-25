@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-    @@include('html/base/heads/_head-career.html', { 'title': 'Name site'})
+    @@include('html/base/_head.html', { styles: [ 'css/career.css', ] })
 
     <body>
         <div class="wrapper">
@@ -8,51 +8,15 @@
             <div class="wrapper__content">
                 <main class="site-page">
                     @@include('html/career-blocks/_career-hero.html',{}) @@include('html/career-blocks/_our-values.html',{}) @@include('html/career-blocks/_vacancies.html',{})
-                    @@include('html/career-blocks/_specialists.html',{})
+                    @@include('html/career-blocks/_team.html',{})
                 </main>
                 @@include('html/base/footers/_footer.html',{})
             </div>
-            <div class="overlay">
-                <div data-popup="cta" class="popup popup-cta">
-                    <button data-popup-close type="button" class="popup__close">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
-                            <path d="M41 1L1 41" stroke="currentColor" />
-                            <path d="M41 41L1 0.999998" stroke="currentColor" />
-                        </svg>
-                    </button>
-                    <div class="popup-cta__body">
-                        <form action="#" class="popup-cta__form">
-                            <div class="popup-cta__form-inputs">
-                                <input name="name" type="text" class="input popup-cta__form-input" placeholder="ваше имя" />
-                                <input name="company" type="text" class="input popup-cta__form-input" placeholder="компания" />
-                                <input name="social" type="text" class="input popup-cta__form-input" placeholder="телеграм, вацап или номер телефона" />
-                            </div>
-                            <button type="submit" class="popup-cta__form-btn btn">отправить</button>
-                        </form>
-                        <div class="popup-cta__body-right">
-                            <div class="popup-cta__manager">
-                                <div class="popup-cta__manager-image">
-                                    <img data-lozad src="@img/placeholder.png" data-src="@img/blocks/popup-cta/kate.jpg" alt="Катя Иванова" title="Катя Иванова" />
-                                </div>
-                                <div class="popup-cta__manager-name">Катя Иванова</div>
-                                <p class="popup-cta__manager-description">ваш проектный менеджер, которая ответит на вопросы, поможет с подбором стратегии или аудитом на старте</p>
-                            </div>
-                            <a href="#" class="popup-cta__policy popup-cta__policy--desktop">политика обработки персональных данных</a>
-                        </div>
-                    </div>
-                    <div class="popup-cta__bottom">
-                        <a href="#" class="popup-cta__btn btn btn--border btn--white">написать нам в телеграм</a>
-                        <a href="mailto:mail@2×2-agency.ru" class="popup-cta__email">mail@2×2-agency.ru</a>
-                        <a href="#" class="popup-cta__policy">политика обработки персональных данных</a>
-                    </div>
-                </div>
-            </div>
+            @@include('html/base/_overlay.html',{})
         </div>
         <script defer src="js/lozad.min.js"></script>
         <script defer src="js/swiper-bundle.min.js"></script>
-        <script defer src="js/gsap.min.js"></script>
-        <script defer src="js/ScrollSmoother.min.js"></script>
-        <script defer src="js/ScrollTrigger.min.js"></script>
+        <script defer src="js/lenis.min.js"></script>
         <script defer src="js/script.js"></script>
     </body>
 </html>

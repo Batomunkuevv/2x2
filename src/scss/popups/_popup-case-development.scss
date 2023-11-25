@@ -1,0 +1,110 @@
+.popup-case {
+    width: 746px;
+
+    @media (max-width: 768px) {
+        width: calc(100% - 32px);
+    }
+
+    &__body {
+        padding: 72px 71px 50px 55px;
+        background: #fff;
+        border-radius: 56px;
+
+        @media (max-width: 1200px) {
+            padding: 48px 32px;
+        }
+
+        @media (max-width: 992px) {
+            padding: 32px 24px;
+            border-radius: 32px;
+        }
+
+        @media (max-width: 576px) {
+            border-radius: 16px;
+        }
+
+        @media (max-width: 400px) {
+            padding: 24px 16px;
+        }
+    }
+
+    &__body-top {
+        margin-bottom: 88px;
+        display: grid;
+        grid-template-columns: 1fr 127px;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 64px;
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: 40px;
+        }
+
+        @media(max-width: 576px){
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (max-width: 400px) {
+            margin-bottom: 32px;
+        }
+    }
+
+    &__title {
+        @media (min-width: 1200px) {
+            margin-top: 6px;
+        }
+
+        & br{
+            display: inline;
+        }
+    }
+
+    &__text {
+        text-transform: none;
+        color: #9ea5a9;
+        font-size: 20px;
+        line-height: 140%;
+    }
+
+    &__gif {
+        width: 100%;
+        aspect-ratio: 1/1;
+        grid-column: 2/3;
+        grid-row: 1/3;
+        border-radius: 50%;
+        overflow: hidden;
+
+        @media(max-width: 576px){
+            margin-bottom: 32px;
+            width: 100px;
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__form {
+        &-input {
+            margin-bottom: 48px;
+        }
+
+        &-btn {
+            width: 100%;
+
+            @media (min-width: 768px) {
+                padding: 20px;
+                font-size: 24px;
+            }
+
+            @media (min-width: 1200px) {
+                padding: 26px;
+                font-size: 32px;
+                line-height: toProcent(32, 38);
+            }
+        }
+    }
+}

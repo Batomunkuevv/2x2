@@ -1,5 +1,7 @@
 "use strict";
 
+let LENIS;
+
 const initLozad = () => {
     const lozadElements = document.querySelectorAll('[data-lozad]');
 
@@ -30,6 +32,8 @@ const initHeader = () => {
 
     if (!header) return;
 
+    const stickyElements = document.querySelectorAll('[data-sticky]');
+    const headerHeight = header.getBoundingClientRect().height;
     let lastScrollTop;
 
     window.addEventListener('scroll', toggleScrollingClass);
@@ -40,8 +44,10 @@ const initHeader = () => {
 
         if (scrollTop > lastScrollTop && scrollTop > 0) {
             header.classList.add('is-scrolling-down');
+            observeStickyElements(false);
         } else {
             header.classList.remove('is-scrolling-down');
+            observeStickyElements(true);
         }
 
         lastScrollTop = scrollTop;
@@ -55,6 +61,18 @@ const initHeader = () => {
         } else {
             header.classList.remove('is-scrolling');
         }
+    }
+
+    function observeStickyElements(isShowingHeader) {
+        if (window.matchMedia('(max-width: 992px)').matches) return;
+
+        stickyElements.forEach(element => {
+            element.style.top = ``;
+
+            if (isShowingHeader) {
+                element.style.top = `${headerHeight + 24}px`;
+            }
+        })
     }
 }
 
@@ -74,12 +92,16 @@ const initBurgerMenu = () => {
 
     function handleMenuCloseClick() {
         menu.classList.remove("is-open");
-        document.body.classList.remove("is-lock");
+        document.body.classList.remove('is-lock');
+
+        if (Lenis) initSmoothScroll();
     }
 
     function handleBurgerClick() {
         menu.classList.add("is-open");
-        document.body.classList.add("is-lock");
+        document.body.classList.add('is-lock');
+
+        if (LENIS) LENIS.destroy();
     }
 };
 
@@ -264,65 +286,6 @@ const initValuesSlider = () => {
     const valuesSliderSwiper = new Swiper(valuesSlider, options)
 }
 
-const initTeamSlider = () => {
-    const teamPortraitsSlider = document.querySelector('.team__portraits');
-    const teamDescriptionsSlider = document.querySelector('.team__description-slider');
-
-    if (!teamPortraitsSlider || !teamDescriptionsSlider) return;
-
-    const teamSlidersPrev = document.querySelector('.team__arrows .is-prev');
-    const teamSlidersNext = document.querySelector('.team__arrows .is-next');
-
-    const optionsDescription = {
-        loop: true,
-        speed: 1000,
-        centeredSlides: true,
-        simulateTouch: false,
-        allowTouchMove: false,
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true
-        },
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        navigation: {
-            prevEl: teamSlidersPrev,
-            nextEl: teamSlidersNext,
-        }
-    }
-
-    const optionsPortraits = {
-        loop: true,
-        slidesPerView: 1,
-        centeredSlides: true,
-        spaceBetween: 36,
-        allowTouchMove: false,
-        simulateTouch: false,
-        speed: 1000,
-        grabCursor: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        navigation: {
-            prevEl: teamSlidersPrev,
-            nextEl: teamSlidersNext,
-        },
-        breakpoints: {
-            992: {
-                slidesPerView: 5,
-                spaceBetween: 68,
-            },
-        },
-    }
-
-    const teamPortraitsSliderSwiper = new Swiper(teamPortraitsSlider, optionsPortraits);
-    const teamDescriptionsSliderSwiper = new Swiper(teamDescriptionsSlider, optionsDescription);
-}
-
-
 const initTabs = () => {
     const tabsContainers = document.querySelectorAll('[data-tabs-container]');
 
@@ -459,55 +422,25 @@ const initAlreadyUseSwitch = () => {
 
 }
 
-function removeActiveClassesForOther(array, activeClass) {
-    array.forEach(item => item.classList.remove(activeClass))
-}
+const initSmoothScroll = () => {
+    if (!Lenis) return;
 
-function heightToggleElement(toggler, blocks) {
-    toggler.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (blocks instanceof NodeList) {
-            blocks.forEach(function (block) {
-                addFunctionality(toggler, block);
-            });
-        } else {
-            addFunctionality(toggler, blocks);
-        }
+    LENIS = new Lenis({
+        duration: 3,
+        easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
+        direction: "vertical",
+        gestureDirection: "vertical",
+        smooth: true,
+        smoothTouch: false,
+        touchMultiplier: 2,
     });
 
-    function addFunctionality(toggler, block) {
-        if (block.style.height === "0px" || !block.style.height) {
-            block.style.height = `${block.scrollHeight}px`;
-            toggler.classList.add("is-active");
-            block.classList.add("is-expanded");
-        } else {
-            block.style.height = `${block.scrollHeight}px`;
-            window.getComputedStyle(block, null).getPropertyValue("height");
-            block.style.height = "0";
-            toggler.classList.remove("is-active");
-            block.classList.remove("is-expanded");
-        }
-
-        block.addEventListener("transitionend", () => {
-            if (block.style.height !== "0px") {
-                block.style.height = "auto";
-            }
-        });
+    function raf(time) {
+        LENIS.raf(time);
+        requestAnimationFrame(raf);
     }
-}
 
-function initSmoothScroll() {
-    if (!gsap) return;
-
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
-    if (ScrollTrigger.isTouch !== 1) {
-        ScrollSmoother.create({
-            wrapper: '.wrapper',
-            content: '.wrapper__content',
-            smooth: 1.5
-        });
-    }
+    requestAnimationFrame(raf);
 }
 
 const initPopups = () => {
@@ -548,13 +481,17 @@ const initPopups = () => {
     function openPopup(popup) {
         overlay.classList.add("is-visible");
         popup.classList.add("is-visible");
-        document.body.classList.add("is-lock");
+        document.body.classList.add('is-lock');
+
+        if (LENIS) LENIS.destroy();
     }
 
     function closePopup(popup) {
         overlay.classList.remove("is-visible");
         popup.classList.remove("is-visible");
-        document.body.classList.remove("is-lock");
+        document.body.classList.remove('is-lock');
+
+        if (Lenis) initSmoothScroll();
     }
 
     function initCloseModalsOnClickOverlay() {
@@ -567,20 +504,115 @@ const initPopups = () => {
 
                 if (popups) {
                     popups.forEach((popup) => {
-                        closePopup(popup);
+                        popup.classList.remove("is-visible");
                     });
                 }
 
                 document.body.classList.remove("is-lock");
                 overlay.classList.remove("is-visible");
+                if (Lenis) initSmoothScroll();
             }
         });
     }
 }
 
+const initPostContent = () => {
+    const postBody = document.querySelector('.post__body');
+
+    if (!postBody) return;
+
+    const header = document.querySelector('.site-header');
+    const headerHeight = header.scrollHeight;
+    const postContent = postBody.querySelector('.post__content');
+    const postTitles = postContent.querySelectorAll('h2');
+    const postNavigation = postBody.querySelector('.post-navigation');
+    const postNavigationList = postNavigation.querySelector('.post-navigation__list');
+
+    setIdsForPostTitles();
+    fillPostNavigation();
+
+    function setIdsForPostTitles() {
+        postTitles.forEach((title, i) => {
+            title.setAttribute('id', `post-title-${i}`)
+        })
+    }
+
+    function fillPostNavigation() {
+        postTitles.forEach(title => {
+            const link = createNavigationItem(title);
+
+            postNavigationList.append(link);
+        })
+    }
+
+    function createNavigationItem(title) {
+        const navigationItem = document.createElement('li');
+
+        navigationItem.classList.add('post-navigation__item');
+        navigationItem.innerHTML = `
+            <a data-anchor href="#${title.id}" class="post-navigation__link">${title.textContent}</a>
+        `
+
+        return navigationItem;
+    }
+}
+
+const initAnchors = () => {
+    const anchors = document.querySelectorAll('[data-anchor]');
+
+    if (!anchors) return;
+
+    anchors.forEach(link => {
+
+        link.addEventListener('click', function (e) {
+            let href = this.getAttribute('href');
+
+            if (LENIS) LENIS.scrollTo(href, { offset: -(document.querySelector('.site-header').scrollHeight) });
+        });
+    });
+
+}
+
+function heightToggleElement(toggler, blocks) {
+    toggler.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (blocks instanceof NodeList) {
+            blocks.forEach(function (block) {
+                addFunctionality(toggler, block);
+            });
+        } else {
+            addFunctionality(toggler, blocks);
+        }
+    });
+
+    function addFunctionality(toggler, block) {
+        if (block.style.height === "0px" || !block.style.height) {
+            block.style.height = `${block.scrollHeight}px`;
+            toggler.classList.add("is-active");
+            block.classList.add("is-expanded");
+        } else {
+            block.style.height = `${block.scrollHeight}px`;
+            window.getComputedStyle(block, null).getPropertyValue("height");
+            block.style.height = "0";
+            toggler.classList.remove("is-active");
+            block.classList.remove("is-expanded");
+        }
+
+        block.addEventListener("transitionend", () => {
+            if (block.style.height !== "0px") {
+                block.style.height = "auto";
+            }
+        });
+    }
+}
+
+function removeActiveClassesForOther(array, activeClass) {
+    array.forEach(item => item.classList.remove(activeClass))
+}
+
 window.addEventListener("DOMContentLoaded", (e) => {
-    initLozad();
     initSmoothScroll();
+    initLozad();
     initTabs();
     initFoldedElements();
     initHeader();
@@ -591,8 +623,9 @@ window.addEventListener("DOMContentLoaded", (e) => {
     initTitleSlider();
     initProcessSlider();
     initValuesSlider();
-    initTeamSlider();
     initStoryes();
     initAlreadyUseSwitch();
     initPopups();
+    initPostContent();
+    initAnchors();
 });
