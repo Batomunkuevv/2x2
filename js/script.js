@@ -714,7 +714,7 @@ function isSafari() {
 
 
 window.addEventListener("DOMContentLoaded", (e) => {
-    // initSmoothScroll();
+    initSmoothScroll();
     initForms();
     initLozad();
     initTabs();
