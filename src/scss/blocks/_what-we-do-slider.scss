@@ -1,0 +1,46 @@
+.what-we-do-slider {
+    margin-top: -64px;
+    padding-top: 64px;
+    padding-bottom: 138px;
+
+    @media(max-width: 992px){
+        padding-bottom: 64px;
+    }
+
+    &--on-digital-strategy{
+        @media(min-width: 1200px){
+            padding-bottom: 200px;
+        }
+    }
+    
+    &__list {
+        display: flex;
+        gap: 80px;
+        position: relative;
+        
+        @media(min-width: 1200px){
+            padding-left: 41px;
+        }
+
+        @media(max-width: 1200px){
+            gap: 64px;
+        }
+    }
+
+    &__item {
+        width: 100%;
+        max-width: 1081px;
+        flex-shrink: 0;
+        font-size: 56px;
+        line-height: toProcent(56, 58);
+        font-weight: 500;
+
+        @media(max-width: 992px){
+            font-size: 40px;
+        }
+
+        @media(max-width: 576px){
+            font-size: 32px;
+        }
+    }
+}

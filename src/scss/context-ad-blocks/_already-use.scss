@@ -80,6 +80,10 @@
         @media (max-width: 768px) {
             font-size: 16px;
         }
+
+        &:not(.is-active) {
+            display: none;
+        }
     }
 
     &__btn {

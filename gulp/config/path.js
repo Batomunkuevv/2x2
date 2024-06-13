@@ -13,6 +13,7 @@ export const path = {
         images: `${buildFolder}/images/`,
         fonts: `${buildFolder}/fonts/`,
         files: `${buildFolder}/files/`,
+        projectTable: `${buildFolder}/project-table/`,
     },
     src: {
         js: `${srcFolder}/js/*.js`,
@@ -21,6 +22,7 @@ export const path = {
         scss: `${srcFolder}/scss/*.scss`,
         html: `${srcFolder}/*.html`,
         files: `${srcFolder}/files/**/*.*`,
+        projectTable: `${srcFolder}/project-table/**/*.*`,
     },
     watch: {
         js: `${srcFolder}/js/**/*.js`,
@@ -28,6 +30,7 @@ export const path = {
         html: `${srcFolder}/**/*.html`,
         images: `${srcFolder}/**/*.{jpg,jpeg,png,svg,gif,webp,ico}`,
         files: `${srcFolder}/files/**/*.*`,
+        projectTable: `${srcFolder}/projectTable/**/*.*`,
     },
     clean: buildFolder,
     buildFolder: buildFolder,

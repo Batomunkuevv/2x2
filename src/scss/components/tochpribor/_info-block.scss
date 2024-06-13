@@ -1,0 +1,21 @@
+.info-block {
+    padding: 20px 20px 25px 20px;
+    margin: 55px 0 50px;
+    border-radius: 10px;
+    background: #fef6ae;
+    color: #1f2226;
+    max-width: 710px;
+    font-size: 16px;
+    line-height: 155%;
+    
+    @media(max-width: 992px){
+        margin: 32px 0;
+        padding: 24px 16px;
+    }
+
+    & p {
+        & + p {
+            margin-top: 7px;
+        }
+    }
+}

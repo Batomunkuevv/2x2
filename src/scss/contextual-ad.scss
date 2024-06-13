@@ -21,7 +21,9 @@
 @import "components/btn";
 @import "components/story";
 @import "components/overlay";
-@import "components/input"; 
+@import "components/input";
+@import "components/form-message";
+@import "components/form-success";
 
 //*</Components>=================================================================================================
 
@@ -30,11 +32,8 @@
 .wrapper {
     min-height: 100vh;
     overflow: clip;
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-    }
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -70,8 +69,8 @@
 @import "context-ad-blocks/steps";
 @import "blocks/why-we";
 @import "context-ad-blocks/already-use";
-@import "context-ad-blocks/process-of-work";
-@import "context-ad-blocks/interedted-links";
+@import "blocks/process-of-work";
+@import "blocks/interested-links";
 @import "blocks/faqs";
 
 //TODO</Blocks>=================================================================================================

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/base/_head.html', { styles: [ 'files/swiper-bundle.min.css', 'css/target.css'  ] })
+
+    <body>
+        <div class="wrapper">
+            @@include('html/base/headers/_header.html',{})
+            <main class="site-page">
+                @@include('html/target/_hero.html',{})
+                @@include('html/target/_relink-cases.html',{})
+                @@include('html/target/_about.html',{})
+                @@include('html/target/_every-customer.html',{})
+                @@include('html/target/_advantages.html',{})
+                @@include('html/target/_results.html',{})
+                @@include('html/target/_process-of-work.html',{})
+                @@include('html/target/_interested-links.html',{})
+            </main>
+            @@include('html/base/footers/_footer.html',{})
+            @@include('html/base/_overlay.html',{})
+        </div>
+        <script defer src="js/lozad.min.js"></script>
+        <script defer src="js/swiper-bundle.min.js"></script>
+        <script defer src="js/script.js"></script>
+    </body>
+</html>

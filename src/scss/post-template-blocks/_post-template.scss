@@ -1,0 +1,124 @@
+.post-template {
+    text-transform: none;
+
+    & h2 {
+        margin-bottom: 48px;
+        font-size: 56px;
+        font-weight: 500;
+        line-height: 114.286%;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 32px;
+            font-size: 48px;
+            line-height: 122%;
+        }
+
+        @media (max-width: 992px) {
+            margin-bottom: 24px;
+            font-size: 32px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 28px;
+        }
+    }
+
+    h3 {
+        margin-bottom: 32px;
+        font-size: 48px;
+        line-height: 114.286%;
+        
+        @media (max-width: 1200px) {
+            margin-bottom: 16px;
+            font-size: 40px;
+        }
+
+        @media(max-width: 992px){
+            font-size: 32px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 24px;
+            line-height: toProcent(24, 29);
+        }
+    }
+
+    & ul,
+    & ol {
+        &:not([class]) {
+            margin: 40px 0;
+            color: #e2e7ea;
+
+            @media (min-width: 768px) {
+                font-size: 18px;
+            }
+
+            @media (min-width: 1200px) {
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 140%;
+            }
+
+            @media (max-width: 1200px) {
+                margin: 32px 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            & li {
+                &:not(:last-child) {
+                    margin-bottom: 24px;
+                }
+            }
+        }
+    }
+
+    & ol {
+        counter-reset: item;
+
+        &:not([class]) {
+            & li {
+                counter-increment: item;
+                position: relative;
+                padding-left: 24px;
+
+                &::before {
+                    content: counter(item) ".";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    & ul {
+        &:not([class]) {
+            & li {
+                position: relative;
+                padding-left: 24px;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 10px;
+                    left: 4px;
+                    width: 8px;
+                    height: 8px;
+                    background: #fff;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    & p {
+        & + p {
+            @media (max-width: 768px) {
+                margin-top: 16px;
+            }
+        }
+    }
+}

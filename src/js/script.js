@@ -1,7 +1,5 @@
 "use strict";
 
-let LENIS;
-
 const initLozad = () => {
     const lozadElements = document.querySelectorAll('[data-lozad]');
 
@@ -93,15 +91,11 @@ const initBurgerMenu = () => {
     function handleMenuCloseClick() {
         menu.classList.remove("is-open");
         document.body.classList.remove('is-lock');
-
-        if (Lenis) initSmoothScroll();
     }
 
     function handleBurgerClick() {
         menu.classList.add("is-open");
         document.body.classList.add('is-lock');
-
-        if (LENIS) LENIS.destroy();
     }
 };
 
@@ -116,12 +110,16 @@ const initWhatElseSlider = () => {
         simulateTouch: false,
         allowTouchMove: false,
         autoplay: {
-            delay: 3000,
+            delay: 7000,
         },
         effect: 'fade',
         fadeEffect: {
             crossFade: true
         },
+        pagination: {
+            el: '.what-else__slider-pagination',
+            clickable: true
+        }
     }
 
     const whatElseSliderSwiper = new Swiper(whatElseSlider, options);
@@ -243,7 +241,7 @@ const initProcessSlider = () => {
         simulateTouch: false,
         allowTouchMove: false,
         autoplay: {
-            delay: 3000,
+            delay: 10000,
             disableOnInteraction: false
         },
         fadeEffect: {
@@ -300,8 +298,8 @@ const initTabs = () => {
             const tabcontent = Array.from(tabsContainerTabcontents).find(item => item.dataset.tabcontent === tabValue);
 
             tab.addEventListener('click', () => {
-                removeActiveClassesForOther(tabsContainerBtns, 'is-active');
-                removeActiveClassesForOther(tabsContainerTabcontents, 'is-active');
+                removeActiveClassesFromOther(tabsContainerBtns, 'is-active');
+                removeActiveClassesFromOther(tabsContainerTabcontents, 'is-active');
 
                 tab.classList.add('is-active');
                 tabcontent.classList.add('is-active');
@@ -353,6 +351,8 @@ const initAlreadyUseSwitch = () => {
 
     if (!alreadyUseSection) return;
 
+    const alreadyUseYesContent = alreadyUseSection.querySelector('[data-yes-content]');
+    const alreadyUseNoContent = alreadyUseSection.querySelector('[data-no-content]');
     const alreadyUseBtn = alreadyUseSection.querySelector('.already-use__btn--no-tab');
     const alreadyUseTabs = alreadyUseSection.querySelectorAll('[data-use]');
 
@@ -369,7 +369,8 @@ const initAlreadyUseSwitch = () => {
             alreadyUseBtn.style.width = `${yesWidth}px`;
 
             tab.addEventListener('click', () => {
-                removeActiveClassesForOther(alreadyUseTabs, 'is-active');
+                removeActiveClassesFromOther(alreadyUseTabs, 'is-active');
+                setCurrentContent(tabValue);
                 tab.classList.add('is-active');
 
                 if (tabValue === 'no') {
@@ -382,6 +383,16 @@ const initAlreadyUseSwitch = () => {
 
             })
         })
+
+        function setCurrentContent(tabValue) {
+            if (tabValue === 'no') {
+                alreadyUseNoContent.classList.add('is-active');
+                alreadyUseYesContent.classList.remove('is-active');
+            } else {
+                alreadyUseYesContent.classList.add('is-active');
+                alreadyUseNoContent.classList.remove('is-active');
+            }
+        }
 
         function setCurrentText(text, newWidth) {
             alreadyUseBtn.style.width = `${newWidth}px`;
@@ -420,27 +431,6 @@ const initAlreadyUseSwitch = () => {
 
 
 
-}
-
-const initSmoothScroll = () => {
-    if (!Lenis) return;
-
-    LENIS = new Lenis({
-        duration: 3,
-        easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
-        direction: "vertical",
-        gestureDirection: "vertical",
-        smooth: true,
-        smoothTouch: false,
-        touchMultiplier: 2,
-    });
-
-    function raf(time) {
-        LENIS.raf(time);
-        requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
 }
 
 const initPopups = () => {
@@ -482,16 +472,12 @@ const initPopups = () => {
         overlay.classList.add("is-visible");
         popup.classList.add("is-visible");
         document.body.classList.add('is-lock');
-
-        if (LENIS) LENIS.destroy();
     }
 
     function closePopup(popup) {
         overlay.classList.remove("is-visible");
         popup.classList.remove("is-visible");
         document.body.classList.remove('is-lock');
-
-        if (Lenis) initSmoothScroll();
     }
 
     function initCloseModalsOnClickOverlay() {
@@ -510,22 +496,117 @@ const initPopups = () => {
 
                 document.body.classList.remove("is-lock");
                 overlay.classList.remove("is-visible");
-                if (Lenis) initSmoothScroll();
             }
         });
     }
 }
 
-const initPostContent = () => {
-    const postBody = document.querySelector('.post__body');
+const initWhatWeDoSlider = () => {
+    const whatWeDoSlider = document.querySelector('.what-we-do-slider');
 
-    if (!postBody) return;
+    if (!whatWeDoSlider) return;
+
+    const whatWeDoSliderList = whatWeDoSlider.querySelector('.what-we-do-slider__list');
+    const whatWeDoSliderItems = whatWeDoSlider.querySelectorAll('.what-we-do-slider__item');
+    const whatWeDoSliderListGap = Number(window.getComputedStyle(whatWeDoSliderList).gap.replace(/\D/g, ""));
+    const whatWeDoSliderItemsWidth = whatWeDoSliderItems[0].scrollWidth;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const DEFAULT_DURATION = 3;
+
+    let tlOptions = {
+        scrollTrigger: {
+            trigger: whatWeDoSlider,
+            pin: true,
+            start: "center center",
+            end: '+=600%',
+            scrub: 3,
+        },
+    };
+    let tl = gsap.timeline(tlOptions);
+
+    gsap.defaults({
+        ease: "power1.in",
+        duration: DEFAULT_DURATION,
+    });
+
+    whatWeDoSliderItems.forEach((item, i) => {
+        if (i === 0) {
+            tl
+                .to({}, DEFAULT_DURATION / 6, {})
+
+            return;
+        }
+
+        const leftPosition = ((i * whatWeDoSliderItemsWidth * -1) - whatWeDoSliderListGap) + 'px';
+
+        tl
+            .to(whatWeDoSliderList, { left: leftPosition })
+            .to({}, DEFAULT_DURATION / 6, {})
+    })
+
+    tl.to({}, DEFAULT_DURATION / 2, {})
+}
+
+const initWhatWillDoScrollableAnimation = () => {
+    const whatWillDo = document.querySelector('.what-will-do');
+
+    if (!whatWillDo) return;
+
+    const whatWillDoList = whatWillDo.querySelector('.what-will-do__list');
+    const whatWillDoItems = whatWillDo.querySelectorAll('.what-will-do__item');
+    const whatWillDoListGap = Number(window.getComputedStyle(whatWillDoList).gap.replace(/\D/g, ""));
+    const whatWillDoItemsWidth = whatWillDoItems[0].scrollWidth;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const DEFAULT_DURATION = 10;
+    const header = document.querySelector('.site-header');
+    let tlOptions = {
+        scrollTrigger: {
+            trigger: whatWillDo,
+            pin: true,
+            start: "center center",
+            end: '+=1000%',
+            scrub: 3,
+        },
+    };
+    let tl = gsap.timeline(tlOptions);
+
+    gsap.defaults({
+        ease: "power1.in",
+        duration: DEFAULT_DURATION,
+    });
+
+    whatWillDoItems.forEach((item, i) => {
+        if (i === 0) {
+            tl
+                .to({}, DEFAULT_DURATION / 6, {})
+
+            return;
+        }
+
+        const leftPosition = ((i * whatWillDoItemsWidth * -1) - whatWillDoListGap) + 'px';
+
+        tl
+            .to(whatWillDoList, { left: leftPosition })
+            .to({}, DEFAULT_DURATION / 6, {})
+    })
+
+    tl.to({}, DEFAULT_DURATION / 2, {})
+}
+
+const initPostContent = () => {
+    const postWrapper = document.querySelector('.post__wrapper');
+
+    if (!postWrapper) return;
 
     const header = document.querySelector('.site-header');
     const headerHeight = header.scrollHeight;
-    const postContent = postBody.querySelector('.post__content');
+    const postContent = postWrapper.querySelector('.post__content');
     const postTitles = postContent.querySelectorAll('h2');
-    const postNavigation = postBody.querySelector('.post-navigation');
+    const postNavigation = postWrapper.querySelector('.post-navigation');
     const postNavigationList = postNavigation.querySelector('.post-navigation__list');
 
     setIdsForPostTitles();
@@ -565,12 +646,217 @@ const initAnchors = () => {
     anchors.forEach(link => {
 
         link.addEventListener('click', function (e) {
-            let href = this.getAttribute('href');
+            e.preventDefault();
 
-            if (LENIS) LENIS.scrollTo(href, { offset: -(document.querySelector('.site-header').scrollHeight) });
+            const href = this.getAttribute('href');
+            const scrollTarget = document.querySelector(href);
+            const topOffset = document.querySelector('.site-header').offsetHeight;
+            const elementPosition = scrollTarget.getBoundingClientRect().top;
+            const offsetPosition = elementPosition - topOffset;
+
+            window.scrollBy({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         });
     });
 
+}
+
+const wrapTochpriborTables = () => {
+    const caseTochpribor = document.querySelector('.case-tochpribor');
+
+    if (!caseTochpribor) return;
+
+    const caseTochpriborTables = caseTochpribor.querySelectorAll('table:not([class])');
+
+    caseTochpriborTables.forEach(table => {
+        const wrapper = document.createElement('div');
+
+        wrapper.classList.add('case-tochpribor__table');
+        table.insertAdjacentElement('beforebegin', wrapper);
+        wrapper.append(table);
+    })
+}
+
+const initBriefChartSlider = () => {
+    const briefChartSlider = document.querySelector('.brief-tochpribor__slider');
+
+    if (!briefChartSlider) return;
+
+    const briefChartDates = document.querySelectorAll('.brief-tochpribor__slider-date');
+
+    const options = {
+        speed: 700,
+        effect: 'fade',
+        simulateTouch: false,
+        allowTouchMove: false,
+        fadeEffect: {
+            crossFade: true
+        },
+        on: {
+            slideChange: function () {
+                removeActiveClassesFromOther(briefChartDates, 'is-active');
+                briefChartDates[this.realIndex].classList.add('is-active');
+            }
+        }
+    };
+
+    const briefChartSliderSwiper = new Swiper(briefChartSlider, options);
+
+    briefChartDates.forEach((date, i) => {
+        date.addEventListener('click', () => {
+            briefChartSliderSwiper.slideTo(i);
+        })
+    })
+}
+
+const initForms = () => {
+    const forms = document.querySelectorAll('.wpcf7');
+
+    if (!forms) return;
+
+    forms.forEach(form => {
+        const formBtn = form.querySelector('.popup-cta__form-btn');
+        const formNode = form.querySelector('form');
+        const formSuccess = form.querySelector('[data-form-success]');
+        const formMessage = form.querySelector('[data-form-message]');
+
+        form.addEventListener('wpcf7mailsent', (e) => {
+            const { contactFormId: formId, formData } = e.detail;
+
+            formMessage.textContent = '';
+            formSuccess.classList.add('is-visible');
+            formMessage.classList.remove('is-visible');
+
+            if (formBtn && ym) sendMetric(formBtn.id);
+
+            if (formId === 10285) sendMagnetLeadership(formData);
+
+            setTimeout(resetForm, 5000);
+        })
+
+        form.addEventListener('wpcf7invalid', (e) => {
+            formMessage.textContent = e.detail.apiResponse.message;
+
+            formMessage.classList.add('is-visible');
+        })
+
+        form.addEventListener('wpcf7spam', (e) => {
+            formMessage.textContent = e.detail.apiResponse.message;
+
+            formMessage.classList.add('is-visible');
+        })
+
+        form.addEventListener('wpcf7mailfailed', (e) => {
+            formMessage.textContent = e.detail.apiResponse.message;
+
+            formMessage.classList.add('is-visible');
+        })
+
+        function resetForm() {
+            formNode.reset();
+            formSuccess.classList.remove('is-visible');
+        }
+    })
+
+    function sendMagnetLeadership(formData) {
+        const body = {
+            action: 'send_magnet_leadership',
+            email: formData.get('email')
+        };
+
+        jQuery.post(txt_script_variables.ajaxUrl, body, function (response) {
+        });
+    }
+
+    function sendMetric(formId) {
+        switch (formId) {
+            case 'page_home_form': {
+                ym(89314443, 'reachGoal', 'page_home_form')
+            }
+            case 'page_seo_form': {
+                ym(89314443, 'reachGoal', 'page_seo_form')
+            }
+            case 'page_context_form': {
+                ym(89314443, 'reachGoal', 'page_context_form')
+            }
+            case 'page_target_form': {
+                ym(89314443, 'reachGoal', 'page_target_form')
+            }
+            case 'case_tochpribor_form': {
+                ym(89314443, 'reachGoal', 'case_tochpribor_form')
+            }
+        }
+    }
+}
+
+const initSeoFormats = () => {
+    const seoFormats = document.querySelector('.formats-seo');
+
+    if (!seoFormats) return;
+
+    let tabsSlider, tabsContentsSlider;
+    const seoFormatsTabsSlider = seoFormats.querySelector('.formats-seo__tabs');
+    const seoFormatsTabsContentsSlider = seoFormats.querySelector('.formats-seo__tabscontents');
+
+    if (seoFormatsTabsSlider) {
+        seoFormatsTabsSlider.addEventListener('click', handleTabClick);
+        initTabsSlider();
+    };
+    if (seoFormatsTabsSlider) initTabsContentsSlider();
+
+    function initTabsSlider() {
+        const options = {
+            speed: 1000,
+            spaceBetween: 32,
+            slidesPerView: 'auto',
+            loop: true,
+            on: {
+                slideChange: function () {
+                    tabsContentsSlider?.slideTo(this.realIndex + 1);
+                }
+            },
+            breakpoints: {
+                768: {
+                    spaceBetween: 48,
+                },
+                1200: {
+                    spaceBetween: 114,
+                }
+            }
+        }
+
+        tabsSlider = new Swiper(seoFormatsTabsSlider, options);
+    }
+
+    function initTabsContentsSlider() {
+        const options = {
+            speed: 1000,
+            loop: true,
+            effect: 'fade',
+            simulateTouch: false,
+            allowTouchMove: false,
+            autoHeight: true,
+            fadeEffect: {
+                crossFade: true
+            }
+        }
+
+        tabsContentsSlider = new Swiper(seoFormatsTabsContentsSlider, options);
+    }
+
+    function handleTabClick(e) {
+        e.preventDefault();
+
+        const { target } = e;
+
+        if (target.classList.contains('formats-seo__tab')) {
+            const slideIndex = target.dataset.swiperSlideIndex;
+
+            tabsSlider.slideTo(slideIndex);
+        }
+    }
 }
 
 function heightToggleElement(toggler, blocks) {
@@ -606,12 +892,13 @@ function heightToggleElement(toggler, blocks) {
     }
 }
 
-function removeActiveClassesForOther(array, activeClass) {
+function removeActiveClassesFromOther(array, activeClass) {
     array.forEach(item => item.classList.remove(activeClass))
 }
 
+
 window.addEventListener("DOMContentLoaded", (e) => {
-    initSmoothScroll();
+    initForms();
     initLozad();
     initTabs();
     initFoldedElements();
@@ -628,4 +915,9 @@ window.addEventListener("DOMContentLoaded", (e) => {
     initPopups();
     initPostContent();
     initAnchors();
+    wrapTochpriborTables();
+    initBriefChartSlider();
+    initSeoFormats();
+    initWhatWeDoSlider();
+    initWhatWillDoScrollableAnimation();
 });

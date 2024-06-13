@@ -218,6 +218,7 @@
     }
 
     &__bottom {
+        margin-bottom: 48px;
         display: flex;
         align-items: end;
         justify-content: space-between;
@@ -265,5 +266,11 @@
         @media (max-width: 768px) {
             font-size: 16px;
         }
+    }
+
+    &__arda{
+        width: 300px;
+        aspect-ratio: 800/125;
+        display: block;
     }
 }

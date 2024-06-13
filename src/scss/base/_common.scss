@@ -27,7 +27,7 @@ body {
     color: $colorFont;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
-    scrollbar-width: 4px;
+    scrollbar-width: thin;
     scrollbar-color: $colorMain #fff;
 
     &::-webkit-scrollbar {
@@ -53,11 +53,6 @@ body {
         overflow: hidden;
     }
 
-    ::selection {
-        background: $colorMain;
-        color: #fff;
-    }
-
     &.is-black {
         background: $colorMain;
         color: #fff;
@@ -71,6 +66,26 @@ body {
             background: #fff;
             color: $colorMain;
         }
+    }
+
+    &.is-tochpribor {
+        background: $tochpriborBgColor;
+        color: #fff;
+        scrollbar-color: #fff $tochpriborBgColor;
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #fff;
+        }
+
+        ::selection {
+            background: #fff;
+            color: $colorMain;
+        }
+    }
+
+    ::selection {
+        background: $colorMain;
+        color: #fff;
     }
 }
 
@@ -150,6 +165,34 @@ section {
             padding: 64px 0;
         }
     }
+
+    &.is-gray {
+        background: #e2e7ea;
+
+        @media (max-width: 992px) {
+            padding: 64px 0;
+        }
+    }
+}
+
+.section-text {
+    @media (min-width: 1200px) {
+        font-size: 32px;
+        line-height: 118.75%;
+    }
+
+    @media (min-width: 768px) and (max-width: 1200px) {
+        font-size: 24px;
+        line-height: 155%;
+    }
+
+    & p {
+        & + p {
+            @media (min-width: 1200px) {
+                margin-top: 40px;
+            }
+        }
+    }
 }
 
 // P
@@ -172,6 +215,10 @@ img {
     max-width: 100%;
     object-fit: cover;
     object-position: center;
+
+    @media (max-width: 1200px) {
+        height: auto;
+    }
 }
 
 // Svg
@@ -219,6 +266,26 @@ a {
     overflow: hidden;
 }
 
+// Brs
+
+* {
+    &:not(.mobile-br) {
+        & br {
+            @media (max-width: 1200px) {
+                display: none;
+            }
+        }
+    }
+
+    & .mobile-br {
+        & br {
+            @media (max-width: 1200px) {
+                display: block;
+            }
+        }
+    }
+}
+
 // Swiper
 
 .swiper-pagination--is-white {
@@ -253,4 +320,12 @@ a {
 
 .wpcf7 form.invalid .wpcf7-response-output {
     border-color: $colorMain;
+}
+
+.wpcf7-not-valid-tip {
+    display: none;
+}
+
+.wpcf7-response-output {
+    display: none;
 }

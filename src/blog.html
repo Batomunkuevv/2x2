@@ -5,15 +5,16 @@
     <body class="is-black">
         <div class="wrapper">
             @@include('html/base/headers/_header-black.html',{})
-            <div class="wrapper__content">
-                <main class="site-page">@@include('html/blog/_hero-blog.html',{}) @@include('html/blog/_blog.html',{})</main>
-                @@include('html/base/footers/_footer-black.html',{})
-            </div>
+            <main class="site-page">
+                @@include('html/blog/_hero-blog.html',{})
+                @@include('html/blog/_blog.html',{})
+                @@include('html/blog/_mailing.html',{})
+            </main>
+            @@include('html/base/footers/_footer-black.html',{})
+            @@include('html/blog/_magnet-leadership.html',{})
             @@include('html/base/_overlay.html',{})
         </div>
         <script defer src="js/lozad.min.js"></script>
-        <script defer src="js/swiper-bundle.min.js"></script>
-        <script defer src="js/lenis.min.js"></script>
         <script defer src="js/script.js"></script>
     </body>
 </html>

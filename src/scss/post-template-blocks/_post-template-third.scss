@@ -1,0 +1,28 @@
+.third-block {
+    @media (min-width: 1200px) {
+        margin-bottom: 146px;
+    }
+
+    &__title {
+    }
+
+    &__text {
+        color: #e2e7ea;
+
+        & p {
+            @media (min-width: 768px) {
+                font-size: 18px;
+            }
+
+            @media (min-width: 1200px) {
+                font-size: 32px;
+                line-height: 125%;
+            }
+
+            & + ol,
+            & + ul {
+                margin-top: 126px;
+            }
+        }
+    }
+}

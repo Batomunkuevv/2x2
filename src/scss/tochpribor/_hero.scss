@@ -1,0 +1,149 @@
+.hero-tochpribor {
+    margin-top: 43px;
+
+    @media (min-width: 1200px) {
+        margin-bottom: 130px;
+    }
+
+    &__image {
+        margin-bottom: 55px;
+
+        @media (min-width: 1290px) {
+            margin-left: -170px;
+            margin-right: -170px;
+        }
+
+        @media (max-width: 992px) {
+            margin-bottom: 32px;
+        }
+    }
+
+    &__caption {
+        margin-bottom: 16px;
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 147%;
+
+        @media (max-width: 1200px) {
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 20px;
+        }
+    }
+
+    &__title {
+    }
+
+    &__text {
+        margin-bottom: 60px;
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 145%;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 48px;
+            line-height: 155%;
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: 40px;
+            font-size: 20px;
+        }
+
+        & p {
+            font-size: inherit;
+            line-height: inherit;
+        }
+    }
+
+    &__info {
+        margin-bottom: 50px;
+        display: grid;
+        align-items: start;
+        grid-template-columns: 1.2fr 1fr;
+        grid-template-rows: auto 1fr;
+        column-gap: 20px;
+        row-gap: 25px;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 48px;
+            align-items: stretch;
+        }
+
+        @media (max-width: 992px) {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: 40px;
+        }
+
+        &-item {
+            padding: 25px 30px 40px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 500;
+
+            @media (max-width: 992px) {
+                padding: 24px 16px;
+            }
+
+            & p {
+                font-size: 30px;
+                line-height: 146%;
+
+                @media (max-width: 1200px) {
+                    line-height: 155%;
+                    font-size: 24px;
+                }
+
+                @media (max-width: 768px) {
+                    font-size: 20px;
+                }
+            }
+
+            &--company {
+                grid-row: span 2;
+            }
+
+            &--task {
+            }
+
+            &--period {
+            }
+
+            &-caption {
+                margin-bottom: 9px;
+                display: block;
+                font-weight: 500;
+                opacity: 0.3;
+            }
+        }
+    }
+
+    &__intro {
+        padding: 35px 30px 40px;
+        margin: 0;
+        max-width: unset;
+        font-size: 20px;
+
+        & p {
+            &:first-child {
+                & + p {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            padding: 24px 16px;
+            font-size: 16px;
+        }
+    }
+}

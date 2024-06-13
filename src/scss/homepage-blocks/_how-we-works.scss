@@ -4,84 +4,62 @@
     }
 
     &__body {
-        display: flex;
-        align-items: center;
+        padding: 32px 48px;
         position: relative;
         border-radius: 56px;
+        overflow: hidden;
 
         @media (max-width: 992px) {
             border-radius: 32px;
         }
 
-        @media (max-width: 576px) {
-            border-radius: 16px;
+        @media (max-width: 768px) {
+            padding: 32px 24px;
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 576px) {
+            padding: 0;
             display: block;
             border-radius: 0;
         }
 
-        @media (min-width: 400px) {
+        @media (min-width: 576px) {
             aspect-ratio: 1200/600;
-            padding: 32px;
             color: #fff;
-        }
-    }
-
-    &__content {
-        margin: 0 auto;
-        max-width: 667px;
-
-        @media (max-width: 992px) {
-            max-width: 347px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        @media (max-width: 768px) {
-            max-width: 287px;
-        }
+        &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
 
-        @media (max-width: 400px) {
-            max-width: unset;
+            @media (max-width: 576px) {
+                display: none;
+            }
         }
     }
 
     &__title {
-        margin-bottom: 33px;
+        margin-bottom: 0;
 
-        @media (min-width: 1200px) {
-            margin-left: 12px;
-        }
-
-        @media (max-width: 768px) {
-            margin-bottom: 16px;
-        }
-    }
-
-    &__description {
-        max-width: 522px;
-        font-size: 36px;
-        font-weight: 500;
-        line-height: 111.111%;
-
-        @media (min-width: 1200px) {
-            margin-left: 12px;
-        }
-
-        @media (max-width: 1200px) {
-            font-size: 32px;
-        }
-
-        @media (max-width: 992px) {
-            font-size: 24px;
-        }
-
-        @media (max-width: 768px) {
-            font-size: 16px;
-        }
-
-        @media (max-width: 400px) {
+        @media(max-width: 576px){
             margin-bottom: 32px;
+        }
+
+        @media (min-width: 576px) {
+            text-align: center;
+            position: relative;
+            color: #fff;
+            z-index: 2;
+        }
+
+        @media (min-width: 1200px) {
+            font-size: 64px;
         }
     }
 
@@ -98,13 +76,11 @@
 
         @media (max-width: 576px) {
             border-radius: 16px;
+            position: static;
+            aspect-ratio: 1.1/1;
         }
 
-        @media (max-width: 400px) {
-            position: static;
-        }
-        
-        & video{
+        & video {
         }
     }
 }

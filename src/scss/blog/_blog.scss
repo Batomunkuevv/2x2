@@ -1,6 +1,8 @@
 .blog {
-    @media (min-width: 1200px) {
-        margin-bottom: 145px;
+    margin-bottom: 26px;
+
+    @media(max-width: 992px){
+        margin-bottom: 32px;
     }
 
     &__filters {
@@ -49,6 +51,9 @@
 
     &__filter {
         padding: 8px 20px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: #fff;
         font-weight: 500;
         line-height: 102%;

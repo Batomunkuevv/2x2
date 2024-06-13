@@ -2,7 +2,7 @@
 
 //*<Base>=======================================================================================================
 
-@import "base/fonts.scss";
+@import "base/fonts";
 @import "base/function";
 @import "base/animation";
 @import "base/variables";
@@ -21,6 +21,8 @@
 @import "components/btn";
 @import "components/overlay";
 @import "components/input";
+@import "components/form-message";
+@import "components/form-success";
 
 //*</Components>=================================================================================================
 
@@ -28,12 +30,9 @@
 
 .wrapper {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     overflow: clip;
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-    }
 }
 
 .container {

@@ -22,6 +22,8 @@
 @import "components/overlay";
 @import "components/input";
 @import "components/post-navigation";
+@import "components/form-message";
+@import "components/form-success";
 
 //*</Components>=================================================================================================
 
@@ -30,11 +32,8 @@
 .wrapper {
     min-height: 100vh;
     overflow: clip;
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-    }
+    display: flex;
+    flex-direction: column;
 }
 
 .container {

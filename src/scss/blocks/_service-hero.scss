@@ -1,7 +1,7 @@
 .service-hero {
     margin-top: 68px;
 
-    @media(max-width: 1200px){
+    @media (max-width: 1200px) {
         margin-top: 64px;
     }
 
@@ -19,7 +19,7 @@
             justify-content: space-between;
         }
 
-        @media(max-width: 768px){
+        @media (max-width: 768px) {
             flex-direction: column;
             gap: 32px;
         }
@@ -34,13 +34,13 @@
     &__title {
         margin-bottom: 47px;
 
-        @media(max-width: 768px){
+        @media (max-width: 768px) {
             margin-bottom: 32px;
         }
     }
 
     &__video {
-        @media(max-width: 768px){
+        @media (max-width: 768px) {
             margin: 0 auto;
         }
     }
@@ -49,11 +49,11 @@
         padding-top: 113px;
         max-width: 469px;
 
-        @media(max-width: 992px){
+        @media (max-width: 992px) {
             padding-top: 80px;
         }
 
-        @media(max-width: 768px){
+        @media (max-width: 768px) {
             padding: 0;
         }
 
@@ -87,7 +87,7 @@
         & br {
             display: inline;
 
-            @media(max-width: 768px){
+            @media (max-width: 768px) {
                 display: none;
             }
         }
@@ -106,7 +106,7 @@
             line-height: 111.111%;
         }
 
-        @media(max-width: 576px){
+        @media (max-width: 576px) {
             width: 100%;
         }
     }

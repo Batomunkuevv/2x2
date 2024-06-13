@@ -1,0 +1,90 @@
+.interested-links {
+    @media (min-width: 1200px) {
+        margin-bottom: 148px;
+    }
+
+    &.is-black {
+        @media (min-width: 1200px) {
+            padding: 115px 0;
+            margin-bottom: 148px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 80px;
+        row-gap: 71px;
+
+        @media (max-width: 1200px) {
+            column-gap: 56px;
+            row-gap: 48px;
+        }
+
+        @media (max-width: 992px) {
+            column-gap: 40px;
+            row-gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 24px;
+        }
+    }
+
+    &__item {
+    }
+
+    &__link {
+        color: inherit;
+        display: block;
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 118.75%;
+        text-transform: none;
+        border-bottom: 1px solid transparent;
+
+        @media (max-width: 992px) {
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            padding-bottom: 24px;
+            font-size: 18px;
+            border-color: #fff;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        @media(max-width: 400px){
+            font-size: 16px;
+        }
+
+        &::after {
+            background: url("../images/icons/arrow.svg") center/100% 100% no-repeat;
+        }
+
+        &:hover {
+            border-color: #fff;
+        }
+
+        &-arrow {
+            width: 32px;
+            flex: none;
+
+            @media (min-width: 768px) {
+                display: none;
+            }
+
+            & svg{
+                width: 100%;
+            }
+        }
+    }
+}

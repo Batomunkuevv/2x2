@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/base/_head.html', { styles: [ 'css/tochpribor.css', 'files/swiper-bundle.min.css' ] })
+
+    <body class="is-tochpribor">
+        <div class="wrapper">
+            @@include('html/base/headers/_header-case.html',{})
+            <main class="site-page">
+                <article class="case-tochpribor">
+                    @@include('html/tochpribor/_hero.html',{})
+                    @@include('html/tochpribor/_brief.html',{})
+                    @@include('html/tochpribor/_before.html',{})
+                    @@include('html/tochpribor/_first-step.html',{})
+                    @@include('html/tochpribor/_second-step.html',{})
+                    @@include('html/tochpribor/_third-step.html',{})
+                    @@include('html/tochpribor/_fourth-step.html',{})
+                    @@include('html/tochpribor/_fifth-step.html',{})
+                    @@include('html/tochpribor/_what-else.html',{})
+                    @@include('html/tochpribor/_result.html',{})
+                    @@include('html/tochpribor/_cta.html',{})
+                </article>
+            </main>
+            @@include('html/base/footers/_footer-black.html',{})
+            @@include('html/base/_overlay.html',{})
+        </div>
+        <script defer src="js/lozad.min.js"></script>
+        <script defer src="js/swiper-bundle.min.js"></script>
+        <script defer src="js/script.js"></script>
+    </body>
+</html>

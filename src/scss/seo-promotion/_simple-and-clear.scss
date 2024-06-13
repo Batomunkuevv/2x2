@@ -1,0 +1,30 @@
+.simple-and-clear {
+    padding: 114px 0 140px;
+
+    &__title {
+        line-height: toProcent(100, 120);
+        text-transform: none;
+
+        @media(max-width: 768px){
+            margin-bottom: 32px;
+        }
+    }
+
+    &__content {
+        max-width: 808px;
+        margin-bottom: 54px;
+        line-height: toProcent(32, 40);
+
+        @media (max-width: 992px) {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__btn {
+        @media(max-width: 350px){
+            max-width: 100%;
+            display: block;
+            text-overflow: ellipsis;
+        }
+    }
+}

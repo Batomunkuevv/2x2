@@ -53,6 +53,8 @@
         width: fit-content;
         z-index: -1;
         font-size: 100px;
+        font-family: $fontFamily;
+        color: $colorMain;
 
         @media (max-width: 1200px) {
             transform: translate(-40%, -74%);

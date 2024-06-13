@@ -5,10 +5,20 @@
             <button data-use="yes" type="button" class="already-use__tab btn btn--white is-active">да</button>
             <button data-use="no" type="button" class="already-use__tab btn btn--white">нет</button>
         </div>
-        <div class="already-use__text">
+        <div data-yes-content class="already-use__text is-active">
             <p>проанализируем ваш запуск и предложим улучшения на основе данных и опыта. предложим план развития для требуемого результата</p>
         </div>
-        <button type="button" data-popup-btn="cta" data-yes-text="получить бесплатный аудит" data-no-text="получить бесплатную стратегию" href="#" class="already-use__btn already-use__btn--no-tab btn btn--white">
+        <div data-no-content class="already-use__text">
+            <p>проанализируем ваш запуск и предложим улучшения на основе данных и опыта.</p>
+        </div>
+        <button
+            type="button"
+            data-popup-btn="cta"
+            data-yes-text="получить бесплатный аудит"
+            data-no-text="получить бесплатную стратегию"
+            href="#"
+            class="already-use__btn already-use__btn--no-tab btn btn--white"
+        >
             получить бесплатный аудит
         </button>
     </div>

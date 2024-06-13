@@ -1,0 +1,49 @@
+.side-numbers {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @media (max-width: 1200px) {
+        display: none;
+    }
+
+    &--before {
+        top: 11.1%;
+        right: -53px;
+    }
+
+    &--first-step-first {
+        top: 2.9%;
+        right: 83px;
+    }
+
+    &--first-step-second {
+        top: 48.3%;
+        right: -35px;
+    }
+
+    &--what-else {
+        top: 6.2%;
+        right: -32px;
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 34px;
+        }
+
+        &-value {
+            font-size: 70px;
+            font-weight: 300;
+            line-height: 110%;
+        }
+
+        &-description {
+            max-width: 210px;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 155%;
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
+}

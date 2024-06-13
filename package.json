@@ -63,5 +63,8 @@
     "vinyl-ftp": "^0.6.1",
     "webpack": "^5.65.0",
     "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "gulp-fonter-2": "^0.3.0"
   }
 }

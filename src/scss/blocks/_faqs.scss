@@ -24,7 +24,7 @@
             margin-bottom: 36px;
             border-bottom: 1px solid $colorMain;
 
-            @media(max-width: 1200px){
+            @media (max-width: 1200px) {
                 padding-bottom: 32px;
                 margin-bottom: 32px;
             }
@@ -36,7 +36,7 @@
             align-items: start;
             gap: 20px;
 
-            @media(max-width: 992px){
+            @media (max-width: 992px) {
                 justify-content: space-between;
                 gap: 16px;
             }
@@ -58,7 +58,7 @@
                     font-size: 24px;
                 }
 
-                @media(max-width: 768px){
+                @media (max-width: 768px) {
                     font-size: 20px;
                 }
             }
@@ -100,6 +100,44 @@
 
             @media (max-width: 1200px) {
                 font-size: 16px;
+            }
+
+            & p {
+                &:has(+ ul),
+                &:has(+ ol) {
+                    margin-bottom: 25px;
+                }
+            }
+
+            & ul {
+                & li {
+                    padding-left: 13px;
+                    position: relative;
+
+                    &::before {
+                        content: ("•");
+                        position: absolute;
+                        top: 1px;
+                        left: 0;
+                    }
+                }
+            }
+
+            ol:not([class]) {
+                counter-reset: item;
+
+                & li {
+                    counter-increment: item;
+                    position: relative;
+                    padding-left: 24px;
+
+                    &::before {
+                        content: counter(item) ".";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
             }
         }
     }

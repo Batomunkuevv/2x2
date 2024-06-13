@@ -21,9 +21,12 @@
 @import "components/btn";
 @import "components/case";
 @import "components/review";
-@import "components/overlay"; 
-@import "components/input"; 
-@import "popups/popup-case-development"; 
+@import "components/overlay";
+@import "components/input";
+@import "components/form-message";
+@import "components/form-success";
+@import "components/story";
+@import "popups/popup-case-development";
 
 //*</Components>=================================================================================================
 
@@ -32,11 +35,8 @@
 .wrapper {
     min-height: 100vh;
     overflow: clip;
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-    }
+    display: flex;
+    flex-direction: column;
 }
 
 .container {

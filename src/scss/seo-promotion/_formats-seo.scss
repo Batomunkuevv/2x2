@@ -1,0 +1,148 @@
+.formats-seo {
+    @media(min-width: 1200px){
+        margin-bottom: 156px;
+    }
+
+    &__title {
+        @media (max-width: 768px) {
+            margin-bottom: 32px;
+        }
+    }
+
+    &__text {
+        margin-bottom: 92px;
+        max-width: 664px;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 64px;
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: 48px;
+        }
+    }
+
+    &__tabs {
+        margin-bottom: 56px;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 576px) {
+            padding: 0 16px;
+            margin-left: -16px;
+            margin-right: -16px;
+        }
+
+        &-wrapper {
+            transition-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1.2);
+        }
+    }
+
+    &__tab {
+        width: auto !important;
+        max-width: 321px;
+        cursor: pointer;
+
+        &.swiper-slide-active {
+            & .formats-seo__tab-btn {
+                border-color: #fff;
+            }
+        }
+
+        &-btn {
+            padding-bottom: 24px;
+            border-bottom: 1px solid transparent;
+            font-size: 36px;
+            line-height: toProcent(36, 40);
+            font-weight: 500;
+            color: #fff;
+            pointer-events: none;
+            text-align: left;
+            transition: all 0.3s ease-in-out 0s;
+
+            @media (max-width: 1200px) {
+                padding-bottom: 12px;
+                font-size: 24px;
+            }
+
+            @media (max-width: 992px) {
+                font-size: 20px;
+            }
+
+            @media (max-width: 768px) {
+                padding-bottom: 8px;
+                font-size: 16px;
+                line-height: 130%;
+            }
+
+            & br {
+                display: block;
+            }
+        }
+    }
+
+    &__tabscontents {
+        &-wrapper {
+        }
+    }
+
+    &__tabcontent {
+        font-size: 20px;
+        line-height: toProcent(20, 28);
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+            line-height: 130%;
+        }
+
+        &-text {
+            margin-bottom: 49px;
+            max-width: 1039px;
+
+            @media (max-width: 768px) {
+                margin-bottom: 40px;
+            }
+        }
+
+        &-info {
+            display: flex;
+            align-items: start;
+            flex-wrap: wrap;
+            column-gap: 60px;
+            row-gap: 32px;
+
+            @media (max-width: 1200px) {
+                gap: 48px;
+            }
+
+            @media (max-width: 992px) {
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            &-column {
+            }
+
+            &-caption {
+                margin-bottom: 16px;
+                display: block;
+                color: #9ea5a9;
+
+                @media (min-width: 992px) {
+                    min-height: 28px;
+                }
+
+                &:empty {
+                    @media (max-width: 992px) {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            &-list {
+            }
+        }
+    }
+}

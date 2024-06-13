@@ -5,15 +5,13 @@
     <body>
         <div class="wrapper">
             @@include('html/base/headers/_header.html',{})
-            <div class="wrapper__content">
-                <main class="site-page">@@include('html/post/_post.html',{})</main>
-                @@include('html/base/footers/_footer.html',{})
-            </div>
+            <main class="site-page">
+                @@include('html/post/_post.html',{})
+            </main>
+            @@include('html/base/footers/_footer.html',{})
             @@include('html/base/_overlay.html',{})
         </div>
         <script defer src="js/lozad.min.js"></script>
-        <script defer src="js/swiper-bundle.min.js"></script>
-        <script defer src="js/lenis.min.js"></script>
         <script defer src="js/script.js"></script>
     </body>
 </html>

@@ -10,10 +10,11 @@
     color: #fff;
     font-size: 18px;
     font-weight: 500;
-    line-height: 116.6%;
+    line-height: 100%;
     transition: all 0.3s ease-in-out 0s;
     white-space: nowrap;
     overflow: hidden;
+    text-transform: lowercase;
 
     @media (max-width: 768px) {
         padding: 12px 20px;
@@ -21,7 +22,7 @@
     }
 
     &:hover {
-        background: #fff;
+        background: transparent;
         color: $colorMain;
         border-color: $colorMain;
     }
@@ -32,22 +33,37 @@
         color: $colorMain;
 
         &:hover {
-            background: $colorMain;
+            background: transparent;
             border-color: #fff;
             color: #fff;
         }
     }
 
-    &--border{
+    &--border {
         background: none;
 
-        &.btn--white{
+        &.btn--white {
             color: #fff;
 
-            &:hover{
-                background: #fff;
+            &:hover {
                 color: $colorMain;
             }
+        }
+    }
+
+    &--in-section {
+        padding: 16px 40px 20px;
+        font-size: 36px;
+        line-height: 111.111%;
+
+        @media (max-width: 1200px) {
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            padding-right: 24px;
+            padding-left: 24px;
+            font-size: 16px;
         }
     }
 }

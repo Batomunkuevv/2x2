@@ -1,3 +1,15 @@
+input {
+    &::-webkit-input-placeholder {
+        opacity: 1;
+        color: inherit;
+    }
+
+    &::-moz-placeholder {
+        color: inherit;
+        opacity: 1;
+    }
+}
+
 .input {
     padding-bottom: 16px;
     display: block;
@@ -20,13 +32,16 @@
         font-size: 16px;
     }
 
-    &::-webkit-input-placeholder {
-        opacity: 1;
-        color: $colorMain;
-    }
-    
-    &::-moz-placeholder {
-        color: $colorMain;
-        opacity: 1;
+    &--on-black {
+        color: #9ea5a9;
+        border-color: #fff;
+
+        &::-webkit-input-placeholder {
+            color: #9ea5a9;
+        }
+
+        &::-moz-placeholder {
+            color: #9ea5a9;
+        }
     }
 }

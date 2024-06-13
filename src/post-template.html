@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/base/_head.html', { styles: [ 'css/post-template.css', ] })
+
+    <body class="is-black">
+        <div class="wrapper">
+            @@include('html/base/headers/_header-black.html',{})
+            <main class="site-page">
+                <article class="post-template">
+                    @@include('html/post-template/_hero.html',{})
+                    @@include('html/post-template/_second-block.html',{})
+                    @@include('html/post-template/_third-block.html',{})
+                    @@include('html/post-template/_fourth-block.html',{})
+                    @@include('html/post-template/_fifth-block.html',{})
+                </article>
+                @@include('html/post-template/_mailing.html',{})
+                @@include('html/post-template/_suggested-posts.html',{})
+            </main>
+            @@include('html/base/footers/_footer-black.html',{})
+            @@include('html/base/_overlay.html',{})
+        </div>
+        <script defer src="js/lozad.min.js"></script>
+        <script defer src="js/script.js"></script>
+    </body>
+</html>

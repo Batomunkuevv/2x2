@@ -1,0 +1,79 @@
+@use "sass:math";
+
+//*<Base>=======================================================================================================
+
+@import "base/fonts.scss";
+@import "base/function";
+@import "base/animation";
+@import "base/variables";
+@import "base/nullstyle";
+@import "base/common";
+
+//*</Base>=====================================================================================================
+
+//*<Components>================================================================================================
+
+@import "components/site-header";
+@import "components/site-footer";
+@import "components/menu";
+@import "components/footer-menu";
+@import "components/burger";
+@import "components/btn";
+@import "components/case";
+@import "components/review";
+@import "components/overlay";
+@import "components/input";
+@import "components/form-message";
+@import "components/form-success";
+@import "components/story";
+
+//*</Components>=================================================================================================
+
+//*<Main grid>==================================================================================================
+
+.wrapper {
+    min-height: 100vh;
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: $maxWidthContainer;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    @media (max-width: 1200px) {
+        max-width: 960px;
+    }
+    @media (max-width: 992px) {
+        max-width: 720px;
+    }
+    @media (max-width: 768px) {
+        max-width: 540px;
+    }
+    @media (max-width: 576px) {
+        max-width: none;
+    }
+}
+
+.site-page {
+    flex: 1 1 auto;
+}
+
+//*</Main grid>=================================================================================================
+
+//TODO<Blocks>=================================================================================================
+
+@import "blocks/hero-services";
+@import "blocks/relinks-cases";
+@import "target/every-customer";
+@import "target/about-target";
+@import "target/advantages-target";
+@import "target/results";
+@import "blocks/process-of-work";
+@import "blocks/interested-links";
+
+//TODO</Blocks>=================================================================================================
+
+@import "popups/popup-cta";

@@ -1,0 +1,106 @@
+.relinks-services {
+    &--on-seo {
+        @media (min-width: 1200px) {
+            margin-bottom: 208px;
+        }
+    }
+
+    &--on-e2e-analytics {
+        @media (min-width: 1200px) {
+            margin-bottom: 70px;
+        }
+    }
+
+    &--on-digital-strategy {
+        @media (min-width: 1200px) {
+            margin-bottom: 70px;
+        }
+    }
+
+    &__title {
+        text-align: center;
+
+        @media (min-width: 1200px) {
+            margin-bottom: 83px;
+        }
+
+        &--align-left {
+            text-align: left;
+
+            @media(min-width: 1200px){
+                margin-bottom: 61px;
+            }
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: 1.5fr 2fr 1.5fr;
+        gap: 32px;
+
+        @media (max-width: 1200px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 576px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        &-link {
+            padding: 40px;
+            border: 1px solid $colorMain;
+            border-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            font-size: 40px;
+            line-height: toProcent(40, 44);
+            font-weight: 500;
+            color: $colorFont;
+
+            @media (max-width: 992px) {
+                padding: 32px 24px;
+                font-size: 32px;
+                line-height: 125%;
+                border-radius: 32px;
+            }
+
+            @media (max-width: 768px) {
+                padding: 24px;
+                font-size: 24px;
+            }
+
+            @media (max-width: 576px) {
+                border-radius: 16px;
+            }
+
+            &:hover {
+                & .relinks-services__item-btn {
+                    background: transparent;
+                    border-color: $colorMain;
+                    color: $colorFont;
+                }
+            }
+        }
+
+        &-name {
+            margin-bottom: 53px;
+
+            @media (max-width: 992px) {
+                margin-bottom: 40px;
+            }
+        }
+
+        &-btn {
+            margin-top: auto;
+
+            @media (min-width: 992px) {
+                padding-left: 19px;
+                padding-right: 19px;
+            }
+        }
+    }
+}

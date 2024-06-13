@@ -9,6 +9,8 @@
         padding: 72px 71px 50px 55px;
         background: #fff;
         border-radius: 56px;
+        position: relative;
+        overflow: hidden;
 
         @media (max-width: 1200px) {
             padding: 48px 32px;

@@ -1,0 +1,99 @@
+.images-block {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    max-width: 840px;
+
+    @media(max-width: 992px){
+        margin: 32px 0;
+    }
+
+    &--compare {
+        margin-bottom: 40px;
+
+        @media(max-width: 992px){
+            margin-bottom: 32px;
+        }
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        @media (max-width: 992px) {
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        &--compare {
+            @media (max-width: 768px) {
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 8px;
+            }
+        }
+
+        &-image {
+        }
+
+        &-caption {
+        }
+
+        &-clicks {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+
+            @media (max-width: 768px) {
+                margin-top: 0;
+            }
+
+            &-text {
+            }
+
+            &-percents {
+                font-size: 64px;
+                font-weight: 400;
+                line-height: 95%;
+                letter-spacing: -2.56px;
+
+                @media (max-width: 1200px) {
+                    font-size: 56px;
+                }
+
+                @media (max-width: 992px) {
+                    font-size: 48px;
+                }
+
+                @media (max-width: 768px) {
+                    font-size: 40px;
+                }
+
+                &--before {
+                    @include gradient-text(linear-gradient(91deg, #e93535 0.4%, #ff823c 99.69%));
+                }
+
+                &--after {
+                    @include gradient-text(linear-gradient(91deg, #09c8ff 0.36%, #0061fd 99.64%));
+                }
+
+                & span {
+                    display: inline-block;
+                    font-size: 40px;
+                    font-weight: 600;
+                    line-height: 95%;
+                    letter-spacing: -1.6px;
+
+                    @media (max-width: 768px) {
+                        font-size: 32px;
+                    }
+                }
+            }
+        }
+    }
+}

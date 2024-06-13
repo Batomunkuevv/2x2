@@ -1,34 +1,46 @@
 .site-header {
-    padding-top: 16px;
-    margin-top: 32px;
+    padding-top: 48px;
     position: sticky;
     top: 0;
     z-index: 100;
     background: #f2f2f2;
     transition: all 0.5s ease-in-out 0s;
+    text-transform: lowercase;
 
     @media (max-width: 992px) {
         padding-top: 16px;
-        margin-top: 0;
     }
 
     &.is-scrolling {
-        margin-top: 0;
         box-shadow: 0 24px 48px #191d321a;
-    }
 
-    &.is-scrolling-down {
-        transform: translate(0, calc(-100% - 32px));
+        @media (min-width: 992px) {
+            transform: translate(0, -32px);
+        }
 
-        @media(max-width: 992px){
-        transform: translate(0, -100%);
+        & .site-header__body{
+            border-color: transparent;
         }
     }
 
-    &--is-black{
+    &.is-scrolling-down {
+        &.is-scrolling {
+            transform: translate(0, -100%);
+        }
+    }
+
+    &--is-black {
         background: $colorMain;
-        
-        &.is-scrolling{
+
+        &.is-scrolling {
+            box-shadow: none;
+        }
+    }
+
+    &--is-on-tochpribor {
+        background: $tochpriborBgColor;
+
+        &.is-scrolling {
             box-shadow: none;
         }
     }
@@ -39,12 +51,13 @@
         display: flex;
         align-items: center;
         gap: 56px;
+        transition: all 0.3s ease-in-out 0s;
 
         @media (max-width: 1200px) {
             gap: 24px;
         }
 
-        &--is-on-black{
+        &--is-on-black {
             border-color: #fff;
         }
     }
@@ -54,7 +67,7 @@
         width: 71px;
         flex: none;
 
-        @media(max-width: 400px){
+        @media (max-width: 400px) {
             width: 60px;
         }
     }
@@ -73,10 +86,10 @@
         }
 
         @media (max-width: 768px) {
-            width: 50%;
+            width: 65%;
         }
 
-        @media(max-width: 370px){
+        @media (max-width: 370px) {
             width: 100%;
         }
 
@@ -95,7 +108,7 @@
             margin-bottom: 32px;
             margin-left: auto;
 
-            @media(max-width: 576px){
+            @media (max-width: 576px) {
                 margin-bottom: 0;
             }
 
@@ -148,7 +161,7 @@
     }
 
     &__btn.btn {
-        padding-top: 8px;
+        padding-top: 10px;
         padding-bottom: 12px;
         padding-left: 20px;
         padding-right: 20px;

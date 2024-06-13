@@ -1,0 +1,77 @@
+@use "sass:math";
+
+//*<Base>=======================================================================================================
+
+@import "base/fonts.scss";
+@import "base/function";
+@import "base/mixins";
+@import "base/animation";
+@import "base/variables";
+@import "base/nullstyle";
+@import "base/common";
+
+//*</Base>=====================================================================================================
+
+//*<Components>================================================================================================
+
+@import "components/site-header";
+@import "components/site-footer";
+@import "components/menu";
+@import "components/footer-menu";
+@import "components/burger";
+@import "components/btn";
+@import "components/overlay";
+@import "components/input";
+@import "components/form-message";
+@import "components/form-success";
+@import "components/tochpribor/images-block";
+@import "components/tochpribor/info-block";
+@import "components/tochpribor/side-numbers";
+
+//*</Components>=================================================================================================
+
+//*<Main grid>==================================================================================================
+
+.wrapper {
+    min-height: 100vh;
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: $maxWidthContainer;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    @media (max-width: 1200px) {
+        max-width: 960px;
+    }
+    @media (max-width: 992px) {
+        max-width: 720px;
+    }
+    @media (max-width: 768px) {
+        max-width: 540px;
+    }
+    @media (max-width: 576px) {
+        max-width: none;
+    }
+}
+
+.site-page {
+    flex: 1 1 auto;
+}
+
+//*</Main grid>=================================================================================================
+
+//TODO<Blocks>=================================================================================================
+
+@import "tochpribor/case-tochpribor";
+@import "tochpribor/hero";
+@import "tochpribor/brief";
+@import "tochpribor/result";
+@import "tochpribor/cta";
+
+//TODO</Blocks>=================================================================================================
+
+@import "popups/popup-cta";

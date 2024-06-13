@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/base/_head.html', { styles: [ 'files/swiper-bundle.min.css', 'css/seo-promotion.css'  ] })
+
+    <body>
+        <div class="wrapper">
+            @@include('html/base/headers/_header.html',{})
+            <main class="site-page">
+                @@include('html/seo-promotion/_hero.html',{})
+                @@include('html/seo-promotion/_relinks-cases.html',{})
+                @@include('html/seo-promotion/_commercial-offer.html',{})
+                @@include('html/seo-promotion/_formats-seo.html',{})
+                @@include('html/seo-promotion/_why-we.html',{})
+                @@include('html/seo-promotion/_simple-and-clear.html',{})
+                @@include('html/seo-promotion/_relinks-services.html',{})
+                @@include('html/seo-promotion/_faqs.html',{})
+                @@include('html/seo-promotion/_interested-links.html',{})
+            </main>
+            @@include('html/base/footers/_footer.html',{})
+            @@include('html/base/_overlay.html',{})
+        </div>
+        <script defer src="js/lozad.min.js"></script>
+        <script defer src="js/swiper-bundle.min.js"></script>
+        <script defer src="js/script.js"></script>
+    </body>
+</html>
