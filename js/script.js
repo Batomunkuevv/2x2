@@ -574,18 +574,9 @@ const initWhatWillDoScrollableAnimation = () => {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const DEFAULT_DURATION = 10;
+    const DEFAULT_DURATION = MAX_WIDTH_1200.matches ? 900 : 300;
 
-    let tlOptions = {
-        scrollTrigger: {
-            trigger: whatWillDo,
-            pin: true,
-            invalidateOnRefresh: !0,
-            start: "center center",
-            end: '+=300%',
-            scrub: 3,
-        },
-    };
+    let tlOptions = initTlOptions();
     let tl = gsap.timeline(tlOptions);
 
     gsap.defaults({
@@ -595,6 +586,37 @@ const initWhatWillDoScrollableAnimation = () => {
 
     tl
         .to(whatWillDoList, { left: leftPosition })
+        .to({}, 100, {})
+
+    function initTlOptions() {
+        let options;
+
+        if (MAX_WIDTH_1200.matches) {
+            options = {
+                scrollTrigger: {
+                    trigger: whatWillDo,
+                    pin: true,
+                    invalidateOnRefresh: !0,
+                    start: "center center",
+                    end: '+=600%',
+                    scrub: 1,
+                },
+            }
+        } else {
+            options = {
+                scrollTrigger: {
+                    trigger: whatWillDo,
+                    pin: true,
+                    invalidateOnRefresh: !0,
+                    start: "center center",
+                    end: '+=300%',
+                    scrub: 1,
+                },
+            }
+        }
+
+        return options;
+    }
 }
 
 const initPostContent = () => {
