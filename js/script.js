@@ -540,7 +540,7 @@ const initWhatWeDoSlider = () => {
                     pin: true,
                     invalidateOnRefresh: !0,
                     start: "center center",
-                    end: '+=600%',
+                    end: '+=500%',
                     scrub: 1,
                 },
             }
@@ -598,7 +598,7 @@ const initWhatWillDoScrollableAnimation = () => {
                     pin: true,
                     invalidateOnRefresh: !0,
                     start: "center center",
-                    end: '+=600%',
+                    end: '+=700%',
                     scrub: 1,
                 },
             }
