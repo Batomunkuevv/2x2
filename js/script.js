@@ -1,5 +1,7 @@
 "use strict";
 
+const MAX_WIDTH_1200 = window.matchMedia('(max-width: 1200px)');
+
 const initLozad = () => {
     const lozadElements = document.querySelectorAll('[data-lozad]');
 
@@ -510,43 +512,53 @@ const initWhatWeDoSlider = () => {
     const whatWeDoSliderItems = whatWeDoSlider.querySelectorAll('.what-we-do-slider__item');
     const whatWeDoSliderListGap = Number(window.getComputedStyle(whatWeDoSliderList).gap.replace(/\D/g, ""));
     const whatWeDoSliderItemsWidth = whatWeDoSliderItems[0].scrollWidth;
+    const leftPosition = ((whatWeDoSliderItems.length - 1) * -whatWeDoSliderItemsWidth + (whatWeDoSliderItems.length - 1) * -whatWeDoSliderListGap) + 'px';
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const DEFAULT_DURATION = 3;
+    const DEFAULT_DURATION = MAX_WIDTH_1200.matches ? 900 : 300;
 
-    let tlOptions = {
-        scrollTrigger: {
-            trigger: whatWeDoSlider,
-            pin: true,
-            start: "center center",
-            end: '+=600%',
-            scrub: 3,
-        },
-    };
+    let tlOptions = initTlOptions();
     let tl = gsap.timeline(tlOptions);
 
     gsap.defaults({
-        ease: "power1.in",
+        ease: "sine.inOut",
         duration: DEFAULT_DURATION,
     });
 
-    whatWeDoSliderItems.forEach((item, i) => {
-        if (i === 0) {
-            tl
-                .to({}, DEFAULT_DURATION / 6, {})
+    tl
+        .to(whatWeDoSliderList, { left: leftPosition })
+        .to({}, 100, {})
 
-            return;
+    function initTlOptions() {
+        let options;
+
+        if (MAX_WIDTH_1200.matches) {
+            options = {
+                scrollTrigger: {
+                    trigger: whatWeDoSlider,
+                    pin: true,
+                    invalidateOnRefresh: !0,
+                    start: "center center",
+                    end: '+=600%',
+                    scrub: 1,
+                },
+            }
+        } else {
+            options = {
+                scrollTrigger: {
+                    trigger: whatWeDoSlider,
+                    pin: true,
+                    invalidateOnRefresh: !0,
+                    start: "center center",
+                    end: '+=300%',
+                    scrub: 1,
+                },
+            }
         }
 
-        const leftPosition = ((i * whatWeDoSliderItemsWidth * -1) - whatWeDoSliderListGap) + 'px';
-
-        tl
-            .to(whatWeDoSliderList, { left: leftPosition })
-            .to({}, DEFAULT_DURATION / 6, {})
-    })
-
-    tl.to({}, DEFAULT_DURATION / 2, {})
+        return options;
+    }
 }
 
 const initWhatWillDoScrollableAnimation = () => {
@@ -558,43 +570,31 @@ const initWhatWillDoScrollableAnimation = () => {
     const whatWillDoItems = whatWillDo.querySelectorAll('.what-will-do__item');
     const whatWillDoListGap = Number(window.getComputedStyle(whatWillDoList).gap.replace(/\D/g, ""));
     const whatWillDoItemsWidth = whatWillDoItems[0].scrollWidth;
+    const leftPosition = ((whatWillDoItems.length - 1) * -whatWillDoItemsWidth + (whatWillDoItems.length - 1) * -whatWillDoListGap) + 'px';
 
     gsap.registerPlugin(ScrollTrigger);
 
     const DEFAULT_DURATION = 10;
-    const header = document.querySelector('.site-header');
+
     let tlOptions = {
         scrollTrigger: {
             trigger: whatWillDo,
             pin: true,
+            invalidateOnRefresh: !0,
             start: "center center",
-            end: '+=1000%',
+            end: '+=300%',
             scrub: 3,
         },
     };
     let tl = gsap.timeline(tlOptions);
 
     gsap.defaults({
-        ease: "power1.in",
+        ease: "sine.inOut",
         duration: DEFAULT_DURATION,
     });
 
-    whatWillDoItems.forEach((item, i) => {
-        if (i === 0) {
-            tl
-                .to({}, DEFAULT_DURATION / 6, {})
-
-            return;
-        }
-
-        const leftPosition = ((i * whatWillDoItemsWidth * -1) - whatWillDoListGap) + 'px';
-
-        tl
-            .to(whatWillDoList, { left: leftPosition })
-            .to({}, DEFAULT_DURATION / 6, {})
-    })
-
-    tl.to({}, DEFAULT_DURATION / 2, {})
+    tl
+        .to(whatWillDoList, { left: leftPosition })
 }
 
 const initPostContent = () => {
@@ -733,6 +733,8 @@ const initForms = () => {
 
             if (formId === 10285) sendMagnetLeadership(formData);
 
+            if (formId === 10879) sendMarketingDiagnosticsPresent(formData);
+
             setTimeout(resetForm, 5000);
         })
 
@@ -770,6 +772,17 @@ const initForms = () => {
         });
     }
 
+    function sendMarketingDiagnosticsPresent(formData) {
+        const body = {
+            action: 'send_marketing_diagnostics_present',
+            email: formData.get('email'),
+            present: formData.get('present')
+        };
+
+        jQuery.post(txt_script_variables.ajaxUrl, body, function (response) {
+        });
+    }
+
     function sendMetric(formId) {
         switch (formId) {
             case 'page_home_form': {
@@ -788,6 +801,106 @@ const initForms = () => {
                 ym(89314443, 'reachGoal', 'case_tochpribor_form')
             }
         }
+    }
+}
+
+const initMarketingDiagnostics = () => {
+    const marketingDiagnosticsForm = document.querySelector('.marketing-diagnostics__form');
+    const marketingDiagnosticsResult = document.querySelector('.marketing-diagnostics__result');
+
+    if (!marketingDiagnosticsForm || !marketingDiagnosticsResult) return;
+
+    const marketingDiagnosticsFormMessage = marketingDiagnosticsForm.querySelector('.marketing-diagnostics__message');
+    const marketingDiagnosticsQuestions = marketingDiagnosticsForm.querySelectorAll('.marketing-diagnostics-question');
+    const marketingDiagnosticsResultPresentInput = marketingDiagnosticsResult.querySelector('.marketing-diagnostics__result-form-present');
+    const marketingDiagnosticsResultTitle = marketingDiagnosticsResult.querySelector('.marketing-diagnostics__result-title');
+    const marketingDiagnosticsResultText = marketingDiagnosticsResult.querySelector('.marketing-diagnostics__result-text');
+
+    marketingDiagnosticsForm.addEventListener('submit', handleMarketingDiagnosticsSubmit);
+    initRemoveErorrClassOnHandleCheckbox();
+
+    function handleMarketingDiagnosticsSubmit(e) {
+        e.preventDefault();
+
+        const formData = new FormData(marketingDiagnosticsForm);
+        const answers = [
+            Number(formData.get('first-question')),
+            Number(formData.get('second-question')),
+            Number(formData.get('third-question')),
+            Number(formData.get('fourth-question')),
+            Number(formData.get('fifth-question')),
+            Number(formData.get('sixth-question')),
+            Number(formData.get('seventh-question')),
+            Number(formData.get('eight-question')),
+            Number(formData.get('ninth-question'))
+        ];
+        const isHasEmptyAnswers = answers.includes(0);
+
+        if (isHasEmptyAnswers) {
+            marketingDiagnosticsFormMessage.classList.add('is-visible');
+
+            removeErrorsForQuestions();
+            setErrorsForQuestions(answers);
+        } else {
+            marketingDiagnosticsFormMessage.classList.remove('is-visible');
+            removeErrorsForQuestions();
+            setCurrentResult(answers);
+            marketingDiagnosticsResult.classList.add('is-visible');
+        }
+    }
+
+    function initRemoveErorrClassOnHandleCheckbox() {
+        marketingDiagnosticsQuestions.forEach(question => {
+            const questionCheckboxes = question.querySelectorAll('.checkbox__input');
+
+            questionCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('input', () => {
+                    if (checkbox.checked && question.classList.contains('is-empty')) {
+                        question.classList.remove('is-empty');
+                    }
+                })
+            })
+        })
+    }
+
+    function setCurrentResult(answers) {
+        const presents = [
+            {
+                id: 1,
+                points: answers[2] + answers[3] + answers[7],
+                resultTitle: txt_script_variables.marketing_diagnostics_results[0].title,
+                resultText: txt_script_variables.marketing_diagnostics_results[0].text
+            },
+            {
+                id: 2,
+                points: answers[0] + answers[1] + answers[8],
+                resultTitle: txt_script_variables.marketing_diagnostics_results[1].title,
+                resultText: txt_script_variables.marketing_diagnostics_results[1].text
+            },
+            {
+                id: 3,
+                points: answers[3] + answers[5] + answers[6],
+                resultTitle: txt_script_variables.marketing_diagnostics_results[2].title,
+                resultText: txt_script_variables.marketing_diagnostics_results[2].text
+            },
+        ]
+        const present = presents.sort((a, b) => b.points - a.points)[0];
+
+        marketingDiagnosticsResultTitle.innerHTML = present.resultTitle;
+        marketingDiagnosticsResultText.innerHTML = present.resultText;
+        marketingDiagnosticsResultPresentInput.value = present.id;
+    }
+
+    function setErrorsForQuestions(answers) {
+        answers.forEach((answer, i) => {
+            if (answer === 0) {
+                marketingDiagnosticsQuestions[i].classList.add('is-empty');
+            }
+        })
+    }
+
+    function removeErrorsForQuestions() {
+        marketingDiagnosticsQuestions.forEach(question => question.classList.remove('is-empty'));
     }
 }
 
@@ -920,4 +1033,5 @@ window.addEventListener("DOMContentLoaded", (e) => {
     initSeoFormats();
     initWhatWeDoSlider();
     initWhatWillDoScrollableAnimation();
+    initMarketingDiagnostics();
 });
